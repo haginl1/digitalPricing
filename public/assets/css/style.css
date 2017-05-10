@@ -1,0 +1,35 @@
+li {
+  background: #FAFAFA;
+  margin: 5px;
+  padding: 5px;
+  height:  35px;
+}
+.jumbotron{
+    text-align:   center; 
+}
+.label {
+  font-weight: bold;
+}
+.btn-burger{
+  float:right;
+}
+.create-update-form {
+  background: aqua;
+  margin: 5px 0px;
+  padding: 5px;*/
+}
+
+.form-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.devoured{
+	float:right;
+}
+.notdev{
+	float: 	left;
+}
+.add-bur{
+  text-align:center;
+  width:100%;
+}
