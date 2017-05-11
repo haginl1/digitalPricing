@@ -8,11 +8,7 @@ var db = require('./models');
 var app = express();
 var port = process.env.PORT || 8080;
 
-db.sequelize.sync().then(function() {
-    app.listen(port, function() {
-        console.log('listening on ' + port);
-    });
-});
+
 
 // set up handlebars engine
 app.engine('handlebars', exphbs({
@@ -33,4 +29,10 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method'));
 
 // get the routes
-require('./controllers/pricing_controller.js')(app);
+//require('./controllers/pricing_controller.js')(app);
+
+db.sequelize.sync().then(function() {
+    app.listen(port, function() {
+        console.log('listening on ' + port);
+    });
+});
