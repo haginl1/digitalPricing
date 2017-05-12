@@ -30,11 +30,11 @@ app.use(methodOverride('_method'));
 
 // Import routes and give the server access to them.
 var api = require("./routes/api-routes.js");
-var html = require("./routes/html-routes.js");
+var html = require("./routes/html-routes.js")(app);
 
 
 app.use("/api", api);
-app.use("/", html);
+
 
 
 
