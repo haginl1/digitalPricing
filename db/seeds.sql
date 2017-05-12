@@ -1,17 +1,4 @@
-INSERT INTO HD_1080 (streams, discount, year_1, year_2, year_3) 
-VALUES ('1', '0.0', '950.00', '925.00', '875.00');
-
-INSERT INTO HD_1080 (streams, discount, year_1, year_2, year_3) 
-VALUES ('2', '.02', '931', '907', '858');
-
-INSERT INTO HD_1080 (streams, discount, year_1, year_2, year_3) 
-VALUES ('26', '.05', '903', '879', '831');
-
-INSERT INTO HD_1080 (streams, discount, year_1, year_2, year_3) 
-VALUES ('51', '.10', '855', '833', '788');
-
-INSERT INTO HD_1080 (streams, discount, year_1, year_2, year_3) 
-VALUES ('101', '.15', '808', '786', '744');
-
-INSERT INTO HD_1080 (streams, discount, year_1, year_2, year_3) 
-VALUES ('151', '.20', '760', '740', '700');
+INSERT INTO Quotes (company, description, date, createdAt, updatedAt) 
+VALUES ('AMC', '2018 New Launch', '2017-05-09', now(), now()), 
+('NFL Network', 'European Football League', '2017-05-10', now(), now()), 
+('Telemundo', 'New Opportunitu', '2017-05-11', now(), now());
