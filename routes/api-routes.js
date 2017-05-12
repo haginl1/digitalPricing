@@ -9,29 +9,17 @@ apiRouter.get("/allquotes", function(req, res) {
     })
 });
 
+apiRouter.get("/quote/:id", function(req, res) {
+    Quotes.getOne(req.params.id, function callback(quote) {
+        res.send(quote);
+    })
+});
+
 apiRouter.post("/saveQuoteSelections", function(req, res) {
     Quotes.saveQuoteSelections(req.body, function callback(result){
         res.send(result)
     })
 });
-
-
-// apiRouter.put("/:id", function(req, res) {
-//     db.workout.update({
-//             devoured: true
-//         },
-//         {
-//             where: 
-//             {
-//             id: req.body.id
-//             }
-//     }).then(function(dbPost) {
-//             res.redirect("/");
-//         })
-// });
-
-
-
 
 // Export routes for server.js to use.
 module.exports = apiRouter;
