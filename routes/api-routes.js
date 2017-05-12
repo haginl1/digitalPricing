@@ -4,26 +4,16 @@ var Quotes     = require('../controllers/quotes_controller.js')
 var apiRouter  = express.Router(); 
 
 apiRouter.get("/allquotes", function(req, res) {
-    Quotes.getAll(function callback(result) {
-        res.send(result);
+    Quotes.getAll(function callback(allQuotes) {
+        res.send(allQuotes);
     })
 });
 
-// apiRouter.post("/workout", function(req, res) {
-//     console.log(req.body)
-//     db.Workout.create(req.body)
-//         .then(function(dbPost) {
-//             res.send({
-//                 result: "success"
-//             })
-//         })
-//         .catch(function (err) {
-//             res.send({
-//                 result: "error",
-//                 message: err.errors[0].message
-//             });
-//         });
-// });
+apiRouter.post("/saveQuoteSelections", function(req, res) {
+    Quotes.saveQuoteSelections(req.body, function callback(result){
+        res.send(result)
+    })
+});
 
 
 // apiRouter.put("/:id", function(req, res) {
