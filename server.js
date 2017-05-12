@@ -34,7 +34,7 @@ var html = require("./routes/html-routes.js")(app);
 
 
 app.use("/api", api);
-
+//removed app.use("/", html);
 
 
 
