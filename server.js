@@ -29,9 +29,13 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method'));
 
 // Import routes and give the server access to them.
-var api = require("./routes/api.js");
+var api = require("./routes/api-routes.js");
+// var html = require("./routes/html-routes.js");
+
 
 app.use("/api", api);
+// app.use("/", html);
+
 
 
 db.sequelize.sync().then(function() {
