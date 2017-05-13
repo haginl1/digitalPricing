@@ -34,9 +34,7 @@ var html = require("./routes/html-routes.js")(app);
 
 
 app.use("/api", api);
-//removed app.use("/", html);
-
-
+//app.use("/", html);
 
 db.sequelize.sync().then(function() {
     app.listen(port, function() {
