@@ -46,9 +46,11 @@ Quotes.saveQuoteSelections = function(quote, callback) {
             })
         })
         .catch(function(err) {
+            console.log(err);
             callback({
                 result: "error",
-                message: err.errors[0].message
+                
+                //message: err.errors[0].message
             });
         });
 }

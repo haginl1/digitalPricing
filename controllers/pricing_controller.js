@@ -31,7 +31,6 @@ Pricing.calculate = function(quoteSelections, protocolRates, streamingRates, sup
 	console.log(protocolRates);
 	console.log(streamingRates);
 	console.log(supportRates);
-
 	return results;
 }
 
