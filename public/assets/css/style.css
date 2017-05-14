@@ -1,3 +1,12 @@
+  
+  body {
+    background-image: url("../img/Encompass_watchingipad.jpg");
+    padding-top: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-attachment: fixed;
+}
   .navbar {
       margin-bottom: 0;
       border-radius: 0;
