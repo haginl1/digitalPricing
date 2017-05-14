@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.DATEONLY,
             allowNull: false
         },
-                contract_term: {
+        contract_term: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
