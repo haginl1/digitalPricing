@@ -79,87 +79,100 @@ InitializeDB.quotes = function() {
     db.Quote.bulkCreate(quoteData, { individualHooks: true })
 }
 
-var protocolRatesData = [
-    {
-        'included_protocol_count': 2,
-        'additional_protocol_rate_percent': 10
-    }
-]
+InitializeDB.protocolRatesData = function() {
+    return(
+        [
+            {
+                'included_protocol_count': 2,
+                'additional_protocol_rate_percent': 10
+            }
+        ]
+    )
+}
 
 InitializeDB.protocolRates = function() {
     db.ProtocolRates.destroy({truncate: true})
-    db.ProtocolRates.bulkCreate(protocolRatesData, { individualHooks: true })
+    db.ProtocolRates.bulkCreate(InitializeDB.protocolRatesData(), { individualHooks: true })
 }
 
-var streamingRatesData = [
-    {
-        'min_channels': 1,
-        'max_channels': 1,
-        'one_year_rate': 950,
-        'two_year_rate': 925,
-        'three_year_rate': 875,
-        'setup_fee_percent': 50
-    },
-    {
-        'min_channels': 2,
-        'max_channels': 25,
-        'one_year_rate': 931,
-        'two_year_rate': 907,
-        'three_year_rate': 858,
-        'setup_fee_percent': 50
-    },
-        {
-        'min_channels': 26,
-        'max_channels': 50,
-        'one_year_rate': 903,
-        'two_year_rate': 879,
-        'three_year_rate': 831,
-        'setup_fee_percent': 50
-    },
-        {
-        'min_channels': 51,
-        'max_channels': 100,
-        'one_year_rate': 855,
-        'two_year_rate': 833,
-        'three_year_rate': 788,
-        'setup_fee_percent': 50
-    },    {
-        'min_channels': 101,
-        'max_channels': 150,
-        'one_year_rate': 808,
-        'two_year_rate': 786,
-        'three_year_rate': 744,
-        'setup_fee_percent': 50
-    },    {
-        'min_channels': 151,
-        'max_channels': 10000,
-        'one_year_rate': 760,
-        'two_year_rate': 740,
-        'three_year_rate': 700,
-        'setup_fee_percent': 50
-    }
-]
+InitializeDB.streamingRatesData = function() {
+    return(
+        [
+            {
+                'min_channels': 1,
+                'max_channels': 1,
+                'one_year_rate': 950,
+                'two_year_rate': 925,
+                'three_year_rate': 875,
+                'setup_fee_percent': 50
+            },
+            {
+                'min_channels': 2,
+                'max_channels': 25,
+                'one_year_rate': 931,
+                'two_year_rate': 907,
+                'three_year_rate': 858,
+                'setup_fee_percent': 50
+            },
+                {
+                'min_channels': 26,
+                'max_channels': 50,
+                'one_year_rate': 903,
+                'two_year_rate': 879,
+                'three_year_rate': 831,
+                'setup_fee_percent': 50
+            },
+                {
+                'min_channels': 51,
+                'max_channels': 100,
+                'one_year_rate': 855,
+                'two_year_rate': 833,
+                'three_year_rate': 788,
+                'setup_fee_percent': 50
+            },    {
+                'min_channels': 101,
+                'max_channels': 150,
+                'one_year_rate': 808,
+                'two_year_rate': 786,
+                'three_year_rate': 744,
+                'setup_fee_percent': 50
+            },    {
+                'min_channels': 151,
+                'max_channels': 10000,
+                'one_year_rate': 760,
+                'two_year_rate': 740,
+                'three_year_rate': 700,
+                'setup_fee_percent': 50
+            }
+        ]
+    )
+}
 
 InitializeDB.streamingRates = function() {
     db.StreamingRates.destroy({truncate: true})
-    db.StreamingRates.bulkCreate(streamingRatesData, { individualHooks: true })
+    db.StreamingRates.bulkCreate(InitializeDB.streamingRatesData(), { individualHooks: true })
 }
 
-var supportRatesData = [
-    {
-        'plan': 'gold',
-        'plan_fee_percent': 0.0
-    },
-    {
-        'plan': 'platinum',
-        'plan_fee_percent': 10.0
-    }
-]
+InitializeDB.supportRatesData = function() {
+    return(
+        [
+            {
+                'plan': 'gold',
+                'plan_fee_percent': 0.0
+            },
+            {
+                'plan': 'platinum',
+                'plan_fee_percent': 10.0
+            }
+        ]
+    )
+}
 
 InitializeDB.supportRates = function() {
     db.SupportRates.destroy({truncate: true})
-    db.SupportRates.bulkCreate(supportRatesData, { individualHooks: true })
+    db.SupportRates.bulkCreate(InitializeDB.supportRatesData(), { individualHooks: true })
 }
+
 module.exports = InitializeDB;
 
 

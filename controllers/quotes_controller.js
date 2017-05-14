@@ -1,4 +1,8 @@
 var db = require("../models"); 
+var pricing = require("../controllers/pricing_controller.js");
+//temporary to be deleted when getting out of the database
+var configData = require("../controllers/initialize_db_controller.js")
+
 
 var Quotes =  {}
 
@@ -29,10 +33,13 @@ Quotes.getOne = function(id, callback) {
         });
 };
 
-Quotes.saveQuoteSelections = function(quoteSelections, callback) {
-    //call Trent here
-    //quoteSelections = getPrices(quoteselections)
-    db.Quote.create(quoteSelections)
+Quotes.saveQuoteSelections = function(quote, callback) {    
+    protocolRates = configData.protocolRatesData()
+    streamingRates = configData.streamingRatesData()
+    supportRates = configData.supportRatesData()
+    var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
+    Object.assign(quote, calculations);
+    db.Quote.create(quote)
         .then(function(success) {
             callback({
                 result: success
