@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Nlb7m98!",
+        "password": "",
         "database": "digital_pricing_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
