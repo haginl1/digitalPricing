@@ -1,16 +1,30 @@
   
   body {
-    background-image: url("../img/Encompass_watchingipad.jpg");
+    background-image: url("../img/background.png");
     padding-top: 2rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-attachment: fixed;
 }
+
+h1.title{
+    margin-top: 50px;
+}
+
+.well{
+  background-color: rgba(245, 245, 245, 0.4);
+  height: auto;
+  overflow:auto;
+  margin-top: 20px;
+}
   .navbar {
       margin-bottom: 0;
       border-radius: 0;
       background-color: #1a3d5b;
+  }
+  div.navbar-header {
+      color: white;
   }
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
   
