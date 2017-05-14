@@ -49,7 +49,7 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         },
-            year_one_monthly_streaming: {
+        year_one_monthly_streaming: {
             type: DataTypes.DECIMAL,
             allowNull: false
         },
@@ -79,8 +79,6 @@ module.exports = function(sequelize, DataTypes){
         year_three_support_fee: {
             type: DataTypes.DECIMAL
         }
-
-
     });
     return Quote;
 }
