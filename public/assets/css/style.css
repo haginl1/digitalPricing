@@ -1,35 +1,35 @@
-li {
-  background: #FAFAFA;
-  margin: 5px;
-  padding: 5px;
-  height:  35px;
-}
-.jumbotron{
-    text-align:   center; 
-}
-.label {
-  font-weight: bold;
-}
-.btn-burger{
-  float:right;
-}
-.create-update-form {
-  background: aqua;
-  margin: 5px 0px;
-  padding: 5px;*/
-}
-
-.form-group {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.devoured{
-	float:right;
-}
-.notdev{
-	float: 	left;
-}
-.add-bur{
-  text-align:center;
-  width:100%;
-}
+  .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #1a3d5b;
+  }
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  
+  .row.content {
+      height: 450px
+  }
+  /* Set gray background color and 100% height */
+  
+  .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+  }
+  /* Set black background color, white text and some padding */
+  
+  footer {
+      background-color: #252525;
+      color: white;
+      padding: 15px;
+  }
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  
+  @media screen and (max-width: 767px) {
+      .sidenav {
+          height: auto;
+          padding: 15px;
+      }
+      .row.content {
+          height: auto;
+      }
+  }
