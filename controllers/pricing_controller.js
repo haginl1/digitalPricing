@@ -12,6 +12,8 @@
 //supportRates.
 
 //as values are calculated, object will contain those values
+var Pricing = {};
+
 var results = {
 	year_one_monthly_streaming: 1000.00,
     year_two_monthly_streaming: 2000.00,
@@ -24,14 +26,13 @@ var results = {
     year_three_support_fee: 333.00 
 }
 
-return results;
+Pricing.calculate = function(quoteSelections, protocolRates, streamingRates, supportRates) {
+	console.log(quoteSelections);
+	console.log(protocolRates);
+	console.log(streamingRates);
+	console.log(supportRates);
 
+	return results;
+}
 
-// var calculate = function() {
-// 	console.log(quoteSelections);
-// 	console.log(protocolRates);
-// 	console.log(streamingRates);
-// 	console.log(supportRates);
-// }
-
-module.exports = results;
+module.exports = Pricing;
