@@ -47,6 +47,10 @@ if (process.argv[2] === "init") {
         console.log('listening on ' + port);
         console.log('initializing db')
         InitializeDB.quotes()
+        InitializeDB.protocolRates()
+        InitializeDB.streamingRates()
+        InitializeDB.supportRates()
+
         });
     })
 }
