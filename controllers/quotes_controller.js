@@ -46,7 +46,3 @@ Quotes.saveQuoteSelections = function(quoteSelections, callback) {
         });
 }
 module.exports = Quotes;
-
-
-
-
