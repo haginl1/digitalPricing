@@ -11,7 +11,17 @@ apiRouter.get("/allquotes", function(req, res) {
 
 apiRouter.get("/quote/:id", function(req, res) {
     Quotes.getOne(req.params.id, function callback(quote) {
-        res.send(quote);
+        console.log(quote.length)
+        if (quote.length === 0) {
+            res.status(404).send({
+                result: "error",
+                message: "Quote not found"                
+            })
+        }   
+        else {
+            console.log(quote)
+            res.send(quote);
+        }
     })
 });
 
