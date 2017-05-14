@@ -3,7 +3,7 @@ var Quotes     = require('../controllers/quotes_controller.js')
 
 var apiRouter  = express.Router(); 
 
-apiRouter.get("/allquotes", function(req, res) {
+apiRouter.get("/quotes", function(req, res) {
     Quotes.getAll(function callback(allQuotes) {
         res.send(allQuotes);
     })
@@ -25,7 +25,7 @@ apiRouter.get("/quote/:id", function(req, res) {
     })
 });
 
-apiRouter.post("/saveQuoteSelections", function(req, res) {
+apiRouter.post("/quote", function(req, res) {
     Quotes.saveQuoteSelections(req.body, function callback(result){
         res.send(result)
     })
