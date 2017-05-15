@@ -1,28 +1,44 @@
-  
   body {
-    background-image: url("../img/background.png");
-    padding-top: 2rem;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-attachment: fixed;
-}
-
-h1.title{
-    margin-top: 50px;
-}
-
-.well{
-  background-color: rgba(245, 245, 245, 0.4);
-  height: auto;
-  overflow:auto;
-  margin-top: 20px;
-}
+      background-image: url("../img/background.png");
+      padding-top: 2rem;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-attachment: fixed;
+  }
+  
+  .form-control,
+  button {
+      width: 470px;
+      height: 44px;
+      padding: 10px;
+      margin: 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 17px;
+  }
+  
+  .checkbox {
+      font-size: 17px;
+  }
+  
+  h1.title {
+      margin-top: 100px;
+  }
+  
+  .well {
+      background-color: rgba(245, 245, 245, 0.4);
+      height: auto;
+      overflow: auto;
+      margin-top: 20px;
+  }
+  
   .navbar {
       margin-bottom: 0;
       border-radius: 0;
       background-color: #1a3d5b;
   }
+  
   div.navbar-header {
       color: white;
   }
