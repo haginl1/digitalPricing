@@ -1,7 +1,7 @@
 {
   "name": "digitalpricing",
   "version": "1.0.0",
-  "description": "package for project 2 of bootcamp on digital pricing model",
+  "description": "package for project 2 of bootcamp on digitalpricing model",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
