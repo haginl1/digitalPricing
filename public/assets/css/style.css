@@ -42,6 +42,10 @@
   div.navbar-header {
       color: white;
   }
+
+  .example4 .navbar-brand>img {
+  padding: 7px 14px;
+}
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
   
   .row.content {
