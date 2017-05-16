@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Bmtsubs1!1",
     "database": "digital_pricing_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",
@@ -15,7 +16,9 @@
   },
   "production": {
      "use_env_variable": "JAWSDB_URL",
-     "dialect": "mysql"
+     "dialect": "mysql",
+     "logging": false
+
   }
 
 }

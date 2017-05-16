@@ -4,7 +4,7 @@
   "description": "package for project 2 of bootcamp on digital pricing model",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
     "method-override": "^2.3.8",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.4"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.1"
   }
 }

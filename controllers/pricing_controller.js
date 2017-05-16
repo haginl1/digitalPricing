@@ -27,11 +27,12 @@ var results = {
 }
 
 Pricing.calculate = function(quoteSelections, protocolRates, streamingRates, supportRates) {
-	console.log(quoteSelections);
-	console.log(protocolRates);
-	console.log(streamingRates);
-	console.log(supportRates);
+	// console.log(quoteSelections);
+	// console.log(protocolRates);
+	// console.log(streamingRates);
+	// console.log(supportRates);
 	return results;
+    
 }
 
 module.exports = Pricing;
