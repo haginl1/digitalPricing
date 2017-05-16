@@ -53,7 +53,7 @@
       color: white;
   }
   
-  .example4 .navbar-brand>img {
+  .logo .navbar-brand>img {
       padding: 7px 14px;
   }
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -67,8 +67,15 @@
       padding-top: 20px;
       /* background-color: #f1f1f1;*/
       background-color: #7ab800;
-      height: 100%;
+      height: auto;
+      color: white;
   }
+
+  img.clientLogos {
+        width: 75%;   
+        height: 75%;
+        /*box-shadow: 5px 5px 1px #888888;*/
+    }
   /* Set black background color, white text and some padding */
   
   footer {
