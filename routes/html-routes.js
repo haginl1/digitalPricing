@@ -50,4 +50,4 @@ var Quotes = require('../controllers/quotes_controller.js')
    //  });
 //}
 
->>>>>>> 2ea5e0f8046002c5f11f1cdfece111802049abc3
+
