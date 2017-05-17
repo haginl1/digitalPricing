@@ -77,7 +77,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     // NEED TO BUILD SETUP FEES
     
     //calculate drm upcharge %
-    getDrmFee(protocols, protocolCharge);
+    //getDrmFee(protocols, protocolCharge);
     //
     var drmFee = rate * protocolCharge/100;
     var supportFee = getSupportFee(rate, quote, supportRates);
@@ -158,7 +158,7 @@ function getStreamingRate(contractTerm, range) {
 // function getDrmFee(protocols, protocolRates) {
 //     var (protocols > 2) {
 
-<<<<<<< HEAD
+
 function getDrmFee(protocols, protocolCharge) {
     // console.log("protocols: xxxxx" + protocols);
     // console.log(typeof protocols);
@@ -184,13 +184,5 @@ function getSupportFee(rate, quote, supportRates) {
     }
     return supportRate;
 }
-=======
-
-//     }
-// }
-// Pricing.getStreamingRate = function(channelCount, contractTerm, streamingRates) {
-    
-// }
->>>>>>> ece0f392372f427cf812fba92eb7ad4a7684681a
 
 module.exports = Pricing;
