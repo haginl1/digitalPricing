@@ -140,13 +140,13 @@ function getStreamingRate(contractTerm, range) {
     }
     return rate;
 }
+//HERE IS THE PESKY LITTLE PROBLEM THAT BROKE HEROKU
+// function getDrmFee(protocols, protocolRates) {
+//     var (protocols > 2) {
 
-function getDrmFee(protocols, protocolRates) {
-    var (protocols > 2) {
 
-
-    }
-}
+//     }
+// }
 // Pricing.getStreamingRate = function(channelCount, contractTerm, streamingRates) {
     
 // }
