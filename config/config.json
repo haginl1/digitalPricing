@@ -1,6 +1,6 @@
 {
     "development": {
-        "username": "root",
+        "username": "",
         "password": "",
         "database": "digital_pricing_db",
         "host": "127.0.0.1",
