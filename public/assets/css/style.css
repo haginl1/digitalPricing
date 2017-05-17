@@ -36,10 +36,11 @@
   }
   
   .well {
-      background-color: rgba(245, 245, 245, 0.4);
+      background-color: #252525;
       height: auto;
       overflow: auto;
       margin-top: 20px;
+      border: none;
   }
   
   .navbar {
@@ -65,7 +66,7 @@
   .sidenav {
       padding-top: 20px;
       /* background-color: #f1f1f1;*/
-      background-color: #7ab800;
+      background-color:#252525;
       height: auto;
       color: white;
   }
