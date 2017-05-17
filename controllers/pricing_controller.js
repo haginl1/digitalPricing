@@ -129,7 +129,9 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
 
  //        channelRate += drmFee;
  //    }
+
 	return results;
+    
 }
 
 function getRateRange(contractTerm, channelCount, streamingRates) {
