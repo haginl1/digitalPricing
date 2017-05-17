@@ -1,8 +1,14 @@
 "use strict";
+
+var Quotes     = require('../controllers/quotes_controller.js')
+
 module.exports = function(app){
     app.get("/", function(req, res) {
-        res.render("allQuotes", {});
+        Quotes.getAll(function callback(allQuotes) {
+            res.render("allQuotes", allQuotes);
+        })
     });
+
     app.get("/result", function(req, res) {
          res.render("result", {});
      });
@@ -10,4 +16,3 @@ module.exports = function(app){
          res.render("quote", {});
      });
 }
-

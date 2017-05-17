@@ -60,7 +60,6 @@ else {
     .then(function() {
         app.listen(port, function() {
         console.log('listening on ' + port);
-        
         });
     })
 }

@@ -6,6 +6,7 @@ var apiRouter  = express.Router();
 
 apiRouter.get("/quotes", function(req, res) {
     Quotes.getAll(function callback(allQuotes) {
+        console.log(allQuotes);
         res.send(allQuotes);
     })
 });

@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "digitalpricing",
   "version": "1.0.0",
   "description": "package for project 2 of bootcamp on digital pricing model",
@@ -29,31 +28,3 @@
     "mocha": "^3.4.1"
   }
 }
-=======
-   "name": "digitalpricing",
-   "version": "1.0.0",
-   "description": "package for project 2 of bootcamp on digital pricing model",
-   "main": "server.js",
-   "scripts": {
-     "test": "echo \"Error: no test specified\" && exit 1"
-   },
-   "repository": {
-     "type": "git",
-     "url": "git+https://github.com/haginl1/digitalPricing.git"
-   },
-   "author": "Strict Mode",
-   "license": "ISC",
-   "bugs": {
-     "url": "https://github.com/haginl1/digitalPricing/issues"
-   },
-   "homepage": "https://github.com/haginl1/digitalPricing#readme",
-   "dependencies": {
-     "body-parser": "^1.17.1",
-     "express": "^4.15.2",
-     "express-handlebars": "^3.0.0",
-     "method-override": "^2.3.8",
-     "mysql": "^2.13.0",
-     "sequelize": "^3.30.4"
-   }
- }
->>>>>>> d076dc100daaf57d3f050d4ce93d16de472edfa3
