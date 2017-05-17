@@ -136,8 +136,10 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
 
  //        channelRate += drmFee;
  //    }
-    year_one_setup_fee: getSetupFee(yearOneChannels);
+
+  year_one_setup_fee: getSetupFee(yearOneChannels);
 	return results;
+    
 }
 
 function getRateRange(contractTerm, channelCount, streamingRates) {

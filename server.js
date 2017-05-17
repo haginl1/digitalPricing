@@ -1,3 +1,4 @@
+"use strict";
 var express = require('express');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ var InitializeDB = require('./controllers/initialize_db_controller.js')
 var app = express();
 var port = process.env.PORT || 8080;
 
-var dbStartupArguments = {}
+var dbStartupArguments = {};
 
 // set up handlebars engine
 app.engine('handlebars', exphbs({
@@ -56,7 +57,8 @@ app.use("/api", api);
     })
 }
 else {
-    db.sequelize.sync({dbStartupArguments}).then(function() {
+    db.sequelize.sync({})
+    .then(function() {
         app.listen(port, function() {
         console.log('listening on ' + port);
         });

@@ -1,3 +1,4 @@
+"use strict";
 var express    = require('express'); 
 var Quotes     = require('../controllers/quotes_controller.js')
 
@@ -5,13 +6,13 @@ var apiRouter  = express.Router();
 
 apiRouter.get("/quotes", function(req, res) {
     Quotes.getAll(function callback(allQuotes) {
+        console.log(allQuotes);
         res.send(allQuotes);
     })
 });
 
 apiRouter.get("/quote/:id", function(req, res) {
     Quotes.getOne(req.params.id, function callback(quote) {
-        console.log(quote.length)
         if (quote.length === 0) {
             res.status(404).send({
                 result: "error",
@@ -19,14 +20,13 @@ apiRouter.get("/quote/:id", function(req, res) {
             })
         }   
         else {
-            console.log(quote)
             res.send(quote);
         }
     })
 });
 
 apiRouter.post("/quote", function(req, res) {
-    Quotes.saveQuoteSelections(req.body, function callback(result){
+    Quotes.save(req.body, function callback(result){
         res.send(result)
     })
 });

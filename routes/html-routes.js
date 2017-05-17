@@ -32,13 +32,11 @@ var Quotes = require('../controllers/quotes_controller.js')
 
              }
          })
-
-
      });
      app.get("/quote", function(req, res) {
          res.render("quote", {});
      });
- }
+}
 
 //module.exports = function(app){
    // app.get("/", function(req, res) {
@@ -51,4 +49,5 @@ var Quotes = require('../controllers/quotes_controller.js')
       //   res.render("quote", {});
    //  });
 //}
+
 
