@@ -1,5 +1,3 @@
-
-
 var Quotes = require('../controllers/quotes_controller.js')
 
  module.exports = function(app) {
@@ -53,3 +51,4 @@ var Quotes = require('../controllers/quotes_controller.js')
       //   res.render("quote", {});
    //  });
 //}
+

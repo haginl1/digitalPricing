@@ -14,7 +14,9 @@ Quotes.getAll = function(callback) {
         .catch(function (err) {
             callback({
                 result: "error",
+
                 //message: err.errors[0].message
+
             });
         });
 };
