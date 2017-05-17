@@ -1,38 +1,190 @@
-// this is where I will pull from the db table streaming_rates
-// to find the original channel cost depending on on contract length
+// var calculator = require('../public/assets/js/calc.js');
 
-//will need to check for user input # of channels for each year
-//finalQuote = pricing.calculate(quoteSelections, protocolRates, streamingRates, supportRates)
-
-//calculate method
-
-//quotesSelections.fieldname out of models
-//protocolRates.xxx
-//streamingRates [0], only one row
-//supportRates.
-
-//as values are calculated, object will contain those values
+//global variables
 var Pricing = {};
+var range = {};
+var rate;
+var protocolCharge;
+var protocols = 0;
 
+//preset values for testing
+var year = 3;
+var channels = 26;
+
+//results object to send back to Les
 var results = {
-	year_one_monthly_streaming: 1000.00,
-    year_two_monthly_streaming: 2000.00,
-    year_three_monthly_streaming: 3000.00,
-    year_one_setup_fee: 100.00,
-    year_two_setup_fee: 200.00,
-    year_three_setup_fee: 300.00,
-    year_one_support_fee: 111.00,
-    year_two_support_fee: 222.00,
-    year_three_support_fee: 333.00 
+	year_one_monthly_streaming: 0,
+    year_two_monthly_streaming: 0,
+    year_three_monthly_streaming: 0,
+    year_one_setup_fee: 0,
+    year_two_setup_fee: 0,
+    year_three_setup_fee: 0,
+    year_one_support_fee: 0,
+    year_two_support_fee: 0,
+    year_three_support_fee: 0 
 }
 
-Pricing.calculate = function(quoteSelections, protocolRates, streamingRates, supportRates) {
-	// console.log(quoteSelections);
-	// console.log(protocolRates);
-	// console.log(streamingRates);
-	// console.log(supportRates);
+//
+Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates) {
+	// var newChannels1;
+ //    var newChannels2;
+ //    var newChannels3;
+ //    var grandTotalyear1 = 0;
+ //    var grandTotalyear2 = 0;
+ //    var grandTotalyear3 = 0;
+ //    var grandTotal;
+ //    var channelCost;
+ //    var supportFee = 0;
+ //    var setupFee;
+ //    var channelRate;
+
+ //grab contract Term
+    var contractTerm = parseInt(quote.contract_term);
+    console.log("CONTRACT TERM   " + contractTerm);
+    //determine which row of the streaming rates table to consider
+    getRateRange(contractTerm, channels, streamingRates);
+    //determine the appropriate streaming rate depending on contract term
+    getStreamingRate(contractTerm, range);
+    console.log("INITIAL RATE" + rate);
+    console.log("rate before protocols " + rate);
+    if (quote.HLS === "true") {
+        protocols += 1;
+        }
+    if (quote.HDS === "true") {
+        protocols += 1;
+        }
+    if (quote.MPEG_DASH === "true") {
+        protocols += 1;
+        }
+    if (quote.RTMP === "true") {
+        protocols += 1;
+        }
+    //testing protocols value
+    protocols = 4;
+    console.log("++++++" +  protocols);
+    
+    //grab the protocol upcharge % to apply to rate
+    protocolCharge = protocolRates[0].additional_protocol_rate_percent;
+    if (protocols == 4) {
+        protocolCharge = protocolCharge * 2;
+    }
+    if (protocols < 3) {
+        protocolCharge = 0;
+    }
+
+
+    // these are working
+    // NEED TO BUILD SETUP FEES
+    
+    //calculate drm upcharge %
+    //getDrmFee(protocols, protocolCharge);
+    //
+    var drmFee = rate * protocolCharge/100;
+    var supportFee = getSupportFee(rate, quote, supportRates);
+    supportFee = rate * supportFee;
+    console.log("support fee " + supportFee);
+    // The streaming rate can be affected in several ways:
+    // 1. contract term
+    // 2. # of channels
+    // 3. # of DRM services 
+    //    The first two free.  The third and fourth cost extra.
+    // 4. The Service Level Agreement (SLA) 
+    rate = Math.round(rate + drmFee + supportFee);
+    console.log("rate " + rate);
+
+    var yearOneChannels = parseInt(quote.year_one_channels);
+    var yearTwoChannels = parseInt(quote.year_two_channels);
+    var yearThreeChannels = parseInt(quote.year_three_channels);
+
+    var yearOneMonthly = rate * yearOneChannels;
+        //yearOneMonthly += supportFee + setupFee;
+    var yearTwoMonthly = rate * yearTwoChannels;
+      //  yearTwoMonthly += supportFee + setupFee;
+    var yearThreeMonthly = rate * yearThreeChannels;
+       // yearThreeMonthly += supportFee + setupFee;
+
+ //    newChannels1 = yearOneChannels;
+
+ //    if (contractTerm === 3) {
+ //        newChannels2 = yearTwoChannels - yearOneChannels;
+ //        channelRate = getStreamingRate(contractTerm, );
+ //        if (newChannels2 > 0) {
+ //            newChannels2 = newChannels2;
+ //        }
+ //        else { 
+ //            newChannels2 = 0;
+ //        }
+ //        newChannels3 = yearThreeChannels - yearTwoChannels;
+ //        if (newChannels3 > 0) {
+ //           newChannels3 = newChannels3;
+ //        }
+ //        else {
+ //            newChannels3 = 0;
+ //        }
+ //    }
+    // results.year_one_monthly_streaming = calculateTotal(newChannels1, drm, supportRate) / 12;
+ //    function calculateTotal(newChannels, drm, support){
+ //        var drmFee = channelRate * protocolCharge;
+ //        drmFee = Math.round(drmFee);
+
+ //        channelRate += drmFee;
+ //    }
+
 	return results;
     
+}
+
+function getRateRange(contractTerm, channelCount, streamingRates) {
+
+    for (var i = 0; i < streamingRates.length; i++) {
+        if (channelCount >= streamingRates[i].min_channels && channelCount <= streamingRates[i].max_channels) {
+            range = streamingRates[i];
+            return range;
+        }
+    }    
+}
+
+function getStreamingRate(contractTerm, range) {
+    if (contractTerm === 3) {
+        rate = range.three_year_rate;
+    }
+    if (contractTerm === 2) {
+        rate = range.two_year_rate;
+    }
+    if (contractTerm === 1) {
+        rate = range.one_year_rate;
+    }
+    return rate;
+}
+//HERE IS THE PESKY LITTLE PROBLEM THAT BROKE HEROKU
+// function getDrmFee(protocols, protocolRates) {
+//     var (protocols > 2) {
+
+
+function getDrmFee(protocols, protocolCharge) {
+    // console.log("protocols: xxxxx" + protocols);
+    // console.log(typeof protocols);
+    // console.log("protocol charge " + typeof protocolCharge);
+    // if (protocols === 4) {
+    //     protocolCharge = protocolCharge * 2;
+    // }
+    // if (protocols < 3) {
+    //     protocolCharge = 0;
+    // }
+    //  return protocolCharge;
+}
+
+function getSupportFee(rate, quote, supportRates) {
+    var supportPlan = quote.support_plan;
+    var supportRate;
+    if (supportPlan === "platinum") {
+        supportRate = parseInt(supportRates[1].plan_fee_percent);
+        supportRate = supportRate/100;
+    }
+    else {
+        supportRate = parseInt(supportRates[0].plan_fee_percent);
+    }
+    return supportRate;
 }
 
 module.exports = Pricing;

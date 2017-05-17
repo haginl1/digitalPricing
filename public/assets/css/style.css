@@ -7,6 +7,7 @@
       background-attachment: fixed;
   }
   
+  #collapse1,
   #salesperson,
   #description,
   .panel panel-default,
@@ -15,8 +16,6 @@
   #submit-data,
   .list-group.form-control,
   button {
-      width: 570px;
-      height: 44px;
       padding: 12px;
       margin: 0;
       text-align: left;
@@ -37,10 +36,11 @@
   }
   
   .well {
-      background-color: rgba(245, 245, 245, 0.4);
+      background-color: #252525;
       height: auto;
       overflow: auto;
       margin-top: 20px;
+      border: none;
   }
   
   .navbar {
@@ -66,16 +66,16 @@
   .sidenav {
       padding-top: 20px;
       /* background-color: #f1f1f1;*/
-      background-color: #7ab800;
+      background-color:#252525;
       height: auto;
       color: white;
   }
-
+  
   img.clientLogos {
-        width: 75%;   
-        height: 75%;
-        /*box-shadow: 5px 5px 1px #888888;*/
-    }
+      width: 75%;
+      height: 75%;
+      /*box-shadow: 5px 5px 1px #888888;*/
+  }
   /* Set black background color, white text and some padding */
   
   footer {

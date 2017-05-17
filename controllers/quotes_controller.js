@@ -13,6 +13,7 @@ Quotes.getAll = function(callback) {
             callback(dbAllQuotes)
         })
         .catch(function (err) {
+
             callback(errors.getMessage(err));
         });
 };
@@ -60,5 +61,4 @@ Quotes.save = function(quote, callback) {
         })
     })
 }
-
 module.exports = Quotes;
