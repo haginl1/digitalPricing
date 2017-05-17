@@ -37,9 +37,13 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
  //    var supportFee = 0;
  //    var setupFee;
  //    var channelRate;
+
+ //grab contract Term
     var contractTerm = parseInt(quote.contract_term);
     console.log("CONTRACT TERM   " + contractTerm);
+    //determine which row of the streaming rates table to consider
     getRateRange(contractTerm, channels, streamingRates);
+    //determine the appropriate streaming rate depending on contract term
     getStreamingRate(contractTerm, range);
     console.log("INITIAL RATE" + rate);
     console.log("rate before protocols " + rate);
@@ -59,6 +63,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     protocols = 4;
     console.log("++++++" +  protocols);
     
+    //grab the protocol upcharge % to apply to rate
     protocolCharge = protocolRates[0].additional_protocol_rate_percent;
     if (protocols == 4) {
         protocolCharge = protocolCharge * 2;
@@ -66,13 +71,24 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     if (protocols < 3) {
         protocolCharge = 0;
     }
+
+
     // these are working
-    // need to calculate setup fees
+    // NEED TO BUILD SETUP FEES
+    
+    //calculate drm upcharge %
     getDrmFee(protocols, protocolCharge);
+    //
     var drmFee = rate * protocolCharge/100;
     var supportFee = getSupportFee(rate, quote, supportRates);
     supportFee = rate * supportFee;
     console.log("support fee " + supportFee);
+    // The streaming rate can be affected in several ways:
+    // 1. contract term
+    // 2. # of channels
+    // 3. # of DRM services 
+    //    The first two free.  The third and fourth cost extra.
+    // 4. The Service Level Agreement (SLA) 
     rate = Math.round(rate + drmFee + supportFee);
     console.log("rate " + rate);
 
