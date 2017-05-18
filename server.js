@@ -42,7 +42,7 @@ app.use("/api", api);
 
 //check if in INIT mode to load the database
 // process.argv[2] === "init"
- if (process.argv[2] === "init") {
+ if (true) {
     dbStartupArguments = dbStartupArguments.force = true
     db.sequelize.sync({dbStartupArguments}).then(function() {
         app.listen(port, function() {
