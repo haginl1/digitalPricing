@@ -87,6 +87,15 @@ module.exports = function(sequelize, DataTypes){
         },
         year_three_support_fee: {
             type: DataTypes.DECIMAL
+        },
+        year_one_annual_fee: {
+            type: DataTypes.DECIMAL
+        },
+        year_two_annual_fee: {
+            type: DataTypes.DECIMAL
+        },
+        year_three_annual_fee: {
+            type: DataTypes.DECIMAL
         }
     });
     return Quote;
