@@ -30,16 +30,17 @@
   .checkbox {
       /* font-size: 17px;*/
   }
+  
   a {
-    color: #ffffff;
-}
+      color: #ffffff;
+  }
   
   h1.title {
       margin-top: 100px;
   }
   
   .well {
-      background-color: #252525;
+      /* background-color: #252525;*/
       height: auto;
       overflow: auto;
       margin-top: 20px;
@@ -69,7 +70,7 @@
   .sidenav {
       padding-top: 20px;
       /* background-color: #f1f1f1;*/
-      background-color:#252525;
+      background-color: #252525;
       height: auto;
       color: white;
   }
