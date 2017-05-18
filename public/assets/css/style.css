@@ -30,6 +30,9 @@
   .checkbox {
       /* font-size: 17px;*/
   }
+  a {
+    color: #ffffff;
+}
   
   h1.title {
       margin-top: 100px;
