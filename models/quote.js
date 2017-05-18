@@ -89,7 +89,8 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.DECIMAL
         },
         year_one_annual_fee: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL,
+            allowNull: false
         },
         year_two_annual_fee: {
             type: DataTypes.DECIMAL

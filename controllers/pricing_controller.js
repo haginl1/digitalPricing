@@ -22,7 +22,10 @@ var results = {
     year_three_setup_fee: 0,
     year_one_support_fee: 0,
     year_two_support_fee: 0,
-    year_three_support_fee: 0 
+    year_three_support_fee: 0,
+    year_one_annual_fee: 0, 
+    year_two_annual_fee: 0,
+    year_three_annual_fee: 0
 }
 
 //
@@ -32,7 +35,10 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
         yearThreeChannels,
         newChannels1,
         newChannels2,
-        newChannels3;
+        newChannels3,
+        yearOneAnnual,
+        yearTwoAnnual,
+        yearThreeAnnual;
 
  //grab contract Term
     contractTerm = parseInt(quote.contract_term);
@@ -161,6 +167,12 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
       //  yearTwoMonthly += supportFee + setupFee;
     var yearThreeMonthly = rate * yearThreeChannels;
        // yearThreeMonthly += supportFee + setupFee;
+    yearOneAnnual = yearOneMonthly * 12 + yearOneSetupFee + supportFee;
+    yearTwoAnnual = yearTwoMonthly * 12 + yearTwoSetupFee + supportFee;
+    yearThreeAnnual = yearThreeMonthly * 12 + yearThreeSetupFee + supportFee;
+    console.log("Y1 ANNUAL: " + yearOneAnnual);
+    console.log("Y2 ANNUAL: " + yearTwoAnnual);
+    console.log("Y3 ANNUAL: " + yearThreeAnnual);
 //-------------------END FUNCTION------------------------------
     results.year_one_monthly_streaming = yearOneMonthly;
     results.year_two_monthly_streaming = yearTwoMonthly;
@@ -171,7 +183,10 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     results.year_one_support_fee = supportFee * yearOneChannels;
     results.year_two_support_fee = supportFee * yearTwoChannels;
     results.year_three_support_fee = supportFee * yearThreeChannels;
-    
+    results.year_one_annual_fee = yearOneAnnual;
+    results.year_two_annual_fee = yearTwoAnnual;
+    results.year_three_annual_fee = yearThreeAnnual;
+
 	return results;
     
 }
