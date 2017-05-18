@@ -28,7 +28,7 @@ var Quotes = require('../controllers/quotes_controller.js')
 
                  };
                  console.log(resquote.test.label);
-                 res.render("result", { resquote });
+                 res.render("result", resquote);
 
              }
          })
