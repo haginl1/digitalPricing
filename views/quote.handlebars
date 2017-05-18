@@ -1,89 +1,78 @@
 
-        <form>
-            <div class="form-group">
-                <input type="date" class="form-control" id="date" placeholder="" required>
-                <br>
-                <input type="input" style="text-transform: uppercase" class="form-control" id="company" placeholder="Enter Company Name" required>
-                <br>
-                <input type="input" style="text-transform: uppercase" class="form-control" id="description" placeholder="Enter Description of Service Request" required>
-            </div>
-        
-               
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a data-toggle="collapse" href="#collapse1">Contract Term</a></h4>
-                    </div>
-                    <div id="collapse1" class="panel-collapse collapse">
-                        <div class="checkbox">
-                            <label for="1years">
-                                <input type="checkbox" id="1years" onclick="if(this.checked){ document.getElementById('year_one_channels').focus();}" /> 1 Year(s)
-                            </label>
-                            <input type="number" id="year_one_channels" name="1year" placeholder=" # Streams" />
-                        </div>
-                        <div class="checkbox">
-                            <label for="2years">
-                                <input type="checkbox" id="2years" onclick="if(this.checked){ document.getElementById('year_two_channels').focus();}" /> 2 Year(s)
-                            </label>
-                            <input type="number" id="year_two_channels" name="2years" placeholder=" # Streams" />
-                        </div>
-                        <div class="checkbox">
-                            <label for="3years">
-                                <input type="checkbox" id="3years" onclick="if(this.checked){ document.getElementById('year_three_channels').focus();}" /> 3 Year(s)
-                            </label>
-                            <input type="number" id="year_three_channels" name="3years" placeholder=" # Streams" />
-                        </div>
-                    
-               
-            </div>
-            
-                
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-        <a data-toggle="collapse" href="#collapse2">Protocol</a>
-      </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="HLS" checked> HLS (Recommended)
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="HDS" />HDS </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="RTMP" /> RTMP </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="MPEG_DASH" /> MPEG-DASH </label>
-                        </div>
-                    
-               
-            </div>
-         
-                
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a data-toggle="collapse" href="#collapse3" >Support Plan</a></h4>
-                    </div>
-                    <div id="collapse3" class="panel-collapse collapse">
-                    <br>
-                       <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Gold Plan
-  </label>
-  <br>
-  <br>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> Platinum Plan
-  </label>
-
-
-                    
-                </div>
-            </div>
-            <button type="submit" class="btn btn-default" id="submit-data">NEXT >>></button>
-        </form>
+<form>
+    <div class="form-group">
+        <input type="date" class="form-control" id="date" placeholder="" required>
+        <br>
+        <input type="input" style="text-transform: uppercase" class="form-control" id="company" placeholder="Enter Company Name" required>
+        <br>
+        <input type="input" style="text-transform: uppercase" class="form-control" id="description" placeholder="Enter Description of Service Request" required>
     </div>
+
+    <div class="panel-heading">
+        <h4 class="panel-title"><a data-toggle="collapse" href="#collapse1">Contract Term</a></h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+        <div class="checkbox">
+            <label for="1years">
+                <input type="checkbox" id="1years" onclick="if(this.checked){ document.getElementById('year_one_channels').focus();}" /> 1 Year(s)
+            </label>
+            <input type="number" id="year_one_channels" name="1year" placeholder=" # Streams" />
+        </div>
+        <div class="checkbox">
+            <label for="2years">
+                <input type="checkbox" id="2years" onclick="if(this.checked){ document.getElementById('year_two_channels').focus();}" /> 2 Year(s)
+            </label>
+            <input type="number" id="year_two_channels" name="2years" placeholder=" # Streams" />
+        </div>
+        <div class="checkbox">
+            <label for="3years">
+                <input type="checkbox" id="3years" onclick="if(this.checked){ document.getElementById('year_three_channels').focus();}" /> 3 Year(s)
+            </label>
+            <input type="number" id="year_three_channels" name="3years" placeholder=" # Streams" />
+        </div>
+    </div>
+    <div class="panel-heading">
+        <h4 class="panel-title"><a data-toggle="collapse" href="#collapse2">Protocol</a></h4>
+    </div>
+        <div id="collapse2" class="panel-collapse collapse">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="HLS" checked> HLS (Recommended)
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="HDS" />HDS 
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="RTMP" /> RTMP
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="MPEG_DASH" /> MPEG-DASH 
+                </label>
+            </div>
+        </div>
+        <div class="panel-heading">
+            <h4 class="panel-title"><a data-toggle="collapse" href="#collapse3">Support Plan</a></h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+            <br>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Gold Plan
+                    </label>
+                    <br>
+                    <br>
+                    <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Platinum Plan
+                    </label>
+                </div>
+        </div>
+            <button type="submit" class="btn btn-default" id="submit-data">NEXT >>></button>
+</form>
+       
 
