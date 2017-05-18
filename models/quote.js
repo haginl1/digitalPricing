@@ -10,7 +10,16 @@ module.exports = function(sequelize, DataTypes){
         },
         date: {
             type: DataTypes.DATEONLY,
-            allowNull: false
+            allowNull: false,
+            get ()
+            {
+                if (typeof this.getDataValue('date').getMonth === 'function') {
+                    return this.getDataValue('date').toDateString()
+                }
+                else {
+                    return this.getDataValue('date')
+                }
+            }
         },
         contract_term: {
             type: DataTypes.INTEGER,
