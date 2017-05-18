@@ -1,6 +1,7 @@
 
-
+    
     <div class="container">
+
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading"></div>
@@ -12,8 +13,9 @@
                         <th>Date</th>
                         <th>Company</th>
                         <th>Description</th>
-                        <th>Link</th>
-                        <th><button type="submit" id="addHero" class="btn btn-success">New Quote</button></th>
+                        <th>View Quotes</th>
+                        
+                        
                     </tr>
                
                <tbody  id="quoteInfo">
@@ -21,7 +23,6 @@
 
 				<tr>
                 <td>{{this.date}}</td>
-				<td>{{this.id}}</td>
 				<td>{{this.company}}</td>
 				<td>{{this.description}}</td>
 				<td>
@@ -37,6 +38,7 @@
                 </tbody> 
             </table>
         </div>
+        <button type="submit" id="newQuote" class="btn btn-success"><a href="/quote">New Quote</button>
     </div>
 
 
