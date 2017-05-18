@@ -3,28 +3,31 @@
     <div class="container">
         <div class="panel panel-default">
             <!-- Default panel contents -->
-            <div class="panel-heading">All Quotes</div>
+            <div class="panel-heading"></div>
             <!-- Table -->
             <table class="table table-striped">
                 
                     <tr>
+                        
                         <th>Date</th>
                         <th>Company</th>
                         <th>Description</th>
                         <th>Link</th>
+                        <th><button type="submit" id="addHero" class="btn btn-success">New Quote</button></th>
                     </tr>
                
                <tbody  id="quoteInfo">
                 {{#each quotes}}
 
 				<tr>
+                <td>{{this.date}}</td>
 				<td>{{this.id}}</td>
 				<td>{{this.company}}</td>
 				<td>{{this.description}}</td>
 				<td>
 				<form action="/result/{{this.id}}?_method=GET" method="POST">
                 <input type="hidden" name="id" value="{{this.id}}">
-                <button class="btn btn-default" type="submit">View This thing for now pplease</button>
+                <button class="btn btn-default" type="submit">View </button>
  				</form>
 				</td>
 
