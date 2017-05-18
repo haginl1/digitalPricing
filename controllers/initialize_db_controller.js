@@ -24,7 +24,10 @@ var quoteData = [
         'year_three_setup_fee': 300.00,
         'year_one_support_fee': 111.00,
         'year_two_support_fee': 222.00,
-        'year_three_support_fee': 333.00
+        'year_three_support_fee': 333.00,
+        'year_one_annual_fee': 111.00,
+        'year_two_annual_fee': 222.00,
+        'year_three_annual_fee': 333.00
     },
     {
         'company':'NFL Network',
@@ -47,7 +50,10 @@ var quoteData = [
         'year_three_setup_fee': null,
         'year_one_support_fee': 1111.00,
         'year_two_support_fee': null,
-        'year_three_support_fee': null
+        'year_three_support_fee': null,
+        'year_one_annual_fee': 1111.00,
+        'year_two_annual_fee': null,
+        'year_three_annual_fee': null
     },
     {
         'company':'HGTV',
@@ -70,7 +76,10 @@ var quoteData = [
         'year_three_setup_fee': null,
         'year_one_support_fee': 101.00,
         'year_two_support_fee': 202.00,
-        'year_three_support_fee': null
+        'year_three_support_fee': null,
+        'year_one_annual_fee': 1111.00,
+        'year_two_annual_fee': 2000,
+        'year_three_annual_fee': null
     }
 ];
 
