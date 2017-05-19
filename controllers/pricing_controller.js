@@ -273,7 +273,7 @@ Pricing.getDrmFee = function(protocols, protocolCharge) {
 
 Pricing.getSupportFee = function(quote, supportRates) {
     var supportPlan = quote.support_plan;
-    if (supportPlan === "platinum") {
+    if (supportPlan === "platinum" || supportPlan === "Platinum") {
         supportRate = parseInt(supportRates[1].plan_fee_percent);
         supportRate = supportRate/100;
     }
