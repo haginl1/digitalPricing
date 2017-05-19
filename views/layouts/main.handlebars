@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <title>Encompass Digital Pricing Application</title>
+  <script src='/assets/js/pdfmake.min.js'></script> 
+  <script src='/assets/js/vfs_fonts.js'></script>
   <link rel="icon" href="assets/img/Encompass_Avatar_rgb.ico" type="image/x-icon" >
   <meta charset="utf-8">
   <meta name="description" content="Encompass is a global technology services company focused on supporting broadcast, cable and digital leaders."/>
@@ -40,7 +42,30 @@
 <footer class="container-fluid text-center ">
   <p>COPYRIGHT 2016 ENCOMPASS, ALL RIGHTS RESERVED.</p>
   
-</footer>    
+</footer> 
+<script type="text/javascript">
+
+var docDefinition = {
+  content: [
+    {
+      layout: 'lightHorizontalLines', // optional 
+      table: {
+        // headers are automatically repeated if the table spans over multiple pages 
+        // you can declare how many rows should be treated as headers 
+        headerRows: 1,
+        widths: [ '*', 'auto', 100, '*' ],
+ 
+        body: [
+          [ 'First', 'Second', 'Third', 'The last one' ],
+          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
+          [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
+        ]
+      }
+    }
+  ]
+};
+
+</script>   
 </body>
 
 </html>

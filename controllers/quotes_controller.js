@@ -39,11 +39,11 @@ Quotes.save = function(quote, callback) {
     var streamingRates = {}
     var supportRates = {}
     configData.protocolRatesData(function(result) {
-        protocolRates = result
+        protocolRates = result;
         configData.streamingRatesData(function(result) {
-            streamingRates = result
+            streamingRates = result;
             configData.supportRatesData(function(result) {
-                supportRates = result
+                supportRates = result;
                 //************need to clean up what I am passing in - getting too much data right now */
                 var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
                 Object.assign(quote, calculations);
