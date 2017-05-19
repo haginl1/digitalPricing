@@ -24,36 +24,36 @@
 	<tr>
 		<th># of Channels</th>
 		<td>{{quote.year_one_channels}}</td>
-	<td>{{quote.year_two_channels}}</td>
-	<td>{{quote.year_three_channels}}</td>
+		<td>{{quote.year_two_channels}}</td>
+		<td>{{quote.year_three_channels}}</td>
 	</tr>
 
 	<tr>
 		<th>Setup Fee</th>
-		<td>{{quote.year_one_setup_fee}}</td>
-		<td>{{quote.year_two_setup_fee}}</td>
-		<td>{{quote.year_three_setup_fee}}</td>
+		<td>${{quote.year_one_setup_fee}}</td>
+		<td>${{quote.year_two_setup_fee}}</td>
+		<td>${{quote.year_three_setup_fee}}</td>
 		
 	</tr>
 	<tr>
 		<th>Support</th>
-		<td>{{quote.year_one_support_fee}}</td>
-		<td>{{quote.year_two_support_fee}}</td>
-		<td>{{quote.year_three_support_fee}}</td>
+		<td>${{quote.year_one_support_fee}}</td>
+		<td>${{quote.year_two_support_fee}}</td>
+		<td>${{quote.year_three_support_fee}}</td>
 	
 	</tr>
 		<tr>
 		<th>Monthly Fee </th>
-		<td>{{quote.year_one_monthly_streaming}}</td>
-		<td>{{quote.year_two_monthly_streaming}}</td>
-		<td>{{quote.year_three_monthly_streaming}}</td>
+		<td>${{quote.year_one_monthly_streaming}}</td>
+		<td>${{quote.year_two_monthly_streaming}}</td>
+		<td>${{quote.year_three_monthly_streaming}}</td>
 		
 	</tr>
 	<tr>
 		<th>Annual Fee</th>
-		<td>{{quote.year_one_annual_fee}}</td>
-		<td>{{quote.year_two_annual_fee}}</td>
-		<td>{{quote.year_three_annual_fee}}</td>
+		<td>${{quote.year_one_annual_fee}}</td>
+		<td>${{quote.year_two_annual_fee}}</td>
+		<td>${{quote.year_three_annual_fee}}</td>
 		
 	</tr>
 </table>
@@ -61,6 +61,6 @@
   <button type="submit" id="pdf" class="btn btn-success" onclick="pdfMake.createPdf(docDefinition).download()">Create PDF</button>
 </div>
 <h4> {{quote.description}}</h4>
-<button type="submit" id="newQuote" class="btn btn-success"><a href="/">Home</button>
+<button type="submit" id="newQuote" class="btn btn-success"><a href="/quote">Back</button>
 </div>
 </div>
