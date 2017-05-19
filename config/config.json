@@ -4,8 +4,7 @@
         "password": "",
         "database": "digital_pricing_db",
         "host": "127.0.0.1",
-        "dialect": "mysql",
-        "logging": false
+        "dialect": "mysql"
     },
     "test": {
         "username": "root",
