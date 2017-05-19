@@ -1,11 +1,15 @@
 {
     "development": {
+<<<<<<< HEAD
         "username": "root",
         "password": "Bmtsubs1!1",
+=======
+        "username": "",
+        "password": "",
+>>>>>>> d9b4eca6db4cb7bc7daa9cb5b9296dc066ee8cb4
         "database": "digital_pricing_db",
         "host": "127.0.0.1",
-        "dialect": "mysql",
-        "logging": false
+        "dialect": "mysql"
     },
     "test": {
         "username": "root",
