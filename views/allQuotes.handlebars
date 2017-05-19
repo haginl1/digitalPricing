@@ -1,5 +1,4 @@
 
-    
     <div class="container">
         <button type="submit" id="newQuote" class="btn btn-success">
             <a href="/quote">New Quote</a>
@@ -9,39 +8,31 @@
             <div class="panel-heading"></div>
             
             <!-- Table -->
-            <table class="table table-striped">
-                
-                    <tr>
-                        
+            <table class="table table-striped">               
+                    <tr>                       
                         <th>Date</th>
                         <th>Company</th>
                         <th>Description</th>
-                        <th>View Quotes</th>
-                        
-                        
-                    </tr>
-               
+                        <th>View Quotes</th>                       
+                    </tr>         
                <tbody  id="quoteInfo">
                 {{#each quotes}}
-
-				<tr>
-                <td>{{this.date}}</td>
-				<td>{{this.company}}</td>
-				<td>{{this.description}}</td>
-				<td>
-				<form action="/result/{{this.id}}?_method=GET" method="POST">
-                <input type="hidden" name="id" value="{{this.id}}">
-                <button class="btn btn-default" type="submit">View </button>
- 				</form>
-				</td>
-
-				</tr>
-
+                    <tr>
+                        <td>{{this.date}}</td>
+                        <td>{{this.company}}</td>
+                        <td>{{this.description}}</td>
+                        <td>
+                            <form action="/result/{{this.id}}?_method=GET" method="POST">
+                                <input type="hidden" name="id" value="{{this.id}}">
+                                <button class="btn btn-default" type="submit">View 
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                 {{/each}}
                 </tbody> 
             </table>
-        </div>
-        
+        </div>        
     </div>
 
 
