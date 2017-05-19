@@ -1,15 +1,19 @@
   body {
-      background-image: url("../img/background.png");
-      padding-top: 2rem;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-attachment: fixed;
-  }
-  
+        background-image: url("../img/background.png");
+        padding-top: 2rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-attachment: fixed;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        color: #0065bd;
+        line-height: 34px;
+        padding-bottom: 70px;
+    }
   td,
   th {
-      padding: .5em 1em;
+      padding: .9em 3em;
   }
   
   #collapse1,
@@ -32,10 +36,6 @@
       color: #1a3d5b;
   }
   
-  .checkbox {
-      /* font-size: 17px;*/
-  }
-  
   a {
       color: #ffffff;
   }
@@ -45,11 +45,11 @@
   }
   
   .well {
-      /* background-color: #252525;*/
-      height: auto;
-      overflow: auto;
-      margin-top: 20px;
-      border: none;
+        background-color: rgba(245, 245, 245, 0.4);
+        height: auto;
+        overflow: auto;
+        margin-top: 20px;
+        border: none;
   }
   
   .navbar {
@@ -83,6 +83,11 @@
   img.clientLogos {
       width: 75%;
       height: 75%;
+      /*box-shadow: 5px 5px 1px #888888;*/
+  }
+  img#rightcontainer {
+      width: 100%;
+      height: auto;
       /*box-shadow: 5px 5px 1px #888888;*/
   }
   /* Set black background color, white text and some padding */

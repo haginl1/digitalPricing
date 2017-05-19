@@ -1,8 +1,17 @@
+
 <div class="container">
-<h3>{{quote.date}}</h3>
-<h3>{{quote.description}}</h3>
-<h3>Term of contract {{quote.contract_term}} year(s)</h3>
-<h1>{{quote.company}}</h1>
+  <div class="row content">
+  
+
+  <!--Middle area to seach and show list of previous quotes-->
+    <div class="col-sm-12 text-left">
+
+<h4>{{quote.date}}</h4>
+<h1>{{quote.company}}<h1>
+<h4>Contract Term    {{quote.contract_term}} year(s)</h4>
+
+<h4>Protocols        {{quote.HLS}} </h4>
+<h4>Support Plan {{quote.support_plan}}</h4>
 <div class="table-responsive">          
 <table>
 	<tr>
@@ -18,13 +27,7 @@
 	<td>{{quote.year_two_channels}}</td>
 	<td>{{quote.year_three_channels}}</td>
 	</tr>
-	<tr>
-		<th>Monthly Fee </th>
-		<td>{{quote.year_one_monthly_streaming}}</td>
-		<td>{{quote.year_two_monthly_streaming}}</td>
-		<td>{{quote.year_three_monthly_streaming}}</td>
-		
-	</tr>
+
 	<tr>
 		<th>Setup Fee</th>
 		<td>{{quote.year_one_setup_fee}}</td>
@@ -39,6 +42,13 @@
 		<td>{{quote.year_three_support_fee}}</td>
 	
 	</tr>
+		<tr>
+		<th>Monthly Fee </th>
+		<td>{{quote.year_one_monthly_streaming}}</td>
+		<td>{{quote.year_two_monthly_streaming}}</td>
+		<td>{{quote.year_three_monthly_streaming}}</td>
+		
+	</tr>
 	<tr>
 		<th>Annual Fee</th>
 		<td>{{quote.year_one_annual_fee}}</td>
@@ -50,4 +60,7 @@
   </div>
   <button type="submit" id="pdf" class="btn btn-success" onclick="pdfMake.createPdf(docDefinition).download()">Create PDF</button>
 </div>
-
+<h4> {{quote.description}}</h4>
+<button type="submit" id="newQuote" class="btn btn-success"><a href="/">Home</button>
+</div>
+</div>

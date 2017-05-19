@@ -1,78 +1,65 @@
 
-<form>
-    <div class="form-group">
-        <input type="date" class="form-control" id="date" placeholder="" required>
-        <br>
-        <input type="input" style="text-transform: uppercase" class="form-control" id="company" placeholder="Enter Company Name" required>
-        <br>
-        <input type="input" style="text-transform: uppercase" class="form-control" id="description" placeholder="Enter Description of Service Request" required>
-    </div>
 
-    <div class="panel-heading">
-        <h4 class="panel-title"><a data-toggle="collapse" href="#collapse1">Contract Term</a></h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse">
-        <div class="checkbox">
-            <label for="1years">
-                <input type="checkbox" id="1years" onclick="if(this.checked){ document.getElementById('year_one_channels').focus();}" /> 1 Year(s)
+<div class="container">  
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align: center">Digital Streaming Price Calculator</h2>
+        </div>
+</div>  
+  <div class="row">
+    <div class="col-md-6">
+        <p> 1. Enter the opportunity details.</p>
+      <form method="POST" action="/" class="button-size">
+        <div class="form-group">
+          <input type="text" name="company" class="form-control" placeholder="Company Name"></input>
+          <input type="text" name="description" class="form-control" placeholder="Proposal Description"></input>
+          <input type="date" name="date" class="form-control" placeholder="Proposal Date"></input>
+          <br>
+          <p> 2. Select the protocols you need.</p>
+          <label class="checkbox-inline">
+                <input type="checkbox" name="HLS" checked value="1">HLS (Recommended)
             </label>
-            <input type="number" id="year_one_channels" name="1year" placeholder=" # Streams" />
-        </div>
-        <div class="checkbox">
-            <label for="2years">
-                <input type="checkbox" id="2years" onclick="if(this.checked){ document.getElementById('year_two_channels').focus();}" /> 2 Year(s)
+            <label class="checkbox-inline">
+                <input type="checkbox" name="HDS" unchecked value="1">HDS 
             </label>
-            <input type="number" id="year_two_channels" name="2years" placeholder=" # Streams" />
-        </div>
-        <div class="checkbox">
-            <label for="3years">
-                <input type="checkbox" id="3years" onclick="if(this.checked){ document.getElementById('year_three_channels').focus();}" /> 3 Year(s)
+            <label class="checkbox-inline">
+                <input type="checkbox" name="RTMP" unchecked value="1">RTMP
             </label>
-            <input type="number" id="year_three_channels" name="3years" placeholder=" # Streams" />
-        </div>
-    </div>
-    <div class="panel-heading">
-        <h4 class="panel-title"><a data-toggle="collapse" href="#collapse2">Protocol</a></h4>
-    </div>
-        <div id="collapse2" class="panel-collapse collapse">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="HLS" checked> HLS (Recommended)
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="HDS" />HDS 
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="RTMP" /> RTMP
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="MPEG_DASH" /> MPEG-DASH 
-                </label>
-            </div>
-        </div>
-        <div class="panel-heading">
-            <h4 class="panel-title"><a data-toggle="collapse" href="#collapse3">Support Plan</a></h4>
-        </div>
-        <div id="collapse3" class="panel-collapse collapse">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="MPEG_DASH" unchecked value="1">MPEG-DASH
+            </label>
             <br>
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Gold Plan
-                    </label>
-                    <br>
-                    <br>
-                    <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Platinum Plan
-                    </label>
-                </div>
+            <p> 3. Select a contract term.</p>
+            <select class="selectpicker" name="contract_term" title="Choose one of the following...">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <br>
+            <p> 4. Enter the number of streams you need each year.</p>
+            <input type="input" name="year_one_channels" class="form-control" placeholder="Channels in Year 1"></input>
+            <input type="input" name="year_two_channels" class="form-control" placeholder="Channels in Year 2"></input>
+            <input type="input" name="year_three_channels" class="form-control" placeholder="Channels in Year 3"></input>
+            <p> 5. Select a support plan for your services.</p>
+            <div class="radio">
+                <label><input type="radio" name="support_plan" value="Gold">Gold</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="support_plan" value="Platinum">Platinum</label>
+            </div>
+
+          <button class="btn btn-default" type="submit">Calculate</button>
         </div>
-            <button type="submit" class="btn btn-default" id="submit-data">NEXT >>></button>
-</form>
+      </form>
+    </div>
+    <div class="col-md-6">
+        <img id="rightcontainer" src ="../../assets/img/Encompass_watchingipad.jpg">
+    </div>
+</div>
+
+
+
+
+
        
 
