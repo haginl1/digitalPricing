@@ -8,16 +8,16 @@
           <input type="text" name="description" class="form-control" placeholder="Proposal Description"></input>
           <input type="date" name="date" class="form-control" placeholder="Proposal Date"></input>
           <label class="checkbox-inline">
-                <input type="checkbox" name="HLS" checked value="">HLS (Recommended)
+                <input type="checkbox" name="HLS" checked value="1">HLS (Recommended)
             </label>
             <label class="checkbox-inline">
-                <input type="checkbox" name="HDS" value="">HDS 
+                <input type="checkbox" name="HDS" unchecked value="1">HDS 
             </label>
             <label class="checkbox-inline">
-                <input type="checkbox" name="RTMP" value="">RTMP
+                <input type="checkbox" name="RTMP" unchecked value="1">RTMP
             </label>
             <label class="checkbox-inline">
-                <input type="checkbox" name="MPEG_DASH" value="">MPEG-DASH
+                <input type="checkbox" name="MPEG_DASH" unchecked value="1">MPEG-DASH
             </label>
             <select class="selectpicker" name="contract_term" title="Choose one of the following...">
                 <option>1</option>
@@ -29,10 +29,10 @@
             <input type="input" name="year_three_channels" class="form-control" placeholder="Channels in Year 3"></input>
             
             <div class="radio">
-                <label><input type="radio" name="support_plan">Gold</label>
+                <label><input type="radio" name="support_plan" value="Gold">Gold</label>
             </div>
             <div class="radio">
-                <label><input type="radio" name="support_plan">Platinum</label>
+                <label><input type="radio" name="support_plan" value="Platinum">Platinum</label>
             </div>
 
           <button class="btn btn-default" type="submit">Save Proposal</button>
