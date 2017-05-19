@@ -1,42 +1,17 @@
-<!--<h1>{{quote.date}}</h1>
-<p>{{quote.company}}</p>
-<p>{{quote.description}}</p>
-<p>{{quote.contract_term}}</p>-->
-<script>
-Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
-    lvalue = parseFloat(lvalue);
-    rvalue = parseFloat(rvalue);
-        
-    return {
-        "+": lvalue + rvalue,
-        "-": lvalue - rvalue,
-        "*": lvalue * rvalue,
-        "/": lvalue / rvalue,
-        "%": lvalue % rvalue
-    }[operator];
-});
 
-var rendered = Handlebars.compile(
-    '{{#each values}}' + 
-    'i={{@index}}: ' +
-    'i+1 = {{math @index "+" 1}}, ' + 
-    'i-0.5 = {{math @index "+" "-0.5"}}, ' + 
-    'i/2 = {{math @index "*" 2}}, ' + 
-    'i%2 = {{math @index "%" 2}}, ' + 
-    'i*i = {{math @index "*" @index}}\n' +
-    '{{/each}}'
-)({
-    values : [ 'a', 'b', 'c', 'd', 'e' ]
-});
-
-$("#result").html(rendered);
-
-</script>
 <div class="container">
-<h3>{{quote.date}}</h3>
-<h3>{{quote.description}}</h3>
-<h3>Term of contract {{quote.contract_term}} year(s)</h3>
-<h1>{{quote.company}}</h1>
+  <div class="row content">
+  
+
+  <!--Middle area to seach and show list of previous quotes-->
+    <div class="col-sm-12 text-left">
+
+<h4>{{quote.date}}</h4>
+<h1>{{quote.company}}<h1>
+<h4>Contract Term    {{quote.contract_term}} year(s)</h4>
+
+<h4>Protocols        {{quote.HLS}} </h4>
+<h4>Support Plan {{quote.support_plan}}</h4>
 <div class="table-responsive">          
 <table>
 	<tr>
@@ -52,13 +27,7 @@ $("#result").html(rendered);
 	<td>{{quote.year_two_channels}}</td>
 	<td>{{quote.year_three_channels}}</td>
 	</tr>
-	<tr>
-		<th>Monthly Fee </th>
-		<td>{{quote.year_one_monthly_streaming}}</td>
-		<td>{{quote.year_two_monthly_streaming}}</td>
-		<td>{{quote.year_three_monthly_streaming}}</td>
-		
-	</tr>
+
 	<tr>
 		<th>Setup Fee</th>
 		<td>{{quote.year_one_setup_fee}}</td>
@@ -73,6 +42,13 @@ $("#result").html(rendered);
 		<td>{{quote.year_three_support_fee}}</td>
 	
 	</tr>
+		<tr>
+		<th>Monthly Fee </th>
+		<td>{{quote.year_one_monthly_streaming}}</td>
+		<td>{{quote.year_two_monthly_streaming}}</td>
+		<td>{{quote.year_three_monthly_streaming}}</td>
+		
+	</tr>
 	<tr>
 		<th>Annual Fee</th>
 		<td>{{quote.year_one_annual_fee}}</td>
@@ -83,8 +59,9 @@ $("#result").html(rendered);
 </table>
   </div>
 </div>
-
-</body>
-</html>
+<h4> {{quote.description}}</h4>
+<button type="submit" id="newQuote" class="btn btn-success"><a href="/">Home</button>
+</div>
+</div>
 
 
