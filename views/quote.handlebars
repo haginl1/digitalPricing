@@ -4,9 +4,9 @@
       <h1>it works!</h1>
       <form method="POST" action="/" class="button-size">
         <div class="form-group">
-          <input type="text" name="company" class="form-control" placeholder="Company Name"></input>
-          <input type="text" name="description" class="form-control" placeholder="Proposal Description"></input>
-          <input type="date" name="date" class="form-control" placeholder="Proposal Date"></input>
+          <input type="text" name="company" class="form-control" required placeholder="Company Name"></input>
+          <input type="text" name="description" class="form-control" required placeholder="Proposal Description"></input>
+          <input type="date" name="date" class="form-control" required placeholder="Proposal Date"></input>
           <label class="checkbox-inline">
                 <input type="checkbox" name="HLS" checked value="1">HLS (Recommended)
             </label>
@@ -19,17 +19,17 @@
             <label class="checkbox-inline">
                 <input type="checkbox" name="MPEG_DASH" unchecked value="1">MPEG-DASH
             </label>
-            <select class="selectpicker" name="contract_term" title="Choose one of the following...">
+            <select class="selectpicker" name="contract_term" required title="Choose one of the following...">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
-            <input type="input" name="year_one_channels" class="form-control" placeholder="Channels in Year 1"></input>
+            <input type="input" name="year_one_channels" class="form-control" required placeholder="Channels in Year 1"></input>
             <input type="input" name="year_two_channels" class="form-control" placeholder="Channels in Year 2"></input>
             <input type="input" name="year_three_channels" class="form-control" placeholder="Channels in Year 3"></input>
             
             <div class="radio">
-                <label><input type="radio" name="support_plan" value="Gold">Gold</label>
+                <label><input type="radio" name="support_plan" checked value="Gold">Gold</label>
             </div>
             <div class="radio">
                 <label><input type="radio" name="support_plan" value="Platinum">Platinum</label>

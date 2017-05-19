@@ -44,7 +44,7 @@ Quotes.save = function(quote, callback) {
             streamingRates = result
             configData.supportRatesData(function(result) {
                 supportRates = result
-                //************need to clean up what I am passing in - getting too much data right now */
+                //************need to clean  up what I am passing in - getting too much data right now */
                 var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
                 Object.assign(quote, calculations);
                 db.Quote.create(quote)
