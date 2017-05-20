@@ -7,7 +7,6 @@
                     <p> 1. Enter the opportunity details.</p>
                     <input type="text" name="company" class="form-control" required placeholder="Company Name"></input>
                     <input type="text" name="description" class="form-control" required placeholder="Proposal Description"></input>
-                    <br>
                     <p> 2. Select the protocols you need.</p>
                     <label class="checkbox-inline">
                         <input type="checkbox" name="HLS" checked value="1">HLS (Recommended)
@@ -23,16 +22,16 @@
                     </label>
                     <br>
                     <p> 3. Select a contract term.
-                        <select class="selectpicker" name="contract_term" required title="Choose one of the following...">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select class="selectpicker" id="contract_term" name="contract_term" required title="Choose one of the following...">
+                            <option id="contract_term_1">1</option>
+                            <option id="contract_term_2">2</option>
+                            <option id="contract_term_3">3</option>
                         </select>
                     </p>
                     <p> 4. Enter the number of streams you need each year.</p>
-                    <input type="input" name="year_one_channels" class="form-control" required placeholder="Channels in Year 1"></input>
-                    <input type="input" name="year_two_channels" class="form-control" placeholder="Channels in Year 2"></input>
-                    <input type="input" name="year_three_channels" class="form-control" placeholder="Channels in Year 3"></input>
+                    <input type="input" id="year_one_channels" name="year_one_channels" class="form-control" required placeholder="Channels in Year 1"></input>
+                    <input type="input" disabled id="year_two_channels" name="year_two_channels" class="form-control" placeholder="Channels in Year 2"></input>
+                    <input type="input" disabled id="year_three_channels" name="year_three_channels" class="form-control" placeholder="Channels in Year 3"></input>
                     <p> 5. Select a support plan for your services.</p>
                     <div class="radio">
                         <ul>
