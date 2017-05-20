@@ -73,4 +73,38 @@ Quotes.save = function(quote, callback) {
         })
     })
 }
+
+Quotes.validate = function(req) {
+            if (typeof(req.body.year_one_channels) === "undefined") {
+            req.body.year_one_channels = 0
+        }
+        if (typeof(req.body.year_two_channels) === "undefined") {
+            req.body.year_two_channels = 0
+        }
+        if (typeof(req.body.year_three_channels) === "undefined") {
+            req.body.year_three_channels = 0
+        }
+        if (req.body.year_one_channels.length === 0) {
+            req.body.year_one_channels = 0
+        }
+        if (req.body.year_two_channels.length === 0) {
+            req.body.year_two_channels = 0
+        }
+        if (req.body.year_three_channels.length === 0) {
+            req.body.year_three_channels = 0
+        }
+        if (typeof(req.body.HLS) === "undefined") {
+            req.body.HLS = 0
+        }
+        if (typeof(req.body.HDS) === "undefined") {
+            req.body.HDS = 0
+        }
+        if (typeof(req.body.RTMP) === "undefined") {
+            req.body.RTMP = 0
+        }
+        if (typeof(req.body.MPEG_DASH) === "undefined") {
+            req.body.MPEG_DASH = 0
+        }
+        return req
+}
 module.exports = Quotes;

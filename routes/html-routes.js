@@ -27,7 +27,6 @@ var Quotes = require('../controllers/quotes_controller.js')
                      test: { label: "this is test" }
 
                  };
-                 console.log(resquote.test.label);
                  res.render("result", resquote);
 
              }
@@ -37,36 +36,7 @@ var Quotes = require('../controllers/quotes_controller.js')
          res.render("quote", {});
      });
      app.post("/", function(req, res) {
-        if (typeof(req.body.year_one_channels) === "undefined") {
-            req.body.year_one_channels = 0
-        }
-        if (typeof(req.body.year_two_channels) === "undefined") {
-            req.body.year_two_channels = 0
-        }
-        if (typeof(req.body.year_three_channels) === "undefined") {
-            req.body.year_three_channels = 0
-        }
-        if (req.body.year_one_channels.length === 0) {
-            req.body.year_one_channels = 0
-        }
-        if (req.body.year_two_channels.length === 0) {
-            req.body.year_two_channels = 0
-        }
-        if (req.body.year_three_channels.length === 0) {
-            req.body.year_three_channels = 0
-        }
-        if (typeof(req.body.HLS) === "undefined") {
-            req.body.HLS = 0
-        }
-        if (typeof(req.body.HDS) === "undefined") {
-            req.body.HDS = 0
-        }
-        if (typeof(req.body.RTMP) === "undefined") {
-            req.body.RTMP = 0
-        }
-        if (typeof(req.body.MPEG_DASH) === "undefined") {
-            req.body.MPEG_DASH = 0
-        }
+        req = Quotes.validate(req)
         Quotes.save(req.body, function callback(result){
             res.redirect("/result/" + result.quote.id + "?_method=GET");
         })

@@ -36,9 +36,5 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-<<<<<<< HEAD
-# DS Store
-=======
 # ds store
->>>>>>> 2ea5e0f8046002c5f11f1cdfece111802049abc3
 .DS_Store
