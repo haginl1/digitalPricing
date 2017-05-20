@@ -37,6 +37,15 @@ var Quotes = require('../controllers/quotes_controller.js')
          res.render("quote", {});
      });
      app.post("/", function(req, res) {
+        if (typeof(req.body.year_one_channels) === "undefined") {
+            req.body.year_one_channels = 0
+        }
+        if (typeof(req.body.year_two_channels) === "undefined") {
+            req.body.year_two_channels = 0
+        }
+        if (typeof(req.body.year_three_channels) === "undefined") {
+            req.body.year_three_channels = 0
+        }
         if (req.body.year_one_channels.length === 0) {
             req.body.year_one_channels = 0
         }

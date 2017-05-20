@@ -4,13 +4,13 @@
   <title>Encompass Digital Media Stream Pricing Calculator</title>
 
   {{!--Linked scripts--}}
-  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src='/assets/js/pdfmake.min.js'></script> 
   <script src='/assets/js/vfs_fonts.js'></script>
   <script src='/assets/js/quote.js'></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/ab00cd5dc1.js"></script>
 
-
-  
   {{!--Icon--}}
   <link rel="icon" href="assets/img/Encompass_Avatar_rgb.ico" type="image/x-icon" >
   
@@ -24,36 +24,40 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <nav class="navbar navbar-inverse navbar-fixed-top ">
   <div class="container-fluid logo">
     <div class="navbar-header" <a class="navbar-brand" href="https://encompass.tv"> <img style="width: 250px;" src = "../assets/img/Encompass_H_White.png" alt="Encompass Didital Media"></a>
     </div>
-    <nav class="navbar-form navbar-right">
-        <button type="submit" id="contactUs" class="btn btn-default"><a href="https://www.encompass.tv/contact-us/" target="_blank">Contact Us</button></a>
-      </nav>
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://www.linkedin.com/company/encompass-digital-media-inc." target="_blank"><img src="../assets/img/lin.png"></a></li>
-        <li><a href="https://twitter.com/Encompass_Now" target="_blank"><img src="../assets/img/twitter.png"></a></li>
-    </ul>
+    <div class="navbar-form navbar-right">
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <a href="http://www.linkedin.com/company/encompass-digital-media-inc." target="_blank"><img src="../assets/img/lin.png"></a>
+      <a href="https://twitter.com/Encompass_Now" target="_blank"><img src="../assets/img/twitter.png"></a>
+      <a id="contactUs" class="btn btn-default" href="https://www.encompass.tv/contact-us/" target="_blank">Contact Us</a>
+
+    </div>
   </div>
 </nav>
-<div class="container-fluid text-center">    
-  <div class="row content">
-  <!--Middle area to seach and show list of previous quotes-->
-    <div class="col-sm-12 text-left">   
-        <div id="allQuotes" class="well"> 
-          {{{body}}}
-        </div>
+
+<body>
+  <div class="container-fluid text-center">    
+    <div class="row content">
+      <div class="col-sm-12 text-left">   
+          <div class="well"> 
+            {{{body}}}
+          </div>
+      </div>
     </div>
+  </div>
+</body>
+
 <footer class="container-fluid text-center navbar-fixed-bottom ">
   <div class="container-fluid">
   <p>COPYRIGHT 2016 ENCOMPASS, ALL RIGHTS RESERVED.</p>
   </div>
 </footer> 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://use.fontawesome.com/ab00cd5dc1.js"></script>
 <script type="text/javascript">
 
 var docDefinition = {
@@ -100,6 +104,5 @@ var docDefinition = {
 };
 
 </script>   
-</body>
 
 </html>
