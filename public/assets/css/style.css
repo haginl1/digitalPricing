@@ -1,88 +1,91 @@
-  body {
-        background-image: url("../img/background.png");
-        padding-top: 2rem;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        background-attachment: fixed;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 18px;
-        color: #0065bd;
-        line-height: 34px;
-        padding-bottom: 70px;
-    }
+body {
+    background-image: url("../img/background.png");
+    padding-top: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #0065bd;
+    line-height: 34px;
+    padding-bottom: 70px;
+}
 
-  td, th {
-      padding: .9em 3em;
-  }
+td, th {
+    padding: .9em 3em;
+}
 
-  th{
+th {
     background-color: #003478;
     color: white;
-  }
+}
 
-  td {
+td {
     font-size: 16px;
     color: #363636;
-  }
+}
   
-  tr:nth-child(even) {background-color: #f2f2f2}
+tr:nth-child(even) {background-color: #f2f2f2}
 
-  a {
-  color:inherit;
-  text-decoration: none;
- }
+a {
+    color:inherit;
+    text-decoration: none;
+}
   
 h1.title {
-      margin-top: 100px;
-  }
+    margin-top: 100px;
+}
   
 .well {
-        background-color: rgba(255,255,255,0.4);
-        height: auto;
-        overflow: auto;
-        margin-top: 80px;
-        border: none;
-  }
+    background-color: rgba(255,255,255,0.4);
+    height: auto;
+    overflow: auto;
+    margin-top: 80px;
+    border: none;
+}
   
- .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-      background-color: #1a3d5b;
-  }
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #1a3d5b;
+}
   
  div.navbar-header {
-      color: white;
-  }
+    color: white;
+}
   
 .logo .navbar-brand>img {
-      padding: 7px 14px;
-  } 
-  .row.content {
-      height: 450px
-  }
+    padding: 7px 14px;
+} 
+.row.content {
+    height: 450px
+}
 
 img.clientLogos {
-      width: 75%;
-      height: 75%;
-      /*box-shadow: 5px 5px 1px #888888;*/
-  }
+    width: 75%;
+    height: 75%;
+}
+
 img#rightcontainer {
-      width: 100%;
-      height: auto;
-      /*box-shadow: 5px 5px 1px #888888;*/
-  }
+    width: 100%;
+    height: auto;
+}
   
-  footer {
-      background-color: #282a2b;
-      color: white;
-      padding: 15px;
-  }
+footer {
+    background-color: #282a2b;
+    color: white;
+    padding: 15px;
+}
+
+input {
+    margin-bottom: 10px;
+}
 
   /* On small screens, set height to 'auto' for sidenav and grid */
   
-  @media screen and (max-width: 767px) {    
-      .row.content {
-          height: auto;
-      }
-  }
+@media screen and (max-width: 767px) {    
+    .row.content {
+        height: auto;
+    }
+}
