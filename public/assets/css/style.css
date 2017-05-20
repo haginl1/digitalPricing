@@ -117,6 +117,10 @@ div.navbar-header {
     height: 450px
 }
 
+.top-right {
+    margin: 15px;
+}
+
 footer {
     background-color: #282a2b;
     color: white;
