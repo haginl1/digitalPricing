@@ -40,13 +40,15 @@ form.button-size{
 img#rightcontainer {
       width: 90%;
       height: auto;
-      /*box-shadow: 5px 5px 1px #888888;*/
   }
+
+  img#logo{
+        padding-top: 10px;
+    }
 
 input {
     margin-bottom: 10px;
 }
-
 
 th.tableTitle {
   background:#0065bd;
@@ -56,14 +58,10 @@ th.tableTitle {
 table {
     *border-collapse: collapse; /* IE7 and lower */
     border-spacing: 0; 
-    
-    
-
 }
 
 th:first-child {
     border-radius: 10px 0 0 0;
-    
 }
 
 th:last-child {
@@ -82,7 +80,6 @@ a {
     color:inherit;
     text-decoration: none;
 }
-
 
 h1.title {
     margin-top: 100px;
@@ -125,4 +122,40 @@ footer {
     background-color: #282a2b;
     color: white;
     padding: 15px;
+}
+
+/*_________________-*/
+
+@media only screen and (max-width: 980px) {
+  .container {
+    clear: both;
+    margin: 0 auto;
+    width: 80%;
+    /*max-width: 960px;*/
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    #navbar {
+      padding: 5px;
+      margin: 0 0 40px 0;
+      width: auto; 
+    }
+
+
+  }
+
+@media only screen and (max-width: 640px) {
+
+    .container {
+        clear: both;
+        margin: 0 auto;
+        width: 80%;
+        /*max-width: 960px;*/
+      }
+  
+    img#logo{
+        width: 40%;
+    }
+
 }
