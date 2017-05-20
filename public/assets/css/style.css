@@ -6,8 +6,8 @@ body {
     background-position: 50% 0;
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    color: #0065bd;
+    
+    
     line-height: 34px;
     padding-bottom: 70px;
 }
@@ -49,6 +49,7 @@ input {
     margin-bottom: 10px;
 }
 
+
 th.tableTitle {
   background:#0065bd;
   color: white;
@@ -57,8 +58,8 @@ th.tableTitle {
 table {
     *border-collapse: collapse; /* IE7 and lower */
     border-spacing: 0; 
-    background-color: lightgrey;
-    color:black;
+    
+    
 
 }
 
