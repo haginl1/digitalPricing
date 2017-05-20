@@ -52,27 +52,23 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
         yearTwoAnnual = 0,
         yearThreeAnnual = 0,
         protocols = 0;
-    console.log("====== QUOTE "+ typeof quote.HLS);
+
     contractTerm = parseInt(quote.contract_term);
 
     switch (contractTerm) {
         case 3:
             yearOneChannels = parseInt(quote.year_one_channels);
-            console.log("+++++++++++++" + yearOneChannels);
             yearTwoChannels = parseInt(quote.year_two_channels);
             yearThreeChannels = parseInt(quote.year_three_channels);
             yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
-            console.log("+++++++++++++" + JSON.stringify(yearOneRange));
             yearTwoRange = Pricing.getRateRange(yearTwoChannels, streamingRates);
             yearThreeRange = Pricing.getRateRange(yearThreeChannels, streamingRates);
             yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
-            console.log("+++++++++++++" + yearOneRate);
             yearTwoRate = Pricing.getStreamingRate(contractTerm, yearTwoRange);
             yearThreeRate = Pricing.getStreamingRate(contractTerm, yearThreeRange);
             newChannels3 = yearThreeChannels - yearTwoChannels;
             newChannels2 = yearTwoChannels - yearOneChannels;
             newChannels1 = yearOneChannels;
-            console.log(newChannels1);
             break;
         case 2:
             yearOneChannels = parseInt(quote.year_one_channels);
@@ -80,7 +76,6 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
             yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
             yearTwoRange = Pricing.getRateRange(yearTwoChannels, streamingRates);
             yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
-            console.log("+++++++++++++" + yearOneRate);
             yearTwoRate = Pricing.getStreamingRate(contractTerm, yearTwoRange);
             newChannels2 = yearTwoChannels - yearOneChannels;
             newChannels1 = yearOneChannels;
@@ -105,7 +100,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     if (quote.RTMP === "1") {
         protocols += 1;
         }
-    console.log("+++++++++++++ PROTOCOLS" + protocols);
+
     protocolCharge = protocolRates[0].additional_protocol_rate_percent;
    
     if (protocols == 4) {
