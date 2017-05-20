@@ -51,7 +51,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
         yearOneAnnual = 0,
         yearTwoAnnual = 0,
         yearThreeAnnual = 0;
-
+    console.log("====== QUOTE "+ typeof quote.HLS);
     contractTerm = parseInt(quote.contract_term);
 
     switch (contractTerm) {
@@ -104,16 +104,16 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
             break;
     }
 
-    if (quote.HLS === "true") {
+    if (quote.HLS === "1") {
         protocols += 1;
         }
-    if (quote.HDS === "true") {
+    if (quote.HDS === "1") {
         protocols += 1;
         }
-    if (quote.MPEG_DASH === "true") {
+    if (quote.MPEG_DASH === "1") {
         protocols += 1;
         }
-    if (quote.RTMP === "true") {
+    if (quote.RTMP === "1") {
         protocols += 1;
         }
     console.log("+++++++++++++ PROTOCOLS" + protocols);
@@ -141,6 +141,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
             yearThreeSupport = Pricing.getSupportFee(quote, supportRates);
             yearThreeSupport = Math.round(yearThreeRate * yearThreeSupport);
             yearOneRate = Math.round(yearOneRate + yearOneSupport);
+            console.log("===========" + yearOneRate);
             yearTwoRate = Math.round(yearTwoRate + yearTwoSupport);
             yearThreeRate = Math.round(yearThreeRate + yearThreeSupport);
             yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
