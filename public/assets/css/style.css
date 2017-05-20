@@ -53,6 +53,13 @@ td, th {
 }
 
 th{
+  
+td, th {
+    padding: .9em 3em;
+}
+
+th {
+
     background-color: #003478;
     color: white;
 }
@@ -69,11 +76,15 @@ a {
     text-decoration: none;
 }
 
+
 h1.title {
     margin-top: 100px;
 }
 
-.well {
+h1.title {
+    margin-top: 100px;
+}
+  .well {
     background-color: rgba(255,255,255,0.4);
     height: auto;
     overflow: auto;
@@ -90,8 +101,12 @@ h1.title {
 div.navbar-header {
     color: white;
 }
+  
+ div.navbar-header {
+    color: white;
+}
 
-.logo .navbar-brand>img {
+  .logo .navbar-brand>img {
     padding: 7px 14px;
 } 
 .row.content {
@@ -101,6 +116,7 @@ div.navbar-header {
 img.clientLogos {
     width: 75%;
     height: 75%;
+
     /*box-shadow: 5px 5px 1px #888888;*/
 }
 
@@ -115,5 +131,29 @@ footer {
 @media screen and (max-width: 767px) {    
     .row.content {
     height: auto;
+
+}
+
+img#rightcontainer {
+    width: 100%;
+    height: auto;
+}
+  
+footer {
+    background-color: #282a2b;
+    color: white;
+    padding: 15px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  
+@media screen and (max-width: 767px) {    
+    .row.content {
+        height: auto;
+
     }
 }

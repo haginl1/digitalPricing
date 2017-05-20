@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes){
         date: {
             type: DataTypes.DATEONLY,
             allowNull: false,
+            defaultValue: sequelize.NOW,
             get ()
             {
                 if (typeof this.getDataValue('date').getMonth === 'function') {

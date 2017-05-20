@@ -33,18 +33,30 @@ Quotes.getOne = function(id, callback) {
         });
 };
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
 //Saves a full quote
 Quotes.save = function(quote, callback) {
     var protocolRates = {}
     var streamingRates = {}
     var supportRates = {}
+    quote.date = formatDate(Date.now());
     configData.protocolRatesData(function(result) {
         protocolRates = result;
         configData.streamingRatesData(function(result) {
             streamingRates = result;
             configData.supportRatesData(function(result) {
                 supportRates = result;
-                //************need to clean up what I am passing in - getting too much data right now */
                 var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
                 Object.assign(quote, calculations);
                 db.Quote.create(quote)
