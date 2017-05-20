@@ -12,9 +12,6 @@ body {
     padding-bottom: 70px;
 }
 
-/*form {
-    width: 220px;
-}*/
 input#company.form-control{
     width: 320px;
     align-content: right;
@@ -48,22 +45,39 @@ img#rightcontainer {
       /*box-shadow: 5px 5px 1px #888888;*/
   }
 
-td, th {
-    padding: .9em 3em;
+input {
+    margin-bottom: 10px;
 }
 
-th {
+th.tableTitle {
+  background:#0065bd;
+  color: white;
+}
 
-    background-color: #003478;
-    color: white;
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0; 
+    background-color: lightgrey;
+    color:black;
+
+}
+
+th:first-child {
+    border-radius: 10px 0 0 0;
+    
+}
+
+th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+th:only-child{
+    border-radius: 10px 10px 0 0;
 }
 
 td {
-    font-size: 16px;
-    color: #363636;
+  padding: 25px;
 }
-
-tr:nth-child(even) {background-color: #f2f2f2}
 
 a {
     color:inherit;
@@ -75,10 +89,7 @@ h1.title {
     margin-top: 100px;
 }
 
-h1.title {
-    margin-top: 100px;
-}
-  .well {
+ .well {
     background-color: rgba(255,255,255,0.4);
     height: auto;
     overflow: auto;
@@ -96,22 +107,15 @@ div.navbar-header {
     color: white;
 }
   
- div.navbar-header {
+div.navbar-header {
     color: white;
 }
 
-  .logo .navbar-brand>img {
+.logo .navbar-brand>img {
     padding: 7px 14px;
 } 
 .row.content {
     height: 450px
-}
-
-img.clientLogos {
-    width: 75%;
-    height: 75%;
-
-    /*box-shadow: 5px 5px 1px #888888;*/
 }
 
 footer {
@@ -139,9 +143,6 @@ footer {
     padding: 15px;
 }
 
-input {
-    margin-bottom: 10px;
-}
 
   /* On small screens, set height to 'auto' for sidenav and grid */
   
