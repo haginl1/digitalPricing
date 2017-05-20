@@ -42,6 +42,10 @@ img#rightcontainer {
       height: auto;
   }
 
+  img#logo{
+        padding-top: 10px;
+    }
+
 input {
     margin-bottom: 10px;
 }
@@ -118,4 +122,40 @@ footer {
     background-color: #282a2b;
     color: white;
     padding: 15px;
+}
+
+/*_________________-*/
+
+@media only screen and (max-width: 980px) {
+  .container {
+    clear: both;
+    margin: 0 auto;
+    width: 80%;
+    /*max-width: 960px;*/
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    #navbar {
+      padding: 5px;
+      margin: 0 0 40px 0;
+      width: auto; 
+    }
+
+
+  }
+
+@media only screen and (max-width: 640px) {
+
+    .container {
+        clear: both;
+        margin: 0 auto;
+        width: 80%;
+        /*max-width: 960px;*/
+      }
+  
+    img#logo{
+        width: 40%;
+    }
+
 }
