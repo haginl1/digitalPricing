@@ -12,11 +12,54 @@ body {
     padding-bottom: 70px;
 }
 
+/*form {
+    width: 220px;
+}*/
+input#company.form-control{
+    width: 320px;
+    align-content: right;
+}
+
+input#date.form-control{
+    width: 220px;
+    align-content: right;
+}
+
+input#channels.form-control{
+    width: 320px;
+    align-content: right;
+}
+
+label.checkbox-inline{
+    font-size: 14px;
+    color: #363636;
+    line-height: 34px;
+}
+
+form.button-size{
+    font-size: 14px;
+    color: #363636;
+    line-height: 34px;
+}
+
+img#rightcontainer {
+      width: 90%;
+      height: auto;
+      /*box-shadow: 5px 5px 1px #888888;*/
+  }
+
+td, th {
+    padding: .9em 3em;
+}
+
+th{
+  
 td, th {
     padding: .9em 3em;
 }
 
 th {
+
     background-color: #003478;
     color: white;
 }
@@ -25,37 +68,45 @@ td {
     font-size: 16px;
     color: #363636;
 }
-  
+
 tr:nth-child(even) {background-color: #f2f2f2}
 
 a {
     color:inherit;
     text-decoration: none;
 }
-  
+
+
 h1.title {
     margin-top: 100px;
 }
-  
-.well {
+
+h1.title {
+    margin-top: 100px;
+}
+  .well {
     background-color: rgba(255,255,255,0.4);
     height: auto;
     overflow: auto;
     margin-top: 80px;
     border: none;
 }
-  
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
     background-color: #1a3d5b;
 }
+
+div.navbar-header {
+    color: white;
+}
   
  div.navbar-header {
     color: white;
 }
-  
-.logo .navbar-brand>img {
+
+  .logo .navbar-brand>img {
     padding: 7px 14px;
 } 
 .row.content {
@@ -65,6 +116,22 @@ h1.title {
 img.clientLogos {
     width: 75%;
     height: 75%;
+
+    /*box-shadow: 5px 5px 1px #888888;*/
+}
+
+footer {
+    background-color: #282a2b;
+    color: white;
+    padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+
+@media screen and (max-width: 767px) {    
+    .row.content {
+    height: auto;
+
 }
 
 img#rightcontainer {
@@ -87,5 +154,6 @@ input {
 @media screen and (max-width: 767px) {    
     .row.content {
         height: auto;
+
     }
 }
