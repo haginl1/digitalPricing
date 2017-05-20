@@ -24,8 +24,6 @@ var Quotes = require('../controllers/quotes_controller.js')
              } else {
                  var resquote = {
                      quote: quote,
-                     test: { label: "this is test" }
-
                  };
                  res.render("result", resquote);
 
