@@ -6,8 +6,6 @@ body {
     background-position: 50% 0;
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
-    
-    
     line-height: 34px;
     padding-bottom: 70px;
 }
@@ -123,33 +121,4 @@ footer {
     background-color: #282a2b;
     color: white;
     padding: 15px;
-}
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-
-@media screen and (max-width: 767px) {    
-    .row.content {
-    height: auto;
-
-}
-
-img#rightcontainer {
-    width: 100%;
-    height: auto;
-}
-  
-footer {
-    background-color: #282a2b;
-    color: white;
-    padding: 15px;
-}
-
-
-  /* On small screens, set height to 'auto' for sidenav and grid */
-  
-@media screen and (max-width: 767px) {    
-    .row.content {
-        height: auto;
-
-    }
 }
