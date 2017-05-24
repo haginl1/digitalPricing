@@ -5,6 +5,7 @@
 
   {{!--CDN Linked scripts--}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/ab00cd5dc1.js"></script>
 
@@ -13,7 +14,7 @@
   <script src='/assets/js/vfs_fonts.js'></script>
   <script src='/assets/js/quote.js'></script> 
 
-  {{!--Icon--}}
+  {{!--Title Icon--}}
   <link rel="icon" href="assets/img/Encompass_Avatar_rgb.ico" type="image/x-icon" >
   
   {{!--Meta tags--}}
@@ -27,37 +28,60 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<nav id="navbar"class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header logo" <a class="navbar-brand" href="/"> <img id="logo" src = "../assets/img/companylogo.png" alt="Encompass Didital Media"></a>
-    </div>
-    <div class="nav navbar-nav navbar-right top-right">
-      <a href="http://www.linkedin.com/company/encompass-digital-media-inc." target="_blank"><img class="social" src="../assets/img/lin.png"></a>
-      <a href="https://twitter.com/Encompass_Now" target="_blank"><img class="social" src="../assets/img/twitter.png"></a>
-      <a id="contactUs" class="btn btn-default social" href="https://www.encompass.tv/contact-us/" target="_blank">Contact Us</a>
+<body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/"><img src ="../assets/img/companylogo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/quote"></a></li>
+        {{!--<li><a href="#"></a></li>
+        <li><a href="#"></a></li>--}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button id="ContactUs"class="btn btn-default btn-md"><a href="https://www.encompass.tv/contact-us/"  target="_blank">Contact Us</a></button></li>
+        <li><a href="#" target="_blank"><img src="../assets/img/lin.png"></a></li>
+        <li><a href="#" target="_blank"><img src="../assets/img/twitter.png"></a></li>
+        
+        
+      </ul>
     </div>
   </div>
 </nav>
-
-<body>
-  <div class="container-fluid text-center">    
-    <div class="row content">
-      <div class="col-sm-12 text-left">   
-          <div class="well"> 
-            {{{body}}}
-          </div>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    {{!--<div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>--}}
+    <div class="col-sm-12 text-left"> 
+      {{{body}}}
+    {{!--<div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
       </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>--}}
     </div>
   </div>
-</body>
+</div>
 
-<footer class="container-fluid text-center navbar-fixed-bottom ">
-  <div class="container-fluid">
+<footer class="container-fluid text-center navbar-fixed-bottom">
   <p>COPYRIGHT 2017 ENCOMPASS, ALL RIGHTS RESERVED.</p>
-  </div>
-</footer> 
-
+</footer>
+{{!--javascript for PDF--}}
 <script type="text/javascript">
 var docDefinition = {
   content: [ 
@@ -106,8 +130,11 @@ var docDefinition = {
           }
         }
 };
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
 
 
 </script>   
-
+</body>
 </html>

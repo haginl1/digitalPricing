@@ -1,43 +1,49 @@
-    <div class="container">
-        <h3>Digital Streaming Quotes</h3>
-        <button type="submit" id="newQuote" class="btn btn-success">
-            <a href="/quote">New Quote</a>
-        </button>
-        <hr>          
-          <!-- Table -->
+
+	
             
-            <div class="table-responsive">          
-			<table class="table table-striped table-hover" style ="box-shadow:10px 10px 5px black ">
-				<thead>
+            <div class="panel panel-primary">
+			<div class="panel-heading ">
+				<h3 class="panel-title text-warning pull-left">Quote History</h3>
+				<a href="/quote" class="btn btn-success pull-right">New Quote</a>
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body" id="accordion">
+				<table id="myTable"class="table table-striped table-hover" >
+
+					<thead>
 						<tr>
-						<th colspan="5" class ="tableTitle" >Digital Streaming Quote History {{quote.company}} </th>
+							<th><button type="button" class="btn btn-xs btn-default" id="name-btn">Date</button></th>
+							<th><button type="button" class="btn btn-xs btn-default" id="style-btn">Company</button></th>
+							<th><button type="button" class="btn btn-xs btn-default" id="rating-btn">Description</button></th>
+							<th><button type="button" class="btn btn-xs btn-default" id="abv-btn">Quotes</button></th>
+							
 						</tr>
-						<tr>
-							<th>Date</th>
-                            <th>Company</th>
-                            <th>Description</th>
-                            <th>View Quotes</th>   
-						</tr>
-                                           <tbody  id="quoteInfo" class="table table-hover tableTitle">
-                {{#each quotes}}
-                    <tr>
-                        <td>{{this.date}}</td>
-                        <td>{{this.company}}</td>
-                        <td>{{this.description}}</td>
-                        <td>
-                            <form action="/result/{{this.id}}?_method=GET" method="POST">
-                                <input type="hidden" name="id" value="{{this.id}}">
-                                <button class="btn btn-default" type="submit">View 
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                {{/each}}
-                </tbody> 
-				</thead>
-        	</table>
-</div>
-        </div>        
-    </div>
+					</thead>
+					<tbody>
+						<!-- quotes table goes here -->
+
+                        {{#each quotes}}
+                        <tr>
+                            
+                            <td>{{this.date}}</td>
+                            <td>{{this.company}}</td>
+                            <td>{{this.description}}</td>
+                            <td>
+                                <form action="/result/{{this.id}}?_method=GET" method="POST">
+                                    <input type="hidden" name="id" value="{{this.id}}">
+                                    <button class="btn btn-default" type="submit">View 
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                         {{/each}}
+
+						<!-- /quotes table goes here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+    
 
 
