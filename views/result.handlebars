@@ -1,78 +1,80 @@
+<div class="container-fluid ">    
+  <div class="row content">
+    <div class="col-sm-6 sidenav">
+      <div class="well">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Define Quote Details</div>
+            <div class="panel-body">
+                <h4>{{quote.date}}</h4>
+				<p>1. Client: {{quote.company}}</p>
+				<p>2. Contract Term: {{quote.contract_term}} year(s)</p>
+				<p>3. Proposal Description:  {{quote.description}}</p>
+				<p>4. Support Plan: {{quote.support_plan}}</p>
 
-<div class="container">  
-	<div class="row">
-		<div class="col-md-6">
-			<h3>{{quote.date}}</h3>
-			
-		</div>
-		<div class="col-md-6">
-			<h3>Digital Streaming Results</h3>
-		</div>
-	</div>
-    <div class="row">
-		
-        <div class="col-md-3">
-            
-			<p>1. Client: {{quote.company}}</p>
-			<p>2. Contract Term: {{quote.contract_term}} year(s)</p>
-			<p>3. Proposal Description:  {{quote.description}}</p>
-			<p>4. Support Plan: {{quote.support_plan}}</p>
-        </div>
-		
-        <div class="col-md-9">
-            <div class="table-responsive">          
-			<table class="table table-striped table-hover" style ="box-shadow:10px 10px 5px black ">
-				<thead>
-						<tr>
-						<th colspan="4" class ="tableTitle" >Digital Streaming Prices for {{quote.company}} </th>
-						</tr>
-						<tr>
-							<th></th>
-							<th>Year 1</th>
-							<th>Year 2</th>
-							<th>Year 3</th>
-						</tr>
-						<tr>
-							<th># of Channels</th>
-							<td>{{quote.year_one_channels}}</td>
-							<td>{{quote.year_two_channels}}</td>
-							<td>{{quote.year_three_channels}}</td>
-						</tr>
-						<tr>
-							<th>Setup Fee</th>
-							<td>${{quote.year_one_setup_fee}}</td>
-							<td>${{quote.year_two_setup_fee}}</td>
-							<td>${{quote.year_three_setup_fee}}</td>
-							
-						</tr>
-						<tr>
-							<th>Support</th>
-							<td>${{quote.year_one_support_fee}}</td>
-							<td>${{quote.year_two_support_fee}}</td>
-							<td>${{quote.year_three_support_fee}}</td>
-						
-						</tr>
-						<tr>
-							<th>Monthly Fee </th>
-							<td>${{quote.year_one_monthly_streaming}}</td>
-							<td>${{quote.year_two_monthly_streaming}}</td>
-							<td>${{quote.year_three_monthly_streaming}}</td>
-						</tr>
-						<tr>
-							<th>Annual Fee</th>
-							<td>${{quote.year_one_annual_fee}}</td>
-							<td>${{quote.year_two_annual_fee}}</td>
-							<td>${{quote.year_three_annual_fee}}</td>		
-						</tr>
-				</thead>
-        	</table>
-		<button type="submit" id="newQuote" class="btn btn-danger"><a href="/quote">Go Back</a>
-		</button>
-		<button type="submit" id="pdf" class="btn btn-success" onclick="pdfMake.createPdf(docDefinition).download()">Create PDF</a>
+				<button type="submit" id="pdf" class="btn btn-success" onclick="pdfMake.createPdf(docDefinition).download()">Create PDF</a>
 		</button> 
-		<button type="submit" id="newQuote" class="btn btn-info"><a href="/">View All Quotes</a>
-		</button> 
+            </div> 
+            {{!--End panel body div--}}
         </div>
+        
+      </div>
     </div>
+
+    <div class="col-sm-6 sidenav">
+      <div class="well">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Digital Streaming Prices for {{quote.company}}</div>
+                <div class="panel-body">
+					<div class="table-responsive">          
+						<table class="table table-striped table-hover" style ="box-shadow:10px 10px 5px black ">
+							<thead>
+									<tr>
+										<th></th>
+										<th>Year 1</th>
+										<th>Year 2</th>
+										<th>Year 3</th>
+									</tr>
+									<tr>
+										<th># of Channels</th>
+										<td>{{quote.year_one_channels}}</td>
+										<td>{{quote.year_two_channels}}</td>
+										<td>{{quote.year_three_channels}}</td>
+									</tr>
+									<tr>
+										<th>Setup Fee</th>
+										<td>${{quote.year_one_setup_fee}}</td>
+										<td>${{quote.year_two_setup_fee}}</td>
+										<td>${{quote.year_three_setup_fee}}</td>
+										
+									</tr>
+									<tr>
+										<th>Support</th>
+										<td>${{quote.year_one_support_fee}}</td>
+										<td>${{quote.year_two_support_fee}}</td>
+										<td>${{quote.year_three_support_fee}}</td>
+									
+									</tr>
+									<tr>
+										<th>Monthly Fee </th>
+										<td>${{quote.year_one_monthly_streaming}}</td>
+										<td>${{quote.year_two_monthly_streaming}}</td>
+										<td>${{quote.year_three_monthly_streaming}}</td>
+									</tr>
+									<tr>
+										<th>Annual Fee</th>
+										<td>${{quote.year_one_annual_fee}}</td>
+										<td>${{quote.year_two_annual_fee}}</td>
+										<td>${{quote.year_three_annual_fee}}</td>		
+									</tr>
+							</thead>
+						</table>		
+				</div>
+            </div>
+      </div>
+      
+    </div>
+  </div>
 </div>
+    
+
 
