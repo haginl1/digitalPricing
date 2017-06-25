@@ -18,7 +18,25 @@ router.post('/register',function(req,res){
 	var username =req.body.username;
 	var password =req.body.password;
 	var password2 =req.body.password2;
-	console.log(name);
+	//Validation
+	req.checkBody('name', 'Name is require').notEmpty();
+	req.checkBody('email', 'Email is require').notEmpty();
+	req.checkBody('email', 'Email is not valid').isEmail();
+	req.checkBody('username', 'Username is require').notEmpty();
+	req.checkBody('password', 'Password2 is require').notEmpty();
+	req.checkBody('password2', 'Passwords do no match').equals(req.body.password);
+	
+	var errors=req.validationErrors();
+
+	if(errors){
+		res.render('register',{
+			errors:errors
+		});
+
+	}else {
+		var newUser = new
+	}
+
 });
 
 module.exports=router;
