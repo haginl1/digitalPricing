@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "development": {
         "username": "laurieowens",
         "password": "password123",
@@ -19,3 +20,19 @@
     }
 
 }
+=======
+      "development": {
+ -        "username": "",
+ -        "password": "",
+ -        "database": "digital_pricing_db",
+ -        "host": "127.0.0.1",
+ -        "dialect": "mysql"
+ -    },
+ -    "test": {
+          "username": "root",
+ -        "password": null,
+ -        "database": "digital_pricing_db",
+          "host": "127.0.0.1",
+          "dialect": "mysql"
+      }
+>>>>>>> 55e79862e52c7e8396f3454986ef46cda28724b2
