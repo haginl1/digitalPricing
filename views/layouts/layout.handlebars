@@ -10,10 +10,15 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right"> 
-            <li role="presentation"><a href="/users/login">Login</a></li>
+          {{#if user}}
             <li role="presentation"><a href="/">Quote History</a></li>
             <li role="presentation"><a href="/users/logout">Logout</a></li>
+      
+{{else}}
+             <li role="presentation"><a href="/users/login">Login</a></li>
+      
             <li role="presentation"><a href="/users/register">New User Registration</a></li>
+            {{/if}}
           </ul>
         </nav>
         <h3 class="text-muted">LoginApp</h3>
@@ -24,17 +29,20 @@
           {{#if success_msg}}
           <div class="alert alert-success">{{success_msg}}</div>
           {{/if}}
+
           {{#if error_msg}}
           <div class="alert alert-danger">{{error_msg}}</div>
           {{/if}}
+
           {{#if error}}
           <div class="alert alert-danger">{{error}}</div>
           {{/if}}
+
           {{{body}}}
         </div>
         
       </div>
-      <footer class="footer">
+  <footer class="footer">
         <p>&copy; 2017 Encompass Login, Inc.</p>
       </footer>
       </div> <!-- /container -->
