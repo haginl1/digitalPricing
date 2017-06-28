@@ -1,7 +1,7 @@
 var Quotes = require('../controllers/quotes_controller.js')
 
  module.exports = function(app) {
-     app.get("/", function(req, res) {
+     app.get("/home", function(req, res) {
          Quotes.getAll(function callback(allQuotes) {
              console.log(allQuotes)
              var result = {
