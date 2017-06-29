@@ -13,11 +13,11 @@ var port = process.env.PORT || 8080;
 
 var dbStartupArguments = {};
 
-// set up handlebars engine
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
-}));
-app.set('view engine', 'handlebars');
+// // set up handlebars engine
+// app.engine('handlebars', exphbs({
+//     defaultLayout: 'main'
+// }));
+// app.set('view engine', 'handlebars');
 
 // Serve static content for the app from the 'public' directory in the
 // application directory.
