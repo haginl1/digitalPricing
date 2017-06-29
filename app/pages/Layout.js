@@ -10,7 +10,6 @@ import Footer from "../components/Layout/Footer.js";
 
 export default class Layout extends React.Component {
   render() {
-    console.log(this.props);
     const { location } = this.props;
 
     const containerStyle = {
@@ -26,7 +25,7 @@ export default class Layout extends React.Component {
             <Switch>
               <Route path='/quote' component={NewQuote} />
               <Route path='/contact' component={Contact} />
-              <Route exact path='/' component={QuoteHistory} />
+              <Route exact path='/' component={QuoteHistory}/>
               <Route exact path='*' component={NotFound} />
             </Switch>
           </div>
