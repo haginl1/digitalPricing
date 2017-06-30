@@ -1,4 +1,9 @@
 import React from 'react';
+// import {  } from 'react-router-dom'
+import { NavLink, Switch } from "react-router-dom";
+import QuoteHistoryRow from "./QuoteHistoryRow.js"
+
+
 
 export default class QuoteHistory extends React.Component {
 	constructor(props) {
@@ -7,8 +12,9 @@ export default class QuoteHistory extends React.Component {
 		// this.getQuotes = this.getQuotes.bind(this)
 	}
 
-	componentDidMount() {
+	componentDidMount(props) {
 		this.getQuotes()
+		console.log(this.props.currentQuote)
 	}
 
 	getQuotes() {
@@ -30,19 +36,8 @@ export default class QuoteHistory extends React.Component {
 		else {
 			var list = this.state.quotes.map(function(row, index){
 				return (
-					<tr key={row.id}>
-				 		<td>{row.date}</td>
-						<td>{row.company}</td>
-						<td>{row.description}</td>
-						<td>
-								<button className="btn btn-default" type="submit">View 
-								</button>
-						
-						</td>
-					</tr>
+					<QuoteHistoryRow quote={row} setCurrentQuote={this.props.setCurrentQuote}/>
 				)
-				// return (<td>hello</td>)
-
 			}.bind(this))
 			return <tbody>{list}</tbody>	   
 		}

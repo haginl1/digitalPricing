@@ -6,9 +6,23 @@ import NotFound from "./404.js";
 import Contact from "./Contact.js";
 import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
+import QuoteDetails from "./QuoteDetails.js"
 
 
 export default class Layout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userID:"",
+      currentQuote:""
+    }
+    this.setCurrentQuote = this.setCurrentQuote.bind(this)
+  }
+
+  setCurrentQuote(row) {
+    this.setState({currentQuote: row})
+  }
+
   render() {
     const { location } = this.props;
 
@@ -16,6 +30,7 @@ export default class Layout extends React.Component {
       marginTop: "60px",
       backgroundColor: "#eeeeee"
     };
+
     return (
       <div>
         <Nav location={location} />
@@ -25,7 +40,8 @@ export default class Layout extends React.Component {
             <Switch>
               <Route path='/quote' component={NewQuote} />
               <Route path='/contact' component={Contact} />
-              <Route exact path='/' component={QuoteHistory}/>
+              <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
+              <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
               <Route exact path='*' component={NotFound} />
             </Switch>
           </div>
