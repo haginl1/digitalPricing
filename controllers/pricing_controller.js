@@ -18,7 +18,7 @@ var contractTerm = 0,
     supportRate = 0;
 
 var results = {
-	year_one_monthly_streaming: 0,
+    year_one_monthly_streaming: 0,
     year_two_monthly_streaming: 0,
     year_three_monthly_streaming: 0,
     year_one_setup_fee: 0,
@@ -172,7 +172,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     results.year_two_annual_fee = yearTwoAnnual;
     results.year_three_annual_fee = yearThreeAnnual;
 
-	return results;
+    return results;
 }
 
 Pricing.getRateRange = function(channelCount, streamingRates) {

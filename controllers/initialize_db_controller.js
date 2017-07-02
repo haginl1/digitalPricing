@@ -4,6 +4,7 @@ var InitializeDB =  {}
 
 var quoteData = [
     {
+        'userID': '1',
         'company':'AMC',
         'description': 'Contract renegotiation 2017',
         'date': '2017-05-12',
@@ -30,6 +31,7 @@ var quoteData = [
         'year_three_annual_fee': 3333.00
     },
     {
+        'userID': '2',
         'company':'NFL Network',
         'description': '2018 Season',
         'date': '2017-05-10',
@@ -56,6 +58,7 @@ var quoteData = [
         'year_three_annual_fee': null
     },
     {
+        'userID': '2',
         'company':'HGTV',
         'description': 'Streaming Kickoff',
         'date': '2017-05-08',
