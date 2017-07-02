@@ -6,7 +6,7 @@ export default class Calc extends React.Component {
 		return (
 			<div>
 			  <h1>
-			    $<CountUp setParent={this.setParent} start={0} end={160526} />
+			    $<CountUp setParent={this.setParent} start={this.props.oldEstimate} end={this.props.newEstimate} />
 			  </h1>
 		  	</div>
 		);

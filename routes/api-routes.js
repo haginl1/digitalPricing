@@ -11,6 +11,13 @@ apiRouter.get("/quotes", function(req, res) {
     })
 });
 
+apiRouter.get("/estimate", function(req, res) {
+    Quotes.getEstimate(req, function callback(estimate) {
+        console.log(estimate);
+        res.send(estimate);
+    })
+});
+
 apiRouter.get("/quote/:id", function(req, res) {
     Quotes.getOne(req.params.id, function callback(quote) {
         if (quote.length === 0) {

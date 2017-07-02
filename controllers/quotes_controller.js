@@ -74,6 +74,27 @@ Quotes.save = function(quote, callback) {
     })
 }
 
+Quotes.getEstimate = function(quote, callback) {
+    var protocolRates = {}
+    var streamingRates = {}
+    var supportRates = {}
+    quote.date = formatDate(Date.now());
+    configData.protocolRatesData(function(result) {
+        protocolRates = result;
+        configData.streamingRatesData(function(result) {
+            streamingRates = result;
+            configData.supportRatesData(function(result) {
+                supportRates = result;
+                var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
+                callback({
+                    estimate: Math.random()*10000 //NEED TO FIX TO REAL ESTIMATE FROM CALCLUTIONS OR FUNCTION THAT GETS ESTIMATE
+                })
+            })           
+        })
+    })
+}
+
+
 Quotes.validate = function(req) {
             if (typeof(req.body.year_one_channels) === "undefined") {
             req.body.year_one_channels = 0
