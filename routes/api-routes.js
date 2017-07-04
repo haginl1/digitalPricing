@@ -11,7 +11,19 @@ apiRouter.get("/quotes", function(req, res) {
     })
 });
 
-apiRouter.get("/estimate", function(req, res) {
+apiRouter.get("/estimate/:contractTerm/:yearOneChannels/:yearTwoChannels/:yearThreeChannels/:HLS/:HDS/:MPEGDASH/:RTMP/:supportPlan", function(req, res) {
+    var req = {
+        contract_term: req.params.contractTerm,
+        year_one_channels: req.params.yearOneChannels,
+        year_two_channels: req.params.yearTwoChannels,
+        year_three_channels: req.params.yearThreeChannels,
+        HLS: req.params.HLS,
+        HDS: req.params.HDS,
+        MEPG_DASH: req.params.MPEGDASH,
+        RTMP: req.params.RTMP,
+        support_plan: req.params.supportPlan
+    }
+    console.log(req)
     Quotes.getEstimate(req, function callback(estimate) {
         console.log(estimate);
         res.send(estimate);
