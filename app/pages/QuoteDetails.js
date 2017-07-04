@@ -16,7 +16,6 @@ export default class QuoteDetails extends React.Component {
   }
 
   	componentDidMount(props) {
-		console.log(this.props.currentQuote)
 	}
 
   render() {

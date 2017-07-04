@@ -38,7 +38,8 @@ export default class Layout extends React.Component {
           Strict mode in the house
           <div>
             <Switch>
-              <Route path='/quote' component={NewQuote} />
+              
+              <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
               <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />

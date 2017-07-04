@@ -4,6 +4,8 @@ var Quotes     = require('../controllers/quotes_controller.js')
 
 var apiRouter  = express.Router(); 
 
+
+
 apiRouter.get("/quotes", function(req, res) {
     Quotes.getAll(function callback(allQuotes) {
         console.log(allQuotes);
@@ -23,9 +25,7 @@ apiRouter.get("/estimate/:contractTerm/:yearOneChannels/:yearTwoChannels/:yearTh
         RTMP: req.params.RTMP,
         support_plan: req.params.supportPlan
     }
-    console.log(req)
     Quotes.getEstimate(req, function callback(estimate) {
-        console.log(estimate);
         res.send(estimate);
     })
 });

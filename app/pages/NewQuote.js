@@ -1,6 +1,9 @@
 import React from 'react';
 import Calc from './Calc';
 
+import SaveQuoteButton from './SaveQuoteButton';
+
+
 export default class Archives extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +27,8 @@ export default class Archives extends React.Component {
     }
 
     handleInputChange(event) {
-        console.log("got here")
+        console.log("props to my props")
+        console.log(this.props.setCurrentQuote)
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -108,7 +112,7 @@ export default class Archives extends React.Component {
                           <option id="support_plan_platinum">platinum</option>
                       </select>
                       <p></p>
-                      <button className="btn btn-success" type="submit" onSubmit={this.handleFormSubmit}>Save</button>
+                      <SaveQuoteButton setCurrentQuote={this.props.setCurrentQuote} {...this.state}/>
                   </div>
               </form>
                   </div> 
