@@ -24,6 +24,7 @@ export default class Archives extends React.Component {
     }
 
     handleInputChange(event) {
+        console.log("got here")
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -95,22 +96,19 @@ export default class Archives extends React.Component {
                       <select name="contractTerm" value={this.state.contractTerm} onChange={this.handleInputChange} className="selectpicker" id="contract_term" required title="Choose one of the following...">
                           <option id="contract_term_1">1</option>
                           <option id="contract_term_2">2</option>
-                          <option selected id="contract_term_3">3</option>
+                          <option defaultValue id="contract_term_3">3</option>
                       </select>
                       <h4> 4. Enter the number of streams you need each year.</h4>
                           <input name="yearOneChannels" onChange={this.handleInputChange} value={this.state.yearOneChannels} type="number" min="1" step="1" id="year_one_channels" className="form-control" required placeholder="Channels in Year 1"></input>
                           <input name="yearTwoChannels" onChange={this.handleInputChange} value={this.state.yearTwoChannels} type="number" min="1" step="1" id="year_two_channels" className="form-control"  required placeholder="Channels in Year 2"></input>
                           <input name="yearThreeChannels" onChange={this.handleInputChange} value={this.state.yearThreeChannels} type="number" min="1" step="1" id="year_three_channels" className="form-control" required placeholder="Channels in Year 3"></input>
                       <h4> 5. Select a support plan for your services.</h4>
-                      <div className="radio">
-                          <ul>
-                              <label><input onChange={this.handleInputChange} type="radio" name="gold" checked value="Gold"/>Gold</label>
-                              <label><input onChange={this.handleInputChange} type="radio" name="platinum" value="Platinum"/>Platinum</label>
-                          </ul>
-                      </div>
-                      <ul>
-                          <button className="btn btn-success" type="submit" onSubmit={this.handleFormSubmit}>Calculate</button>
-                      </ul>
+                      <select name="supportPlan" value={this.state.supportPlan} onChange={this.handleInputChange} className="selectpicker" id="support_plan" required>
+                          <option defaultValue id="support_plan_gold">gold</option>
+                          <option id="support_plan_platinum">platinum</option>
+                      </select>
+                      <p></p>
+                      <button className="btn btn-success" type="submit" onSubmit={this.handleFormSubmit}>Save</button>
                   </div>
               </form>
                   </div> 
@@ -121,7 +119,7 @@ export default class Archives extends React.Component {
           <div className="col-sm-6 sidenav">
             <div className="well">
                   <div className="panel panel-primary">
-                      <div className="panel-heading">Current</div>
+                      <div className="panel-heading">Year 1 Estimate</div>
                       <div className="panel-body"><Calc oldEstimate={this.state.quoteOldEstimate} newEstimate={this.state.quoteNewEstimate}/></div>
                   </div>
             </div>
