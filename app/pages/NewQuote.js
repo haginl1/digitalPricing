@@ -27,8 +27,6 @@ export default class Archives extends React.Component {
     }
 
     handleInputChange(event) {
-        console.log("props to my props")
-        console.log(this.props.setCurrentQuote)
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -53,7 +51,6 @@ export default class Archives extends React.Component {
                         + "/" + this.state.supportPlan
         axios.get(APIURL)
             .then(function (response) {
-                console.log(response.data.estimate)
                 this.setState({quoteOldEstimate: this.state.quoteNewEstimate})
                 this.setState({quoteNewEstimate: response.data.estimate})
             }.bind(this))

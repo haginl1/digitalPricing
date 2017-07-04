@@ -11,8 +11,6 @@ export default class QuoteDetails extends React.Component {
     this.setState({value:event.target.value});
     const numbers = []
     numbers.push(event.target.value)
-    //console.log(this.state)
-    console.log(numbers)
   }
 
   	componentDidMount(props) {

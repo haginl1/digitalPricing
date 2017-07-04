@@ -88,8 +88,7 @@ Quotes.getEstimate = function(quote, callback) {
                 var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
                 console.log(calculations)
                 callback({
-                    estimate: calculations.year_one_monthly_streaming
-                    // estimate: Math.random()*10000 //NEED TO FIX TO REAL ESTIMATE FROM CALCLUTIONS OR FUNCTION THAT GETS ESTIMATE
+                    estimate: calculations.year_one_monthly_streaming * 12
                 })
             })           
         })
