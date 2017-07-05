@@ -36,7 +36,7 @@ export default class QuoteHistory extends React.Component {
 		else {
 			var list = this.state.quotes.map(function(row, index){
 				return (
-					<QuoteHistoryRow quote={row} setCurrentQuote={this.props.setCurrentQuote}/>
+					<QuoteHistoryRow key={index} quote={row} setCurrentQuote={this.props.setCurrentQuote}/>
 				)
 			}.bind(this))
 			return <tbody>{list}</tbody>	   
