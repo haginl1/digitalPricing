@@ -16,16 +16,19 @@ export default class QuoteHistory extends React.Component {
 
 	getQuotes() {
 		  axios.get('/api/quotes')
-      .then(function (response) {
-        this.setState({quotes: response.data})
-      }.bind(this))
-      .catch(function (error) {
-        console.log(error);
-        this.setState({quotes: []})
-      });
+	  .then(function (response) {
+		this.setState({quotes: response.data})
+	  }.bind(this))
+	  .catch(function (error) {
+		console.log(error);
+		this.setState({quotes: []})
+	  });
 	}
 
 	renderEachQuote() {
+		$(document).ready(function(){
+			$('#myTable').dataTable();
+		});
 		if (this.state.quotes === []) {
 			return
 		}
@@ -35,13 +38,13 @@ export default class QuoteHistory extends React.Component {
 					<QuoteHistoryRow key={index} quote={row} setCurrentQuote={this.props.setCurrentQuote}/>
 				)
 			}.bind(this))
-			return <tbody>{list}</tbody>	   
+			return <tbody>{list}</tbody>       
 		}
 	}
 
   render() {
-    return (
-    <div>
+	return (
+	<div>
 		<div className="panel panel-primary">
 			<div className="panel-heading ">
 				<h3 className="panel-title text-warning pull-left">Quote History</h3>
@@ -56,12 +59,12 @@ export default class QuoteHistory extends React.Component {
 							<th><button type="button" className="btn btn-xs btn-default" id="rating-btn">Description</button></th>
 							<th><button type="button" className="btn btn-xs btn-default" id="abv-btn">Quotes</button></th>
 						</tr>
-					</thead>					
+					</thead>                    
 							{this.renderEachQuote()}
 				</table>
 			</div>
 		</div>
-    </div>
-    );
+	</div>
+	);
   }
 }
