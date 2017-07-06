@@ -37,7 +37,7 @@ export default class Layout extends React.Component {
             <Switch> 
               <Route path='/register' component={Register}/>
               <Route path='/quote' component={NewQuote} />
-              <Route path='/login' component={Login}/>
+              <Route path='/' component={Login}/>
               <Route path='/logout' component={Logout} />
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
