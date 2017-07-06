@@ -29,7 +29,7 @@ export default class Nav extends React.Component {
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
-          <a className="navbar-brand" href="/"><img src ="http://via.placeholder.com/150x25" alt="logo"/></a>
+          <a className="navbar-brand" href="/"><img src ="./assets/img/logo-50.png" alt="logo"/></a>
             <button type="button" className="navbar-toggle collapsed" 
               onClick={this.toggleClass.bind(this)} 
               data-toggle="collapse" 
