@@ -1,5 +1,4 @@
 import React from 'react';
-// import {  } from 'react-router-dom'
 import { NavLink, Switch } from "react-router-dom";
 
 
@@ -14,8 +13,6 @@ export default class QuoteHistory extends React.Component {
 	}
 
 	updateCurrentQuote(event) {
-		console.log(this.props.quote.id)
-		console.log(this.props)
 		this.props.setCurrentQuote(this.props.quote)
 	}
 
@@ -28,7 +25,7 @@ export default class QuoteHistory extends React.Component {
 				<td>
 					<form onSubmit={this.viewQuote}>
 						<NavLink to='/details'>
-							<button onClick={this.updateCurrentQuote} id={this.props.quote.id} className="btn btn-default" type="submit" to="/detais">
+							<button onClick={this.updateCurrentQuote} id={this.props.quote.id} className="btn btn-default" type="submit" to="/details">
 								View 
 							</button>
 						</NavLink>

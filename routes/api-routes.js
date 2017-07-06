@@ -4,10 +4,29 @@ var Quotes     = require('../controllers/quotes_controller.js')
 
 var apiRouter  = express.Router(); 
 
+
+
 apiRouter.get("/quotes", function(req, res) {
     Quotes.getAll(function callback(allQuotes) {
         console.log(allQuotes);
         res.send(allQuotes);
+    })
+});
+
+apiRouter.get("/estimate/:contractTerm/:yearOneChannels/:yearTwoChannels/:yearThreeChannels/:HLS/:HDS/:MPEGDASH/:RTMP/:supportPlan", function(req, res) {
+    var req = {
+        contract_term: req.params.contractTerm,
+        year_one_channels: req.params.yearOneChannels,
+        year_two_channels: req.params.yearTwoChannels,
+        year_three_channels: req.params.yearThreeChannels,
+        HLS: req.params.HLS,
+        HDS: req.params.HDS,
+        MEPG_DASH: req.params.MPEGDASH,
+        RTMP: req.params.RTMP,
+        support_plan: req.params.supportPlan
+    }
+    Quotes.getEstimate(req, function callback(estimate) {
+        res.send(estimate);
     })
 });
 
