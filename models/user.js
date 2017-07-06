@@ -9,8 +9,12 @@ password:{
 type:String
 },
 email:{
+<<<<<<< HEAD
 type:String,
 unique:true
+=======
+type:String
+>>>>>>> e08c81fe3ff21235f59588c0310fce9077cabbea
 },
 name:{
 type:String
@@ -34,6 +38,10 @@ module.exports.getUserByUsername= function(username,callback){
 	User.findOne(query, callback);
 }
 module.exports.getUserById= function(id,callback){
+<<<<<<< HEAD
+=======
+	
+>>>>>>> e08c81fe3ff21235f59588c0310fce9077cabbea
 	User.findById(id, callback);
 }
 module.exports.comparePassword = function(candidatePassword, hash, callback){
