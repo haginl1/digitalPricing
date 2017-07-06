@@ -5,7 +5,7 @@ export default class Calc extends React.Component {
 	render() {
 		return (
 			<div>
-			  <h1>
+			  <h1 className="price">
 			    $<CountUp setParent={this.setParent} start={0} end={160526} />
 			  </h1>
 		  	</div>
