@@ -26,6 +26,9 @@ export default class QuoteHistory extends React.Component {
 	}
 
 	renderEachQuote() {
+		$(document).ready(function(){
+        		$('#myTable').dataTable();
+        	});
 		if (this.state.quotes === []) {
 			return
 		}
