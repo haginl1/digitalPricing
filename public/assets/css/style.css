@@ -1,72 +1,106 @@
 
 
 body {
-    background-image: url("../img/background.png");
-    padding-top: 70px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-attachment: fixed;
+background-image: url("../img/background.png");
+padding-top: 70px;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 50% 0;
+background-attachment: fixed;
 }
 
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    #ContactUs{
-      margin-top:10px;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    .panel-heading h3 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: normal;
-    width: 75%;
-    padding-top: 8px;
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.80;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: #314f68;
 }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #282a2b;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
 
-    @media screen and (max-width: 487px) {
-      navbar-brand {
-      background-image: url("../assets/img/7575logo.png") !important; 
-      }
-    }
+#ContactUs{
+  margin-top:10px;
+}
 
-    @media screen and (min-width: 487px) and (max-width: 1079px) {
-      navbar-brand {
-        background-image: url(".../assets/img/7575logo.png") !important;
-      }
-    }
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
 
-    @media screen and (min-width: 1080px) {
-      navbar-brand {
-      background-image: url("../assets/img/companylogo.png") !important;
-      }
-    }
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  overflow: auto;
+}
+.panel-heading h3 {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+line-height: normal;
+width: 75%;
+padding-top: 8px;
+
+}
+.panel-primary>.panel-heading {
+background-color: #314f68;
+}
+
+.fa {
+  padding: 5%;
+}
+
+.social {
+text-align: center;
+}
+
+.price{
+  z-index: 2;
+  color: #82cd34;
+  background-color: transparent;
+  position: absolute;
+}
+
+.priceTag{
+  max-width: 80%;
+  z-index: 1;
+}
+
+.row {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #314f68 !important;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;} 
+}
+
+@media screen and (max-width: 487px) {
+  navbar-brand {
+  background-image: url("../assets/img/7575logo.png") !important; 
+  }
+}
+
+@media screen and (min-width: 487px) and (max-width: 1079px) {
+  navbar-brand {
+    background-image: url(".../assets/img/7575logo.png") !important;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  navbar-brand {
+  background-image: url("../assets/img/companylogo.png") !important;
+  }
+}
 

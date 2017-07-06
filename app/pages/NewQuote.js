@@ -64,13 +64,11 @@ export default class Archives extends React.Component {
   render() {
     return (
       <div>
-        <h1>New Quote</h1>
         <div className="container-fluid ">    
         <div className="row content">
           <div className="col-sm-6 sidenav">
-            <div className="well">
               <div className="panel panel-primary">
-                  <div className="panel-heading">Define Quote Details</div>
+                  <div className="panel-heading"><h5>Define Quote Details</h5></div>
                   <div className="panel-body">
                       <form id="main_form" className="button-size">
                   <div className="form-group">
@@ -113,22 +111,20 @@ export default class Archives extends React.Component {
                   </div>
               </form>
                   </div> 
-              </div>
             </div>
           </div>
 
           <div className="col-sm-6 sidenav">
-            <div className="well">
-                  <div className="panel panel-primary">
-                      <div className="panel-heading">Year 1 Estimate</div>
-                      <div className="panel-body"><Calc oldEstimate={this.state.quoteOldEstimate} newEstimate={this.state.quoteNewEstimate}/></div>
-                  </div>
+            <div className="panel panel-primary">
+                <div className="panel-heading"><h5>Current Year 1 Total</h5></div>
+                <div className="panel-body">
+                  <Calc oldEstimate={this.state.quoteOldEstimate} newEstimate={this.state.quoteNewEstimate}/>
+                  <img className="priceTag" src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"/>
+                </div>
             </div>
           </div>
         </div>
       </div>
-
-       
       </div>
     );
   }
