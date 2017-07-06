@@ -26,16 +26,10 @@ export default class Layout extends React.Component {
   render() {
     const { location } = this.props;
 
-    const containerStyle = {
-      marginTop: "60px",
-      backgroundColor: "#eeeeee"
-    };
-
     return (
       <div>
         <Nav location={location} />
-        <div className='container' style={containerStyle}>
-          Strict mode in the house
+        <div className='container'>
           <div>
             <Switch>
               <Route path='/quote' component={NewQuote} />
