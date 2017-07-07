@@ -59,6 +59,10 @@ text-align: center;
   color: #82cd34;
   background-color: transparent;
   position: absolute;
+  padding-left: 10%;
+  padding-top: 12%;
+  font-family: 'Kalam', cursive;
+  font-size: 200%;
 }
 
 .priceTag{
