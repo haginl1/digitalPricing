@@ -115,13 +115,8 @@ export default class Archives extends React.Component {
           </div>
 
           <div className="col-sm-6 sidenav">
-            <div className="panel panel-primary">
-                <div className="panel-heading"><h5>Current Year 1 Total</h5></div>
-                <div className="panel-body">
                   <Calc oldEstimate={this.state.quoteOldEstimate} newEstimate={this.state.quoteNewEstimate}/>
-                  <img className="priceTag" src="http://www.officialpsds.com/images/thumbs/Tag-Vector-psd37745.png"/>
-                </div>
-            </div>
+                  <img className="priceTag" src="/assets/img/ipad.png"/>
           </div>
         </div>
       </div>
