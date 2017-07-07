@@ -45,8 +45,8 @@ export default class Layout extends React.Component {
 
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
-            <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
-           { /*  <Route exact path='/' component={Login} />*/}
+          <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
+           {/* <Route exact path='/' component={Login} />*/}
               <Route exact path='*' component={NotFound} />
             </Switch>
           </div>
