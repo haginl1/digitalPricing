@@ -19,6 +19,7 @@ var mongoose=require("mongoose");
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://heroku_hftl0rtv:4jllh9tjqho971tvv0kcb998q6@ds163721.mlab.com:63721/heroku_hftl0rtv");
+//mongoose.connect("mongodb://localhost/loginapp");
 var mongoDB=mongoose.connection;
 
 //var routes= require('./routes/index');
@@ -106,7 +107,9 @@ app.use(function(req,res,next){
     res.locals.success_msg =req.flash('success_msg');
     res.locals.error_msg=req.flash('error_msg');
     res.locals.error=req.flash('error');
-  res.locals.user = req.user || null;
+    res.locals.user = req.user || null;
+  // res.locals.user = req.user._id || null;
+  // console.log('server '+res.locals.user);
     next();
 });
 

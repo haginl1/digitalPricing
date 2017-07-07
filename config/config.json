@@ -1,7 +1,7 @@
 {
 
     "development": {
-        "username": "",
+        "username": "root",
         "password": "",
 
         "database": "digital_pricing_db",
