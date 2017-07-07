@@ -226,7 +226,12 @@ Pricing.getSupportFee = function(quote, supportRates) {
 
 Pricing.getSetupFee = function(channels, rate){
     setupFee = channels * rate / 2;
-    return setupFee;
+    if (setupFee > 0) {
+    	return setupFee;
+	}
+	else {
+		return 0;
+	}
 }
 
 module.exports = Pricing;
