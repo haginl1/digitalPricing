@@ -1,8 +1,8 @@
 {
 
     "development": {
-        "username": "",
-        "password": "",
+        "username": "laurieowens",
+        "password": "password123",
 
         "database": "digital_pricing_db",
         "host": "127.0.0.1",

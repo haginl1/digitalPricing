@@ -7,7 +7,7 @@ export default class Login extends React.Component {
     <div>
 <h2 class="page-header">Account Login</h2>
 
-<form>
+<form method="get" action="/users/logout">
   <div className="form-group">
     <label>Username</label>
     <input type="text" className="form-control" name="username" placeholder="Username"></input>

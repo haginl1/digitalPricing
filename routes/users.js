@@ -43,7 +43,7 @@ router.post('/register', function(req, res) {
             console.log('result id'+result);
         });
         req.flash('success_msg', 'You are registered and can now log in');
-        // res.redirect('/users/login');
+        //res.redirect('/users/login');
         res.send(result);
     }
 });
