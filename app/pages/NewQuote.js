@@ -18,7 +18,7 @@ export default class Archives extends React.Component {
 						yearThreeChannels: 1,
 						HLS: true,
 						HDS: false,
-						MPEGDASH: false,
+						MPEG_DASH: false,
 						RTMP: false,
 						supportPlan: "Gold"
 				}
@@ -46,7 +46,7 @@ export default class Archives extends React.Component {
 												+ "/" + this.state.yearThreeChannels
 												+ "/" + this.state.HLS
 												+ "/" + this.state.HDS
-												+ "/" + this.state.MPEGDASH
+												+ "/" + this.state.MPEG_DASH
 												+ "/" + this.state.RTMP
 												+ "/" + this.state.supportPlan
 				axios.get(APIURL)
@@ -86,7 +86,7 @@ export default class Archives extends React.Component {
 													<input name="RTMP" checked={this.state.RTMP} onChange={this.handleInputChange} type="checkbox"/>RTMP
 											</label>
 											<label className="checkbox-inline">
-													<input name="MPEGDASH" checked={this.state.MPEGDASH} onChange={this.handleInputChange} type="checkbox"/>MPEG-DASH
+													<input name="MPEG_DASH" checked={this.state.MPEG_DASH} onChange={this.handleInputChange} type="checkbox"/>MPEG-DASH
 											</label>
 											<br/>
 											

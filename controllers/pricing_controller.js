@@ -88,16 +88,16 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
             break;
     }
 
-    if (quote.HLS === "1") {
+    if (quote.HLS === "true") {
         protocols += 1;
         }
-    if (quote.HDS === "1") {
+    if (quote.HDS === "true") {
         protocols += 1;
         }
-    if (quote.MPEG_DASH === "1") {
+    if (quote.MPEG_DASH === "true") {
         protocols += 1;
         }
-    if (quote.RTMP === "1") {
+    if (quote.RTMP === "true") {
         protocols += 1;
         }
 

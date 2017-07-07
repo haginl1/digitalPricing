@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
-    extended: false
+	extended: false
 }));
 app.use(bodyParser.raw());
 app.use(bodyParser.json());
@@ -45,24 +45,24 @@ app.use("/api", api);
 //check if in INIT mode to load the database
 // process.argv[2] === "init"
  if (process.argv[2] === "init") {
-    dbStartupArguments = dbStartupArguments.force = true
-    db.sequelize.sync({dbStartupArguments}).then(function() {
-        app.listen(port, function() {
-        console.log('listening on ' + port);
-        console.log('initializing db')
-        InitializeDB.quotes()
-        InitializeDB.protocolRates()
-        InitializeDB.streamingRates()
-        InitializeDB.supportRates()
+	dbStartupArguments = dbStartupArguments.force = true
+	db.sequelize.sync({dbStartupArguments}).then(function() {
+		app.listen(port, function() {
+		console.log('listening on ' + port);
+		console.log('initializing db')
+		InitializeDB.quotes()
+		InitializeDB.protocolRates()
+		InitializeDB.streamingRates()
+		InitializeDB.supportRates()
 
-        });
-    })
+		});
+	})
 }
 else {
-    db.sequelize.sync({})
-    .then(function() {
-        app.listen(port, function() {
-        console.log('listening on ' + port);
-        });
-    })
+	db.sequelize.sync({})
+	.then(function() {
+		app.listen(port, function() {
+		console.log('listening on ' + port);
+		});
+	})
 }
