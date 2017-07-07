@@ -6,7 +6,10 @@ import NotFound from "./404.js";
 import Contact from "./Contact.js";
 import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
-import QuoteDetails from "./QuoteDetails.js"
+import QuoteDetails from "./QuoteDetails.js";
+import Register from "./Register.js";
+import Login from "./Login.js";
+import Logout from "./Logout.js";
 
 
 export default class Layout extends React.Component {
@@ -31,12 +34,18 @@ export default class Layout extends React.Component {
         <Nav location={location} />
         <div className='container'>
           <div>
-            <Switch>
+            <Switch> 
+              <Route path='/register' component={Register}/>
+            { /* <Route path='/quote' component={NewQuote} />*/}
+            <Route path='/login' component={Login}/> 
+              <Route path='/logout' component={Logout} />
+          {/*  <Switch> */}
               
               <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} currentQuote={this.state.currentQuote}/>} />
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
-              <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
+            <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
+           { /*  <Route exact path='/' component={Login} />*/}
               <Route exact path='*' component={NotFound} />
             </Switch>
           </div>
