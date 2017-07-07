@@ -1,6 +1,10 @@
 module.exports = function(sequelize, DataTypes){
     var Quote = sequelize.define("Quote",{
-        company: {
+            userID: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+            company: {
             type: DataTypes.STRING,
             allowNull: false
         },
