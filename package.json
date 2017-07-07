@@ -33,7 +33,6 @@
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
-<<<<<<< HEAD
     "react": "^15.6.1",
     "react-countup": "^2.1.1",
     "react-dom": "^15.6.1",
@@ -48,12 +47,4 @@
     "babel-preset-react": "^6.3.13",
     "webpack": "^1.13.1"
   }
-=======
-    "sequelize": "^3.30.4",
-    "react": "^15.6.1",
-    "react-countup": "^2.1.1",
-    "react-dom": "^15.6.1",
-    "react-router-dom": "^4.1.1"
->>>>>>> e08c81fe3ff21235f59588c0310fce9077cabbea
-}
 }

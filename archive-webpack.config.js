@@ -1,22 +1,12 @@
 module.exports = {
 
-    entry: {
-        bundle: "./app/app.js",
-        encompass: "./app/encompass.js"
-    },
-    output: {
-        path: "public/",
-        filename: "[name].js"
-    },
+  // This is the entry point or start of our react applicaton
+  entry: "./app/app.js",
 
-
-  // // This is the entry point or start of our react applicaton
-  // entry: "./app/app.js",
-
-  // // The plain compiled JavaScript will be output into this file
-  // output: {
-  //   filename: "public/bundle.js"
-  // },
+  // The plain compiled JavaScript will be output into this file
+  output: {
+    filename: "public/bundle.js"
+  },
 
   // This section desribes the transformations we will perform
   module: {
@@ -39,4 +29,3 @@ module.exports = {
   // Without this the console says all errors are coming from just coming from bundle.js
   devtool: "eval-source-map"
 };
-

@@ -1,5 +1,4 @@
 import React from 'react';
-// import {  } from 'react-router-dom'
 import { NavLink, Switch } from "react-router-dom";
 import QuoteHistoryRow from "./QuoteHistoryRow.js"
 
@@ -9,17 +8,14 @@ export default class QuoteHistory extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {quotes:["hello this is quotes"]}
-		// this.getQuotes = this.getQuotes.bind(this)
 	}
 
 	componentDidMount(props) {
 		this.getQuotes()
-		console.log(this.props.currentQuote)
 	}
 
 	getQuotes() {
 		  axios.get('/api/quotes')
-			// console.log(this.state.quotes)
       .then(function (response) {
         this.setState({quotes: response.data})
       }.bind(this))
@@ -30,6 +26,9 @@ export default class QuoteHistory extends React.Component {
 	}
 
 	renderEachQuote() {
+		$(document).ready(function(){
+        		$('#myTable').dataTable();
+        	});
 		if (this.state.quotes === []) {
 			return
 		}

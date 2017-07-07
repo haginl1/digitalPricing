@@ -1,9 +1,6 @@
 {
 
     "development": {
-        "username": "root",
-        "password": "",
-    "development": {
         "username": "laurieowens",
         "password": "password123",
 
@@ -25,21 +22,4 @@
         "use_env_variable": "JAWSDB_URL",
         "dialect": "mysql"
     }
-
 }
-
-      "development": {
-      "username": "",
-        "password": "",
-        "database": "digital_pricing_db",
-        "host": "127.0.0.1",
-       "dialect": "mysql"
-    },
-   "test": {
-          "username": "root",
-       "password": null,
-        "database": "digital_pricing_db",
-          "host": "127.0.0.1",
-          "dialect": "mysql"
-      }
-

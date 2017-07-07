@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
+
 var session=require("express-session");
 
 router.post('/register', function(req, res) {
@@ -14,6 +15,26 @@ router.post('/register', function(req, res) {
     var password2 = req.body.password2;
     //Validation
      req.checkBody('name', 'Name is require').notEmpty();
+
+//Register
+router.get('/register', function(req, res) {
+    res.render('register');
+});
+//Login
+router.get('/login', function(req, res) {
+    res.render('login');
+});
+//register user
+//Register
+router.post('/register', function(req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var username = req.body.username;
+    var password = req.body.password;
+    var password2 = req.body.password2;
+    //Validation
+    req.checkBody('name', 'Name is require').notEmpty();
+
     req.checkBody('email', 'Email is require').notEmpty();
     req.checkBody('email', 'Email is not valid').isEmail();
     req.checkBody('username', 'Username is require').notEmpty();
@@ -21,6 +42,7 @@ router.post('/register', function(req, res) {
     req.checkBody('password2', 'Passwords do no match').equals(req.body.password);
 
     var errors = req.validationErrors();
+
     var result = {};
     if (errors) {
         console.log('error');
@@ -30,6 +52,13 @@ router.post('/register', function(req, res) {
         //  });
     } else {
         console.log('user good!');
+
+    if (errors) {
+        res.render('register', {
+            errors: errors
+        });
+    } else {
+
         var newUser = new User({
             name: name,
             email: email,
@@ -38,6 +67,7 @@ router.post('/register', function(req, res) {
         });
         User.createUser(newUser, function(err, user) {
             if (err) throw err;
+
             console.log("newuser "+user);
             result=user._id;
             console.log('result id'+result);
@@ -45,6 +75,11 @@ router.post('/register', function(req, res) {
         req.flash('success_msg', 'You are registered and can now log in');
         // res.redirect('/users/login');
         res.send(result);
+
+            console.log(user);
+        };
+        req.flash('success_msg', 'You are registered and can now log in');
+        res.redirect('/users/login');
     }
 });
 passport.use(new LocalStrategy(
@@ -53,23 +88,35 @@ passport.use(new LocalStrategy(
             if (err) throw err;
             if (!user) {
                 return done(null, false, {
+
                     message: 'User not found'
+
+                   // message: 'Unknown User'
+
                 });
             }
             User.comparePassword(password, user.password, function(err, isMatch) {
                 if (err) throw err;
                 if (isMatch) {
+
                     console.log("matched"+ isMatch+" "+(user!=null));
                     console.log(user.id);
                   
                     return done(null, user);
-                } else {
+                } else  {
                     return done(null, false, {
-                        message: 'Incorrect Password'
-                    });
-                }
+                        message: 'Incorrect Password'})
+
+                    //return done(null, user);
+                } //else {
+                   // return done(null, false, {
+                   //     message: 'Invalid Password'
+
+                    //});
+                
             });
         });
+
     }));
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -82,12 +129,12 @@ passport.deserializeUser(function(id, done) {
 router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
-        // successRedirect: '/pages/QuoteHistory',
-        //failureRedirect: '/users/login',
+
         failureRedirect: '/users/login',
         failureFlash: true
    }),
     function(req, res) {
+
          return res.send(user._id);
         res.redirect('/');
     });
@@ -118,6 +165,17 @@ router.get('/logout', function(req,res){
     req.flash('success_msg', 'You are logged out');
     res.redirect('/');
     
+});
+
+
+
+        res.redirect('/');
+    });
+
+router.get('/logout', function(req,res){
+    req.logout();
+    req.flash('success_msg', 'You are logged out');
+    res.redirect('/users/login');
 });
 
 

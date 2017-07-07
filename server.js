@@ -47,6 +47,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(bodyParser.raw());
+app.use(bodyParser.json());
 
 app.use(cookieParser());
 // Override with POST having ?_method=DELETE
