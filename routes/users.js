@@ -60,8 +60,7 @@ passport.use(new LocalStrategy(
                 if (err) throw err;
                 if (isMatch) {
                     console.log("matched"+ isMatch+" "+(user!=null));
-                    console.log(user.id);
-                  
+                    console.log('Compare Password '+user.id);
                     return done(null, user);
                 } else {
                     return done(null, false, {
@@ -83,8 +82,7 @@ router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
         // successRedirect: '/pages/QuoteHistory',
-        //failureRedirect: '/users/login',
-        failureRedirect: '/users/login',
+        failureRedirect: '/users/logout',
         failureFlash: true
    }),
     function(req, res) {
@@ -116,7 +114,7 @@ router.get('/logout', function(req,res){
     console.log("you are logged out");
     req.logout();
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/');
+   // res.redirect('/');
     
 });
 
