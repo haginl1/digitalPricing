@@ -18,11 +18,7 @@ var mongoose=require("mongoose");
 
 
 mongoose.Promise = global.Promise;
-if(process.env.MONGODB_URI){
-    mongoose.connect(process.env.MONGODB_URI);
-} else{
-    mongoose.connect("mongodb://localhost/users");
-}
+mongoose.connect("mongodb://heroku_hftl0rtv:4jllh9tjqho971tvv0kcb998q6@ds163721.mlab.com:63721/heroku_hftl0rtv");
 var mongoDB=mongoose.connection;
 
 //var routes= require('./routes/index');
