@@ -86,13 +86,22 @@ footer {
   .sidenav {
     height: auto;
     padding: 15px;
+    width: 50%;
+    float: left;
   }
   .row.content {height:auto;} 
 }
 
-@media screen and (max-width: 487px) {
+@media screen and (max-width: 635px) {
   navbar-brand {
   background-image: url("../assets/img/7575logo.png") !important; 
+  }
+  .sidenav {
+    float: none;
+    width: 100%;
+  }
+  .priceTag{
+  margin-left: 24%;
   }
 }
 
