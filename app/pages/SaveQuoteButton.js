@@ -18,7 +18,7 @@ export default class Archives extends React.Component {
 			'year_three_channels': this.props.yearThreeChannels,
 			'HLS': this.props.HLS,
 			'HDS': this.props.HDS,
-			'MPEG_DASH': this.props.MPEGDASH,
+			'MPEG_DASH': this.props.MPEG_DASH,
 			'RTMP': this.props.RTMP,
 			'support_plan': this.props.supportPlan,
 			'company': this.props.company,
