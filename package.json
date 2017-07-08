@@ -28,7 +28,7 @@
     "express-validator": "^3.2.0",
     "method-override": "^2.3.8",
     "mongodb": "^2.2.29",
-    "mongoose": "^4.10.8",
+    "mongoose": "4.10.8",
     "mysql": "^2.13.0",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
