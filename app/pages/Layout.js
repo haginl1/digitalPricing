@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userID:"",
+      userID:"123",
       currentQuote:""
 
     }
@@ -45,13 +45,14 @@ export default class Layout extends React.Component {
         <div className='container'>
           <div>
             <Switch> 
+
             { /* <Route path='/quote' component={NewQuote} />*/}
             <Route path='/login' component={Login}/> 
+
               <Route path='/logout' component={Logout} />
           {/*  <Switch> */}
               
-              <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
-
+              <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
           <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 

@@ -28,7 +28,7 @@ export default class Layout extends React.Component {
 
     return (
       <div>
-        <Route exact path='/' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
+        <Route exact path='/' render={routeProps => <NewQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
       </div>
     );
   }
