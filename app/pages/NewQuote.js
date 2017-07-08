@@ -5,6 +5,7 @@ import SaveQuoteButton from './SaveQuoteButton';
 
 
 export default class Archives extends React.Component {
+<<<<<<< HEAD
 				constructor(props) {
 								super(props);
 								this.state = {
