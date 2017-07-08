@@ -40,7 +40,6 @@ export default class Archives extends React.Component {
 				}
 
 				showSaveQuoteButton() {
-          console.log(this.props.userID + "USER ID")
         if (this.props.embedded === false) {
             return (<SaveQuoteButton userID={this.props.userID} setCurrentQuote={this.props.setCurrentQuote} {...this.state}/>)
         }
