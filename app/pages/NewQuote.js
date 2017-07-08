@@ -115,7 +115,7 @@ export default class Archives extends React.Component {
 													<option id="support_plan_platinum">Platinum</option>
 											</select>
 											<p></p>
-											<SaveQuoteButton setCurrentQuote={this.props.setCurrentQuote} {...this.state}/>
+                      {this.showSaveQuoteButton()}
 									</div>
 							</form>
 									</div> 
