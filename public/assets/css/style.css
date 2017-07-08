@@ -52,23 +52,22 @@ background-color: #314f68;
 text-align: center;
 }
 
+.priceTag{
+  width: 250px;
+  height: 600px;
+  background-size: contain;
+  z-index: 1;
+  background-image: url("/assets/img/ipad.png");
+  background-repeat: no-repeat;
+}
+
 .price{
   z-index: 2;
   color: #82cd34;
   background-color: transparent;
-  position: absolute;
-  padding-left: 15%;
-
-  padding-top: 17%;
-
+  padding-left: 14%;
+  padding-top: 24%;
   font-family: 'Kalam', cursive;
-  /*font-size: 200%;*/
-}
-
-.priceTag{
-  max-width: 80%;
-  z-index: 1;
-  /*padding-top: 30%;*/
 }
 
 .row {
