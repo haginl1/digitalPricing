@@ -18,12 +18,22 @@ export default class Layout extends React.Component {
     this.state = {
       userID:"",
       currentQuote:""
+
     }
     this.setCurrentQuote = this.setCurrentQuote.bind(this)
+    this.setCurrentUserID = this.setCurrentUserID.bind(this)
   }
 
   setCurrentQuote(row) {
     this.setState({currentQuote: row})
+  }
+
+  setCurrentUserID(userid) {
+    console.log('in setcurrentuser');
+    console.log(userid);
+    this.setState({userID: userid})
+    console.log('set state');
+    console.log(this.state.userID);
   }
 
   render() {
@@ -35,7 +45,6 @@ export default class Layout extends React.Component {
         <div className='container'>
           <div>
             <Switch> 
-              <Route path='/register' component={Register}/>
             { /* <Route path='/quote' component={NewQuote} />*/}
             <Route path='/login' component={Login}/> 
               <Route path='/logout' component={Logout} />
@@ -46,6 +55,7 @@ export default class Layout extends React.Component {
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
           <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
+             <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} /> 
            {/* <Route exact path='/' component={Login} />*/}
               <Route exact path='*' component={NotFound} />
             </Switch>
