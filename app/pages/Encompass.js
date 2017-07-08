@@ -10,26 +10,26 @@ import QuoteDetails from "./QuoteDetails.js"
 
 
 export default class Layout extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			userID:"",
-			currentQuote:""
-		}
-		this.setCurrentQuote = this.setCurrentQuote.bind(this)
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      userID:"",
+      currentQuote:""
+    }
+    this.setCurrentQuote = this.setCurrentQuote.bind(this)
+  }
 
-	setCurrentQuote(row) {
-		this.setState({currentQuote: row})
-	}
+  setCurrentQuote(row) {
+    this.setState({currentQuote: row})
+  }
 
-	render() {
-		const { location } = this.props;
+  render() {
+    const { location } = this.props;
 
-		return (
-			<div>
-				<Route exact path='/' render={routeProps => <NewQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
-			</div>
-		);
-	}
+    return (
+      <div>
+        <Route exact path='/' render={routeProps => <NewQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
+      </div>
+    );
+  }
 }
