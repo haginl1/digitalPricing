@@ -18,7 +18,7 @@ var contractTerm = 0,
     supportRate = 0;
 
 var results = {
-	year_one_monthly_streaming: 0,
+    year_one_monthly_streaming: 0,
     year_two_monthly_streaming: 0,
     year_three_monthly_streaming: 0,
     year_one_setup_fee: 0,
@@ -88,16 +88,16 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
             break;
     }
 
-    if (quote.HLS === "1") {
+    if (quote.HLS === "true") {
         protocols += 1;
         }
-    if (quote.HDS === "1") {
+    if (quote.HDS === "true") {
         protocols += 1;
         }
-    if (quote.MPEG_DASH === "1") {
+    if (quote.MPEG_DASH === "true") {
         protocols += 1;
         }
-    if (quote.RTMP === "1") {
+    if (quote.RTMP === "true") {
         protocols += 1;
         }
 
@@ -172,7 +172,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     results.year_two_annual_fee = yearTwoAnnual;
     results.year_three_annual_fee = yearThreeAnnual;
 
-	return results;
+    return results;
 }
 
 Pricing.getRateRange = function(channelCount, streamingRates) {
@@ -226,7 +226,12 @@ Pricing.getSupportFee = function(quote, supportRates) {
 
 Pricing.getSetupFee = function(channels, rate){
     setupFee = channels * rate / 2;
-    return setupFee;
+    if (setupFee > 0) {
+        return setupFee;
+    }
+    else {
+        return 0;
+    }
 }
 
 module.exports = Pricing;
