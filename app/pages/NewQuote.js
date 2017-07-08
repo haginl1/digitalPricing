@@ -122,13 +122,14 @@ export default class Archives extends React.Component {
 						</div>
 					</div>
 
-					<div className="col-sm-6 sidenav">
-									<Calc oldEstimate={this.state.quoteOldEstimate} newEstimate={this.state.quoteNewEstimate}/>
-									<img className="priceTag" src="/assets/img/ipad.png"/>
-					</div>
-				</div>
-			</div>
-			</div>
-		);
-	}
+          <div className="col-sm-6 sidenav">
+            <div className="priceTag">
+              <Calc oldEstimate={this.state.quoteOldEstimate} newEstimate={this.state.quoteNewEstimate}/>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    );
+  }
 }
