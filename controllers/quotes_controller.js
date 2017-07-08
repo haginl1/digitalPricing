@@ -50,7 +50,7 @@ Quotes.save = function(quote, callback) {
     var protocolRates = {}
     var streamingRates = {}
     var supportRates = {}
-    // quote.date = formatDate(Date.now());
+    quote.date = formatDate(Date.now());
     configData.protocolRatesData(function(result) {
         protocolRates = result;
         configData.streamingRatesData(function(result) {
