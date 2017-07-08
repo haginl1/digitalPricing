@@ -11,7 +11,7 @@ export default class Archives extends React.Component {
     saveQuote() {
         const APIURL =  '/api/quote'
 		const req = {
-			'userID': 123,
+			'userID': this.props.userID,
 			'contract_term': this.props.contractTerm,
 			'year_one_channels': this.props.yearOneChannels,
 			'year_two_channels': this.props.yearTwoChannels,
