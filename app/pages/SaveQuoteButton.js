@@ -1,5 +1,14 @@
 import React from 'react';
 import { NavLink, Switch } from "react-router-dom";
+var d 
+var n 
+
+function getDate(){
+ d = new Date();
+ n = d.getTime();
+ alert(n)
+}
+
 
 export default class Archives extends React.Component {
     constructor(props) {
@@ -7,6 +16,11 @@ export default class Archives extends React.Component {
         this.state = {}
         this.saveQuote = this.saveQuote.bind(this)
     }
+
+	componentDidMount(props) {
+		getDate()
+	}
+	
 
     saveQuote() {
         const APIURL =  '/api/quote'
@@ -22,7 +36,7 @@ export default class Archives extends React.Component {
 			'support_plan': this.props.supportPlan,
 			'company': this.props.company,
 			'description': this.props.description,
-			'date': "2017/07/06"
+			'date': n
 		}
         axios.post(APIURL, req)
             .then(function (response) {
@@ -40,7 +54,8 @@ export default class Archives extends React.Component {
 			<button 
 				className="btn btn-success" 
 				type="button" 
-				onClick={this.saveQuote}>
+				onClick={this.saveQuote}
+				>
 				Save
 			</button>   
 		</NavLink>  

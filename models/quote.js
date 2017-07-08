@@ -14,18 +14,18 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false
         },
         date: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-            defaultValue: sequelize.NOW,
-            get ()
-            {
-                if (typeof this.getDataValue('date').getMonth === 'function') {
-                    return this.getDataValue('date').toDateString()
-                }
-                else {
-                    return this.getDataValue('date')
-                }
-            }
+            type: DataTypes.STRING,
+            allowNull: false
+            // defaultValue: sequelize.NOW
+            // get ()
+            // {
+            //     if (typeof this.getDataValue('date').getMonth === 'function') {
+            //         return this.getDataValue('date').toDateString()
+            //     }
+            //     else {
+            //         return this.getDataValue('date')
+            //     }
+            // }
         },
         contract_term: {
             type: DataTypes.INTEGER,
