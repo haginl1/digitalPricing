@@ -25,27 +25,27 @@ export default class Archives extends React.Component {
 			'description': this.props.description,
 			'date': "2017/03/04"
 		}
+
         axios.post(APIURL, req)
             .then(function (response) {
-				this.props.setCurrentQuote(response.data.quote)
+                this.props.setCurrentQuote(response.data.quote)
             }.bind(this))
             .catch(function (error) {
                 console.log(error);
             })
                 
-	}
+    }
 
   render() {
     return (
-		<NavLink to='/details'>
-			<button 
-				className="btn btn-success" 
-				type="button" 
-				onClick={this.saveQuote}
-				>
-				Save
-			</button>   
-		</NavLink>  
-	);
+        <NavLink to='/details'>
+            <button 
+                className="btn btn-success" 
+                type="button" 
+                onClick={this.saveQuote}>
+                Save
+            </button>   
+        </NavLink>  
+    );
   }
 }

@@ -13,7 +13,7 @@ apiRouter.get("/quotes", function(req, res) {
     })
 });
 
-apiRouter.get("/estimate/:contractTerm/:yearOneChannels/:yearTwoChannels/:yearThreeChannels/:HLS/:HDS/:MPEGDASH/:RTMP/:supportPlan", function(req, res) {
+apiRouter.get("/estimate/:contractTerm/:yearOneChannels/:yearTwoChannels/:yearThreeChannels/:HLS/:HDS/:MPEG_DASH/:RTMP/:supportPlan", function(req, res) {
     var req = {
         contract_term: req.params.contractTerm,
         year_one_channels: req.params.yearOneChannels,
@@ -21,7 +21,7 @@ apiRouter.get("/estimate/:contractTerm/:yearOneChannels/:yearTwoChannels/:yearTh
         year_three_channels: req.params.yearThreeChannels,
         HLS: req.params.HLS,
         HDS: req.params.HDS,
-        MEPG_DASH: req.params.MPEGDASH,
+        MPEG_DASH: req.params.MPEG_DASH,
         RTMP: req.params.RTMP,
         support_plan: req.params.supportPlan
     }
