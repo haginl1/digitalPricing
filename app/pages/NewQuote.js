@@ -24,6 +24,8 @@ export default class Archives extends React.Component {
         }
         this.handleInputChange = this.handleInputChange.bind(this)
         this.getEstimate = this.getEstimate.bind(this)
+        this.showSaveQuoteButton = this.showSaveQuoteButton.bind(this)
+
     }
 
     handleInputChange(event) {
@@ -35,6 +37,13 @@ export default class Archives extends React.Component {
         }, () => {
             this.getEstimate()
         });
+        
+    }
+
+    showSaveQuoteButton() {
+        if (this.props.embedded === false) {
+            return (<SaveQuoteButton userID={this.props.userID} setCurrentQuote={this.props.setCurrentQuote} {...this.state}/>)
+        }
         
     }
 
@@ -107,7 +116,8 @@ export default class Archives extends React.Component {
                           <option id="support_plan_platinum">Platinum</option>
                       </select>
                       <p></p>
-                      <SaveQuoteButton setCurrentQuote={this.props.setCurrentQuote} {...this.state}/>
+                        {this.showSaveQuoteButton()}
+
                   </div>
               </form>
                   </div> 
