@@ -77,7 +77,7 @@ export default class Archives extends React.Component {
         <div className="row content">
           <div className="col-sm-6 sidenav">
               <div className="panel panel-primary">
-                  <div className="panel-heading"><h5>Define Quote Details</h5></div>
+                  <div className="panel-heading"><h4>Define Quote Details</h4></div>
                   <div className="panel-body">
                       <form id="main_form" className="button-size">
                   <div className="form-group">
@@ -112,8 +112,8 @@ export default class Archives extends React.Component {
                           <input name="yearThreeChannels" onChange={this.handleInputChange} value={this.state.yearThreeChannels} type="number" min="1" step="1" id="year_three_channels" className="form-control" required placeholder="Channels in Year 3"></input>
                       <h4> 5. Select a support plan for your services.</h4>
                       <select name="supportPlan" value={this.state.supportPlan} onChange={this.handleInputChange} className="selectpicker" id="support_plan" required>
-                          <option defaultValue id="support_plan_gold">gold</option>
-                          <option id="support_plan_platinum">platinum</option>
+                          <option defaultValue id="support_plan_gold">Gold</option>
+                          <option id="support_plan_platinum">Platinum</option>
                       </select>
                       <p></p>
                         {this.showSaveQuoteButton()}

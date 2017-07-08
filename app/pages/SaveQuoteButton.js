@@ -23,7 +23,7 @@ export default class Archives extends React.Component {
 			'support_plan': this.props.supportPlan,
 			'company': this.props.company,
 			'description': this.props.description,
-			'date': "2017/07/04"
+			'date': "2017/07/06"
 		}
         axios.post(APIURL, req)
             .then(function (response) {
