@@ -7,7 +7,6 @@
 		"dialect": "mysql"
 	},
 
-
 	"test": {
 		"username": "root",
 		"password": null,

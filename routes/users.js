@@ -23,10 +23,10 @@ router.post('/register', function(req, res) {
     var errors = req.validationErrors();
     var result = {};
     if (errors) {
-        console.log('error');
+        console.log(errors);
        // res.redirect('/');
         // res.render('register', {
-        //      errors: errors
+         res.send({result: 'error', details: errors});
         //  });
     } else {
         console.log('user good!');
@@ -37,14 +37,13 @@ router.post('/register', function(req, res) {
             password: password
         });
         User.createUser(newUser, function(err, user) {
-            if (err) throw err;
-            console.log("newuser "+user);
-            result=user._id;
-            console.log('result id'+result);
+            if (err) {
+                res.send(err);
+            } 
+            else {
+                res.send(user);
+        }
         });
-        req.flash('success_msg', 'You are registered and can now log in');
-        //res.redirect('/users/login');
-        res.send(result);
     }
 });
 passport.use(new LocalStrategy(
@@ -82,7 +81,7 @@ router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
         // successRedirect: '/pages/QuoteHistory',
-        failureRedirect: '/users/logout',
+        failureRedirect: '/users/',
         failureFlash: true
    }),
     function(req, res) {
