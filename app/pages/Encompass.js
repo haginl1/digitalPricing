@@ -46,7 +46,7 @@ export default class Layout extends React.Component {
         document.head.appendChild(axios);
 
         const quote = document.createElement("script");
-        quote.src = "http://localhost:8080/assets/js/quote.js";
+        quote.src = "https://quote-builder.herokuapp.com/assets/js/quote.js";
         quote.async = true;
         document.head.appendChild(quote);
 
@@ -64,7 +64,7 @@ export default class Layout extends React.Component {
 
         const internalStyles = document.createElement("link");
         internalStyles.rel = "stylesheet"
-        internalStyles.href = "http://localhost:8080/assets/css/style.css"
+        internalStyles.href = "https://quote-builder.herokuapp.com/assets/css/style.css"
         internalStyles.async = true;
         document.head.appendChild(internalStyles);
      
