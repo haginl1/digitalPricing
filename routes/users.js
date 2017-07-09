@@ -5,6 +5,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var session=require("express-session");
 
+router.get('/login', function(req, res){
+    //res.render('login');
+    console.log("in get of login");
+});
+
+
 router.post('/register', function(req, res) {
      console.log("IN POST");
     var name = req.body.name;
@@ -81,7 +87,7 @@ router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
         // successRedirect: '/pages/QuoteHistory',
-        failureRedirect: '/users/',
+        failureRedirect: '/users/login',
         failureFlash: true
    }),
     function(req, res) {
