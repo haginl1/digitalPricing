@@ -72,41 +72,41 @@ export default class Register extends React.Component {
 
   render() {
     return (
-    <div>
-    <h2>Register</h2>
-    <form >
- <div className="form-group">
-    <label>Name</label>
-    <input type="text" onChange={this.nameChange} className="form-control" placeholder="Name" name="name"></input>
-  </div>
-  <div className="form-group">
-    <label>Username</label>
-    <input type="text" onChange={this.usernameChange} className="form-control" placeholder="Username" name="username"></input>
-  </div>
-   <div className="form-group">
-    <label>Email</label>
-    <input type="Email" onChange={this.emailChange} className="form-control" placeholder="Email" name="email"></input>
-  </div>
-  <div className="form-group">
-    <label>Password</label>
-    <input type="password" onChange={this.passwordChange} className="form-control" placeholder="Password" name="password"></input>
-  </div>
-   <div className="form-group">
-    <label>Confirm Password</label>
-    <input type="password" onChange={this.password2Change} className="form-control" placeholder="Password" name="password2"></input>
-  </div>
- 
-  <NavLink to='/quote'>
-      <button 
-        className="btn btn-success" 
-        type="button" 
-        onClick={this.registerUser}>
-        Submit
-      </button>   
-    </NavLink>  
-</form>
-      
-    </div>
+      <div>
+        <h2>Register</h2>
+        <form >
+          <div className="form-group">
+            <label>Name</label>
+            <input type="text" onChange={this.nameChange} className="form-control" placeholder="Name" name="name"></input>
+          </div>
+          <div className="form-group">
+            <label>Username</label>
+            <input type="text" onChange={this.usernameChange} className="form-control" placeholder="Username" name="username"></input>
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="Email" onChange={this.emailChange} className="form-control" placeholder="Email" name="email"></input>
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input type="password" onChange={this.passwordChange} className="form-control" placeholder="Password" name="password"></input>
+          </div>
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input type="password" onChange={this.password2Change} className="form-control" placeholder="Password" name="password2"></input>
+          </div>
+          
+          <NavLink to='/quote'>
+            <button
+            className="btn btn-success"
+            type="button"
+            onClick={this.registerUser}>
+            Submit
+            </button>
+          </NavLink>
+        </form>
+        
+      </div>
     );
   }
 }

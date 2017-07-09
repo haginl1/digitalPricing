@@ -6,9 +6,9 @@ var apiRouter  = express.Router();
 
 
 
-apiRouter.get("/quotes", function(req, res) {
-    Quotes.getAll(function callback(allQuotes) {
-        console.log(allQuotes);
+apiRouter.get("/quotes/:userID", function(req, res) {
+    Quotes.getAll(req.params.userID, function callback(allQuotes) {
+        // console.log(allQuotes);
         res.send(allQuotes);
     })
 });
@@ -44,8 +44,8 @@ apiRouter.get("/quote/:id", function(req, res) {
     })
 });
 
-apiRouter.post("/quote", function(req, res) {
-    Quotes.save(req.body, function callback(result){
+apiRouter.post("/quote/:userID", function(req, res) {
+    Quotes.save(req.body, req.params.userID, function callback(result){
         res.send(result)
     })
 });

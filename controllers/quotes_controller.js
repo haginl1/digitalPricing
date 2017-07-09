@@ -7,8 +7,12 @@ var errors = require("../controllers/error_controller.js")
 var Quotes =  {}
 
 //gets all of the quotes
-Quotes.getAll = function(callback) {
-    db.Quote.findAll({})
+Quotes.getAll = function(userID, callback) {
+    db.Quote.findAll({
+        where: {
+            userID: userID
+        }
+    })
         .then(function(dbAllQuotes) {
             callback(dbAllQuotes)
         })
@@ -46,11 +50,12 @@ function formatDate(date) {
 }
 
 //Saves a full quote
-Quotes.save = function(quote, callback) {
+Quotes.save = function(quote, userID, callback) {
     var protocolRates = {}
     var streamingRates = {}
     var supportRates = {}
     quote.date = formatDate(Date.now());
+    quote.userID = userID;
     configData.protocolRatesData(function(result) {
         protocolRates = result;
         configData.streamingRatesData(function(result) {
