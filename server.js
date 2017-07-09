@@ -1,5 +1,6 @@
 "use strict";
 var express = require('express');
+var cors = require('cors')
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
@@ -72,6 +73,9 @@ app.use(session({
 //Passport init
 app.use(passport.initialize());
 app.use(passport.session());
+
+//cors init
+app.use(cors())
 
 
 //Express Validator

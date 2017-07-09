@@ -7,4 +7,4 @@ ReactDOM.render(
   <HashRouter>
     <Route path='/' component={Encompass}/>
   </HashRouter>
-, document.getElementById('root'));
+, document.getElementById('digitalpricing'));

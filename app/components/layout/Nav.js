@@ -12,15 +12,20 @@ export default class Nav extends React.Component {
   toggleClass(){
     const collapsed = !this.state.collapsed;
     this.setState({collapsed});
+    console.log("in NAV");
   }
-
+   
   render() {
     const { collapsed } = this.state;
     const { pathname } = this.props.location;
     const navClass = collapsed ? "collapse":'';
-  const historyClass = pathname === '/' ? 'active':'';
- { /* const loginClass = pathname === '/' ? 'active':'';*/}
+    const historyClass = pathname === '/' ? 'active':'';
+    if (this.state.userID){
+      console.log('in nav')
+      console.log(this.state.userID);
     const quoteClass = pathname.match(/^\/quote/) ? 'active':'' ;
+
+  }
     const loginClass = pathname.match(/^\/login/) ? 'active':'' ;
     const registerClass = pathname.match(/^\/register/) ? 'active':'' ;
     const logoutClass = pathname.match(/^\/logout/) ? 'active':'' ;
@@ -44,11 +49,12 @@ export default class Nav extends React.Component {
           </div>
           <div className={"navbar-collapse " + navClass} id="navbarContent">
             <ul className="nav navbar-nav">
-             <li className={registerClass}><NavLink to='/register' onClick={this.toggleClass.bind(this)}>Register</NavLink></li>
-           <li className={historyClass}><NavLink to='/' onClick={this.toggleClass.bind(this)}>Quote History</NavLink></li> 
- {/* <li className={loginClass}><NavLink to='/' onClick={this.toggleClass.bind(this)}>Login</NavLink></li> */}
+             
+              <li className={registerClass}><NavLink to='/register' onClick={this.toggleClass.bind(this)}>Register</NavLink></li>
+
+              <li className={historyClass}><NavLink to='/' onClick={this.toggleClass.bind(this)}>Quote History</NavLink></li> 
               <li className={quoteClass}><NavLink to='/quote' onClick={this.toggleClass.bind(this)}>New Quote</NavLink></li>
-            <li className={loginClass}><NavLink to='/login' onClick={this.toggleClass.bind(this)}>Login</NavLink></li>
+              <li className={loginClass}><NavLink to='/login' onClick={this.toggleClass.bind(this)}>Login</NavLink></li>
               <li className={logoutClass}><NavLink to='/logout' onClick={this.toggleClass.bind(this)}>Logout</NavLink></li>
               <li className={contactClass}><NavLink to='/contact' onClick={this.toggleClass.bind(this)}>Contact Us</NavLink></li>
             </ul>
