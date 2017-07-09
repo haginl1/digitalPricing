@@ -17,9 +17,8 @@ export default class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userID:"",
-      currentQuote:""
-
+      userID: "110",
+      currentQuote: ""
     }
     this.setCurrentQuote = this.setCurrentQuote.bind(this)
     this.setCurrentUserID = this.setCurrentUserID.bind(this)

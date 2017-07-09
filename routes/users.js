@@ -5,21 +5,19 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var session=require("express-session");
 
-router.get('/login', function(req, res){
-    //res.render('login');
-    console.log("in get of login");
-});
+
+// var SalesforceStrategy = require('passport-salesforce').Strategy;
 
 
 router.post('/register', function(req, res) {
-     console.log("IN POST");
+    console.log("IN POST");
     var name = req.body.name;
-     var email = req.body.email;
-     var username = req.body.username;
-     var password = req.body.password;
+    var email = req.body.email;
+    var username = req.body.username;
+    var password = req.body.password;
     var password2 = req.body.password2;
     //Validation
-     req.checkBody('name', 'Name is require').notEmpty();
+    req.checkBody('name', 'Name is require').notEmpty();
     req.checkBody('email', 'Email is require').notEmpty();
     req.checkBody('email', 'Email is not valid').isEmail();
     req.checkBody('username', 'Username is require').notEmpty();
@@ -52,29 +50,47 @@ router.post('/register', function(req, res) {
         });
     }
 });
+
+//consumer key: 3MVG9zlTNB8o8BA2hxqp9WSjv2eDMS._YkqOooyC8QplgMItVALnUmhjIpq.nbRSQ_M8qYeeMhvM_ZXzXzq3.
+//consumer secret: 3579424323187320615
+
+// var CLIENT_SECRET = "3579424323187320615";
+// var CLIENT_ID = "3MVG9zlTNB8o8BA2hxqp9WSjv2eDMS._YkqOooyC8QplgMItVALnUmhjIpq.nbRSQ_M8qYeeMhvM_ZXzXzq3.";
+
+// passport.use(new SalesforceStrategy({
+//  clientID: CLIENT_ID,
+//  clientSecret: CLIENT_SECRET,
+//  callbackURL: "http://localhost:8080/salesforce/callback"
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//  done(null, {});
+//   }
+// ));
+
 passport.use(new LocalStrategy(
-    function(username, password, done) {
-        User.getUserByUsername(username, function(err, user) {
-            if (err) throw err;
-            if (!user) {
-                return done(null, false, {
-                    message: 'User not found'
-                });
-            }
-            User.comparePassword(password, user.password, function(err, isMatch) {
-                if (err) throw err;
-                if (isMatch) {
-                    console.log("matched"+ isMatch+" "+(user!=null));
-                    console.log('Compare Password '+user.id);
-                    return done(null, user);
-                } else {
-                    return done(null, false, {
-                        message: 'Incorrect Password'
-                    });
-                }
-            });
-        });
-    }));
+ function(username, password, done) {
+     User.getUserByUsername(username, function(err, user) {
+         if (err) throw err;
+         if (!user) {
+             return done(null, false, {
+                 message: 'User not found'
+             });
+         }
+         User.comparePassword(password, user.password, function(err, isMatch) {
+             if (err) throw err;
+             if (isMatch) {
+                 console.log("matched"+ isMatch+" "+(user!=null));
+                 console.log('Compare Password '+user.id);
+                 return done(null, user);
+             } else {
+                 return done(null, false, {
+                     message: 'Incorrect Password'
+                 });
+             }
+         });
+     });
+ }));
+
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
@@ -87,7 +103,9 @@ router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
         // successRedirect: '/pages/QuoteHistory',
-        failureRedirect: '/users/login',
+
+        failureRedirect: '/login',
+
         failureFlash: true
    }),
     function(req, res) {
