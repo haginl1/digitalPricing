@@ -5,7 +5,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var session=require("express-session");
 
+
 // var SalesforceStrategy = require('passport-salesforce').Strategy;
+
 
 router.post('/register', function(req, res) {
     console.log("IN POST");
@@ -101,7 +103,9 @@ router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
         // successRedirect: '/pages/QuoteHistory',
+
         failureRedirect: '/login',
+
         failureFlash: true
    }),
     function(req, res) {
