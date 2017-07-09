@@ -47,7 +47,7 @@ export default class Archives extends React.Component {
     }
 
 				getEstimate() {
-								const APIURL =  '/api/estimate'
+								const APIURL =  'http://localhost:8080/api/estimate'
 																								+ "/" + this.state.contractTerm
 																								+ "/" + this.state.yearOneChannels
 																								+ "/" + this.state.yearTwoChannels
