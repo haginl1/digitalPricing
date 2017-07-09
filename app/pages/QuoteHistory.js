@@ -5,6 +5,7 @@ import QuoteHistoryRow from "./QuoteHistoryRow.js"
 
 
 export default class QuoteHistory extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {quotes:["hello this is quotes"]}
@@ -14,8 +15,8 @@ export default class QuoteHistory extends React.Component {
         this.getQuotes()
     }
 
-    getQuotes() {
-          axios.get('/api/quotes')
+    getQuotes(props) {
+          axios.get('/api/quotes/' + this.props.userID)
       .then(function (response) {
         this.setState({quotes: response.data})
       }.bind(this))
