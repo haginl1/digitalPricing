@@ -17,7 +17,7 @@ export default class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userID:"123",
+      userID:"",
       currentQuote:""
 
     }
@@ -33,7 +33,7 @@ export default class Layout extends React.Component {
           console.log(this.state.userID);
           console.log('You are signed in!');
           return ( <Switch> 
-              <Route path='/logout' component={Logout} />
+              <Route path='/logout' render={routeProps => <QuoteDetails {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
               <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
               <Route path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
@@ -44,6 +44,7 @@ export default class Layout extends React.Component {
           console.log(this.state.userID);
           console.log('Sign In Failed.');
           return ( <Switch> 
+             <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
               <Route path='/contact' component={Contact} />
               <Route exact path='*' component={Login} />
             </Switch>);
@@ -67,7 +68,7 @@ export default class Layout extends React.Component {
 
     return (
       <div>
-        <Nav location={location} />
+        <Nav location={location} setThisUserID={this.setCurrentUserID} />
         <div className='container'>
           <div>
               {this.showAuthenticatedUser()}
