@@ -4,7 +4,6 @@ var errors = require("../controllers/error_controller.js")
 
 var Config =  {}
 
-//gets all of the quotes
 Config.protocolRatesData = function(callback) {
     db.ProtocolRates.findAll({})
         .then(function(protocolRates) {
