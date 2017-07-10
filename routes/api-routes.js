@@ -1,14 +1,12 @@
 "use strict";
 var express    = require('express'); 
 var Quotes     = require('../controllers/quotes_controller.js')
-
 var apiRouter  = express.Router(); 
 
 
 
 apiRouter.get("/quotes/:userID", function(req, res) {
     Quotes.getAll(req.params.userID, function callback(allQuotes) {
-        // console.log(allQuotes);
         res.send(allQuotes);
     })
 });
@@ -50,5 +48,4 @@ apiRouter.post("/quote/:userID", function(req, res) {
     })
 });
 
-// Export routes for server.js to use.
 module.exports = apiRouter;
