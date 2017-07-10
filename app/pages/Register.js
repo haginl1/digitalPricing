@@ -28,7 +28,7 @@ export default class Register extends React.Component {
     }
 
  registerUser() {
-        const APIURL =  '/users/register'
+    const APIURL =  '/users/register'
     const user = {
       'name': this.state.name,
       'email': this.state.email,

@@ -9,21 +9,22 @@ export default class QuoteHistory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {quotes:["hello this is quotes"]}
+        this.getQuotes = this.getQuotes.bind(this)
     }
+
 
     componentDidMount(props) {
         this.getQuotes()
     }
 
     getQuotes(props) {
-          axios.get('/api/quotes/' + this.props.userID)
-      .then(function (response) {
+        axios.get('/api/quotes/' + this.props.userID)
+        .then(function (response) {
         this.setState({quotes: response.data})
-      }.bind(this))
-      .catch(function (error) {
-        console.log(error);
+        }.bind(this))
+        .catch(function (error) {
         this.setState({quotes: []})
-      });
+        });
     }
 
     renderEachQuote() {

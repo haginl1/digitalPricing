@@ -17,7 +17,7 @@ export default class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userID: "110",
+      userID: "",
       currentQuote: ""
     }
     this.setCurrentQuote = this.setCurrentQuote.bind(this)
@@ -26,40 +26,30 @@ export default class Layout extends React.Component {
   }
      
   showAuthenticatedUser() {
-    console.log('in authenticated user')
-    console.log(this.state.userID)
         if (this.state.userID) {
-          console.log(this.state.userID);
-          console.log('You are signed in!');
           return ( <Switch> 
-              <Route path='/logout' render={routeProps => <QuoteDetails {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
               <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
-              <Route path='/contact' component={Contact} />
+              <Route exact path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
-              <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
-              <Route exact path='*' component={QuoteHistory} />
+              <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
+              <Route exact path='*' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
             </Switch>)
          } else {
-          console.log(this.state.userID);
-          console.log('Sign In Failed.');
           return ( <Switch> 
              <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
-              <Route path='/contact' component={Contact} />
-              <Route exact path='*' component={Login} />
+             <Route exact path='/login' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
+             <Route path='/contact' component={Contact} />
+             <Route path='/*' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
             </Switch>);
         }
   }
 
-  setCurrentQuote(row) {
-    this.setState({currentQuote: row})
+  setCurrentQuote(quote) {
+    this.setState({currentQuote: quote})
   }
 
   setCurrentUserID(userid) {
-    console.log('in setcurrentuser');
-    console.log(userid);
     this.setState({userID: userid})
-    console.log('set state');
-    console.log(this.state.userID);
   }
 
   render() {
