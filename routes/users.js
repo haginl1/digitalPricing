@@ -4,16 +4,18 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var session=require("express-session");
+var parser = require('body-parser');
+var urlencodedParser = parser.urlencoded({extended : false});
+
 
 router.post('/register', function(req, res) {
-     console.log("IN POST");
     var name = req.body.name;
-     var email = req.body.email;
-     var username = req.body.username;
-     var password = req.body.password;
+    var email = req.body.email;
+    var username = req.body.username;
+    var password = req.body.password;
     var password2 = req.body.password2;
     //Validation
-     req.checkBody('name', 'Name is require').notEmpty();
+    req.checkBody('name', 'Name is require').notEmpty();
     req.checkBody('email', 'Email is require').notEmpty();
     req.checkBody('email', 'Email is not valid').isEmail();
     req.checkBody('username', 'Username is require').notEmpty();
@@ -23,13 +25,8 @@ router.post('/register', function(req, res) {
     var errors = req.validationErrors();
     var result = {};
     if (errors) {
-        console.log(errors);
-       // res.redirect('/');
-        // res.render('register', {
          res.send({result: 'error', details: errors});
-        //  });
     } else {
-        console.log('user good!');
         var newUser = new User({
             name: name,
             email: email,
@@ -46,7 +43,9 @@ router.post('/register', function(req, res) {
         });
     }
 });
+
 passport.use(new LocalStrategy(
+    {usernameField:"username", passwordField:"password"},
     function(username, password, done) {
         User.getUserByUsername(username, function(err, user) {
             if (err) throw err;
@@ -56,10 +55,7 @@ passport.use(new LocalStrategy(
                 });
             }
             User.comparePassword(password, user.password, function(err, isMatch) {
-                if (err) throw err;
                 if (isMatch) {
-                    console.log("matched"+ isMatch+" "+(user!=null));
-                    console.log('Compare Password '+user.id);
                     return done(null, user);
                 } else {
                     return done(null, false, {
@@ -69,53 +65,17 @@ passport.use(new LocalStrategy(
             });
         });
     }));
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-passport.deserializeUser(function(id, done) {
-    User.getUserById(id, function(err, user) {
-        done(err, user);
-    });
-});
-router.post('/login',
-    passport.authenticate('local', {
-        successRedirect: '/',
-        // successRedirect: '/pages/QuoteHistory',
-        failureRedirect: '/users/',
-        failureFlash: true
-   }),
-    function(req, res) {
-         return res.send(user._id);
-        res.redirect('/');
-    });
-// router.post('/login', function(req, res, next) {
 
-//   // generate the authenticate method and pass the req/res
-//   passport.authenticate('local', function(err, user, info) {
-
-//     if (err) { return next(err); }
-//     //if (!user) { return res.redirect('/'); }
-// if (!user) { return next(err); }
-//     // req / res held in closure
-//     req.logIn(user, function(err) {
-//       if (err) { return next(err); }
-
-//       return res.send(user._id);
-//        successRedirect: '/'
-//     });
-
-//   })(req, res, next);
-
-// });
-
-
-router.get('/logout', function(req,res){
-    console.log("you are logged out");
-    req.logout();
-    req.flash('success_msg', 'You are logged out');
-   // res.redirect('/');
-    
+passport.serializeUser(function(user,done){
+    done(null,user);
 });
 
+passport.deserializeUser(function(user,done){
+    done(null,user);
+});
+
+router.post('/login', urlencodedParser, passport.authenticate('local'), function(req,res){
+    res.send(req.user._id);
+});
 
 module.exports = router;
