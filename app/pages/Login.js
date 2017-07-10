@@ -10,7 +10,7 @@ export default class Login extends React.Component {
     }
     this.login = this.login.bind(this);
     this.usernameChange = this.usernameChange.bind(this);
-    this.passwordChange = this.usernameChange.bind(this);
+    this.passwordChange = this.passwordChange.bind(this);
   }
 
   login() {
@@ -24,10 +24,7 @@ export default class Login extends React.Component {
         this.props.setThisUserID(response.data)
       }.bind(this))
       .catch(function(error) {
-        console.log(error);
       });
-    //login process
-    alert("LOGIN");
   }
 
   usernameChange(event) {
@@ -51,9 +48,8 @@ export default class Login extends React.Component {
             <label>Password</label>
             <input type="password" onChange={this.passwordChange} className="form-control" name="password" placeholder="Password"></input>
           </div>
-          
             <button 
-            type="submit"
+            type="button"
             onClick={this.login}
             className="btn btn-default">
             Submit
