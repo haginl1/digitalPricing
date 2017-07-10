@@ -32,13 +32,13 @@ export default class Layout extends React.Component {
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
               <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
-              <Route exact path='*' component={QuoteHistory} />
+              <Route exact path='*' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
             </Switch>)
          } else {
           return ( <Switch> 
              <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
              <Route exact path='/login' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
-            <Route path='/contact' component={Contact} />
+             <Route path='/contact' component={Contact} />
              <Route path='/*' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
             </Switch>);
         }

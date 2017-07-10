@@ -13,12 +13,9 @@ export default class Nav extends React.Component {
   toggleClass(){
     const collapsed = !this.state.collapsed;
     this.setState({collapsed});
-    console.log("in NAV");
   }
 
     userLogout() {
-      console.log("in userlog");
-      console.log(this.props.setThisUserID);
       this.props.setThisUserID("")
     }
    
@@ -54,7 +51,7 @@ export default class Nav extends React.Component {
               <li className={historyClass}><NavLink to='/'>Quote History</NavLink></li> 
               <li className={quoteClass}><NavLink to='/quote' >New Quote</NavLink></li>
               <li className={loginClass}><NavLink to='/login' >Login</NavLink></li>
-              <li className={logoutClass}><NavLink to='/login' onClick={this.userLogout}>Logout</NavLink></li>
+              <li className={logoutClass}><NavLink onClick={this.userLogout}>Logout</NavLink></li>
               <li className={contactClass}><NavLink to='/contact'>Contact Us</NavLink></li>
             </ul>
           </div>
