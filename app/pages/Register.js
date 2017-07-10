@@ -96,14 +96,14 @@ export default class Register extends React.Component {
             <input type="password" onChange={this.password2Change} className="form-control" placeholder="Password" name="password2"></input>
           </div>
           
-          <NavLink to='/quote'>
+          
             <button
             className="btn btn-success"
             type="button"
             onClick={this.registerUser}>
             Submit
             </button>
-          </NavLink>
+          
         </form>
         
       </div>

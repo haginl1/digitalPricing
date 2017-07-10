@@ -42,8 +42,9 @@ router.post('/register', function(req, res) {
             } 
             else {
                 res.send(user);
-        }
+            }
         });
+        // res.redirect('/');
     }
 });
 
