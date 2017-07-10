@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -51,9 +52,16 @@ export default class Login extends React.Component {
             <button 
             type="button"
             onClick={this.login}
-            className="btn btn-default">
-            Submit
+            className="btn btn-default login">
+            Login
             </button>
+            <NavLink to={'/register'}>
+            <button
+            type="button"
+            className="btn btn-default register">
+            Register
+            </button>
+            </NavLink>
         </form>
         
       </div>
