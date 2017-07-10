@@ -17,12 +17,37 @@ export default class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userID:"123",
-      currentQuote:""
-
+      userID: "110",
+      currentQuote: ""
     }
     this.setCurrentQuote = this.setCurrentQuote.bind(this)
     this.setCurrentUserID = this.setCurrentUserID.bind(this)
+    this.showAuthenticatedUser = this.showAuthenticatedUser.bind(this)
+  }
+     
+  showAuthenticatedUser() {
+    console.log('in authenticated user')
+    console.log(this.state.userID)
+        if (this.state.userID) {
+          console.log(this.state.userID);
+          console.log('You are signed in!');
+          return ( <Switch> 
+              <Route path='/logout' render={routeProps => <QuoteDetails {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
+              <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
+              <Route path='/contact' component={Contact} />
+              <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
+              <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
+              <Route exact path='*' component={QuoteHistory} />
+            </Switch>)
+         } else {
+          console.log(this.state.userID);
+          console.log('Sign In Failed.');
+          return ( <Switch> 
+             <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
+              <Route path='/contact' component={Contact} />
+              <Route exact path='*' component={Login} />
+            </Switch>);
+        }
   }
 
   setCurrentQuote(row) {
@@ -42,25 +67,10 @@ export default class Layout extends React.Component {
 
     return (
       <div>
-        <Nav location={location} />
+        <Nav location={location} setThisUserID={this.setCurrentUserID} />
         <div className='container'>
           <div>
-            <Switch> 
-
-            { /* <Route path='/quote' component={NewQuote} />*/}
-            <Route path='/login' component={Login}/> 
-
-              <Route path='/logout' component={Logout} />
-          {/*  <Switch> */}
-              
-              <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
-              <Route path='/contact' component={Contact} />
-              <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
-          <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} /> 
-             <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} /> 
-           {/* <Route exact path='/' component={Login} />*/}
-              <Route exact path='*' component={NotFound} />
-            </Switch>
+              {this.showAuthenticatedUser()}
           </div>
           <div>
             <Footer />
