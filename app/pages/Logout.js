@@ -5,7 +5,7 @@ export default class Login extends React.Component {
   render() {
     return (
     <div>
-<h2 class="page-header">Account Login</h2>
+<h2 className="page-header">Account Login</h2>
 
 <form method="get" action="/users/logout">
   <div className="form-group">

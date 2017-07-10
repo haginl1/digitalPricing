@@ -26,9 +26,11 @@ router.post('/register', function(req, res) {
     var result = {};
     if (errors) {
         console.log(errors);
-       // res.redirect('/');
+        res.render('register', {
+            errors: errors
+        });
         // res.render('register', {
-         res.send({result: 'error', details: errors});
+        //res.send({result: 'error', details: errors});
         //  });
     } else {
         console.log('user good!');
@@ -44,8 +46,9 @@ router.post('/register', function(req, res) {
             } 
             else {
                 res.send(user);
-        }
+            }
         });
+        // res.redirect('/');
     }
 });
 
