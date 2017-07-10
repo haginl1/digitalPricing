@@ -7,6 +7,9 @@ var session=require("express-session");
 var parser = require('body-parser');
 var urlencodedParser = parser.urlencoded({extended : false});
 
+router.post('/login', passport.authenticate('local'), function(req,res){
+    res.send(req.user._id);
+});
 
 router.post('/register', function(req, res) {
     var name = req.body.name;
@@ -74,8 +77,6 @@ passport.deserializeUser(function(user,done){
     done(null,user);
 });
 
-router.post('/login', urlencodedParser, passport.authenticate('local'), function(req,res){
-    res.send(req.user._id);
-});
+
 
 module.exports = router;
