@@ -57,7 +57,7 @@ export default class Layout extends React.Component {
 
     return (
       <div>
-        <Nav location={location} setThisUserID={this.setCurrentUserID} />
+        <Nav location={location} setThisUserID={this.setCurrentUserID} userID={this.state.userID} />
         <div className='container'>
           <div>
               {this.showAuthenticatedUser()}
