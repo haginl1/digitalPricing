@@ -7,8 +7,8 @@ export default class Archives extends React.Component {
     constructor(props) {
         super(props);
             this.state = {
-                quoteNewEstimate:0,
-                quoteOldEstimate:0,
+                quoteNewEstimate:31500,
+                quoteOldEstimate:31500,
                 company:"",
                 description:"",
                 contractTerm: 3,
