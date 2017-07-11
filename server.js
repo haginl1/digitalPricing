@@ -15,8 +15,8 @@ var LocalStrategy=require("passport-local").Strategy;
 var mongoose=require("mongoose");
 
 mongoose.Promise = global.Promise;
-//mongoose.connect("mongodb://heroku_hftl0rtv:4jllh9tjqho971tvv0kcb998q6@ds163721.mlab.com:63721/heroku_hftl0rtv");
-mongoose.connect("mongodb://localhost/quote-builder");
+mongoose.connect("mongodb://heroku_hftl0rtv:4jllh9tjqho971tvv0kcb998q6@ds163721.mlab.com:63721/heroku_hftl0rtv");
+// mongoose.connect("mongodb://localhost/quote-builder");
 
 var mongoDB=mongoose.connection;
 var users= require('./routes/users');

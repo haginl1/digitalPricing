@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -50,17 +49,17 @@ export default class Login extends React.Component {
             <input type="password" onChange={this.passwordChange} className="form-control" name="password" placeholder="Password"></input>
           </div>
             <button 
-            type="button"
-            onClick={this.login}
-            className="btn btn-default login">
-            Login
+              type="button"
+              onClick={this.login}
+              className="btn btn-default login">
+                Login
             </button>
             <NavLink to={'/register'}>
-            <button
-            type="button"
-            className="btn btn-default register">
-            Register
-            </button>
+              <button
+                type="button"
+                className="btn btn-default register">
+                  Register
+              </button>
             </NavLink>
         </form>
         

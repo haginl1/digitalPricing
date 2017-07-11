@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, Switch } from "react-router-dom";
 
-
 export default class QuoteHistory extends React.Component {
     constructor(props) {
         super(props);
