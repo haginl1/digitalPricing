@@ -1,118 +1,122 @@
 body {
-background-image: url("../img/background.png");
-padding-top: 70px;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: 50% 0;
-background-attachment: fixed;
+    background-image: url("../img/background.png");
+    padding-top: 70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-attachment: fixed;
 }
 
-/* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=80);
-  -moz-opacity: 0.80;
-  -khtml-opacity: 0.8;
-  opacity: 0.8;
-  margin-bottom: 0;
-  border-radius: 0;
-  background-color: #314f68;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.80;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #314f68;
 }
 
-#ContactUs{
-  margin-top:10px;
+#ContactUs {
+    margin-top: 10px;
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
+.row.content {
+    height: 450px
+}
 
-/* Set gray background color and 100% height */
 .sidenav {
-  padding-top: 20px;
-  overflow: auto;
+    padding-top: 20px;
+    overflow: auto;
 }
-.panel-heading h3 {
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-line-height: normal;
-width: 75%;
-padding-top: 8px;
 
+.panel-heading h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    width: 75%;
+    padding-top: 8px;
 }
+
 .panel-primary>.panel-heading {
-background-color: #314f68;
+    background-color: #314f68;
 }
 
 .fa {
-  padding: 5%;
+    padding: 5%;
 }
 
 .social {
-text-align: center;
+    text-align: center;
 }
 
-.priceTag{
-  width: 250px;
-  height: 600px;
-  background-size: contain;
-  z-index: 1;
-  background-image: url("/assets/img/ipad.png");
-  background-repeat: no-repeat;
+.priceTag {
+    width: 250px;
+    height: 600px;
+    background-size: contain;
+    z-index: 1;
+    background-image: url("/assets/img/ipad.png");
+    background-repeat: no-repeat;
 }
 
-.price{
-  z-index: 2;
-  color: #82cd34;
-  background-color: transparent;
-  padding-left: 14%;
-  padding-top: 24%;
-  font-family: 'Kalam', cursive;
+.price {
+    z-index: 2;
+    color: #82cd34;
+    background-color: transparent;
+    padding-left: 14%;
+    padding-top: 24%;
+    font-family: 'Kalam', cursive;
 }
 
 .row {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-/* Set black background color, white text and some padding */
-footer {
-  background-color: #314f68 !important;
-  color: white;
-  padding: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-/* On small screens, set height to 'auto' for sidenav and grid */
+footer {
+    background-color: #314f68 !important;
+    color: white;
+    padding: 5px;
+}
+
+
+/* Defining breakpoints for mobile responsiveness */
+
 @media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
-    width: 50%;
-    float: left;
-  }
-  .row.content {height:auto;} 
+    .sidenav {
+        height: auto;
+        padding: 15px;
+        width: 50%;
+        float: left;
+    }
+    .row.content {
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 635px) {
-  navbar-brand {
-  background-image: url("../assets/img/7575logo.png") !important; 
-  }
-  .sidenav {
-    float: none;
-    width: 100%;
-  }
-  .priceTag{
-  margin-left: 24%;
-  }
+    navbar-brand {
+        background-image: url("../assets/img/7575logo.png") !important;
+    }
+    .sidenav {
+        float: none;
+        width: 100%;
+    }
+    .priceTag {
+        margin-left: 24%;
+    }
 }
 
 @media screen and (min-width: 487px) and (max-width: 1079px) {
-  navbar-brand {
-    background-image: url(".../assets/img/7575logo.png") !important;
-  }
+    navbar-brand {
+        background-image: url(".../assets/img/7575logo.png") !important;
+    }
 }
 
 @media screen and (min-width: 1080px) {
-  navbar-brand {
-  background-image: url("../assets/img/companylogo.png") !important;
-  }
+    navbar-brand {
+        background-image: url("../assets/img/companylogo.png") !important;
+    }
 }
