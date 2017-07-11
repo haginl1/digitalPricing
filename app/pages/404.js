@@ -1,11 +1,11 @@
 import React from 'react'
 
 export default class NotFound extends React.Component {
-  render() {
-    return (
-    <div>
-       404 - Not Found 
-    </div>
-    );
-  }
+	render() {
+    	return (
+    		<div>
+       			404 - Not Found 
+    		</div>
+    	);
+  	}
 }

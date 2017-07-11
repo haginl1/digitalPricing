@@ -8,16 +8,15 @@ import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
 import QuoteDetails from "./QuoteDetails.js"
 
-
 export default class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userID:"",
-      currentQuote:""
+    constructor(props) {
+        super(props);
+        this.state = {
+            userID:"",
+            currentQuote:""
     }
     this.setCurrentQuote = this.setCurrentQuote.bind(this)
-  }
+}
 
   componentWillMount() {
         const jquery = document.createElement("script");
@@ -70,18 +69,16 @@ export default class Layout extends React.Component {
      
     }
 
+    setCurrentQuote(row) {
+        this.setState({currentQuote: row})
+    }
 
-  setCurrentQuote(row) {
-    this.setState({currentQuote: row})
-  }
-
-  render() {
-    const { location } = this.props;
-
-    return (
-      <div>
-        <Route exact path='/' render={routeProps => <NewQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
-      </div>
-    );
-  }
+    render() {
+        const { location } = this.props;
+        return (
+            <div>
+                <Route exact path='/' render={routeProps => <NewQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
+            </div>
+        );
+    }
 }

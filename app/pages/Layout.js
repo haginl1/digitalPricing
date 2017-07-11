@@ -11,8 +11,6 @@ import Register from "./Register.js";
 import Login from "./Login.js";
 import Logout from "./Logout.js";
 
-
-
 export default class Layout extends React.Component {
   constructor(props) {
     super(props);
@@ -26,22 +24,23 @@ export default class Layout extends React.Component {
   }
      
   showAuthenticatedUser() {
-        if (this.state.userID) {
-          return ( <Switch> 
-              <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
-              <Route exact path='/contact' component={Contact} />
-              <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
-              <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
-              <Route exact path='*' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
-            </Switch>)
-         } else {
-          return ( <Switch> 
-             <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
-             <Route exact path='/login' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
-             <Route path='/contact' component={Contact} />
-             <Route path='/*' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
-            </Switch>);
-        }
+    if (this.state.userID) {
+      return ( <Switch> 
+          <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
+          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
+          <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
+          <Route exact path='*' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
+        </Switch>)
+    } else {
+      return ( 
+        <Switch> 
+          <Route exact path='/register' render={routeProps => <Register {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
+          <Route exact path='/login' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
+          <Route path='/contact' component={Contact} />
+          <Route path='/*' render={routeProps => <Login {...routeProps} setThisUserID={this.setCurrentUserID}/>} />
+        </Switch>);
+    }
   }
 
   setCurrentQuote(quote) {
@@ -54,19 +53,18 @@ export default class Layout extends React.Component {
 
   render() {
     const { location } = this.props;
-
-    return (
-      <div>
-        <Nav location={location} setThisUserID={this.setCurrentUserID} userID={this.state.userID} />
-        <div className='container'>
-          <div>
-              {this.showAuthenticatedUser()}
-          </div>
-          <div>
-            <Footer />
-          </div>
+      return (
+        <div>
+          <Nav location={location} setThisUserID={this.setCurrentUserID} userID={this.state.userID} />
+            <div className='container'>
+              <div>
+                {this.showAuthenticatedUser()}
+              </div>
+              <div>
+                <Footer />
+              </div>
+            </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
