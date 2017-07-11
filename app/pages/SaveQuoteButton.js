@@ -32,8 +32,7 @@ export default class Archives extends React.Component {
             }.bind(this))
             .catch(function (error) {
                 console.log(error);
-            })
-                
+            })            
     }
 
   render() {
