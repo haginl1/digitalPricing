@@ -87,7 +87,7 @@ registerUser() {
             className="btn btn-success"
             type="button"
             onClick={this.registerUser}>
-            Submit
+              Submit
           </button>
         </form>
       </div>

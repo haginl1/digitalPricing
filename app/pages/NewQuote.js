@@ -3,7 +3,6 @@ import Calc from './Calc';
 
 import SaveQuoteButton from './SaveQuoteButton';
 
-
 export default class Archives extends React.Component {
     constructor(props) {
         super(props);
@@ -67,7 +66,6 @@ export default class Archives extends React.Component {
                             this.setState({quoteNewEstimate: "UNKNOWN"})
             })                                                      
 }
-
     render() {
         return (
             <div>
@@ -128,6 +126,6 @@ export default class Archives extends React.Component {
                     </div>
                 </div>
             </div>
-    );
-  }
+        );
+    }
 }
