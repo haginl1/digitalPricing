@@ -46,7 +46,8 @@ export default class Archives extends React.Component {
     }
 
     getEstimate() {
-        const APIURL =  '/api/estimate'
+       // const APIURL =  '/api/estimate'
+        const APIURL =  'https://quote-builder.herokuapp.com/api/estimate'
                         + "/" + this.state.contractTerm
                         + "/" + this.state.yearOneChannels
                         + "/" + this.state.yearTwoChannels
