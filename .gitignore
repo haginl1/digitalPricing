@@ -38,3 +38,7 @@ jspm_packages
 
 # ds store
 .DS_Store
+
+# webpack
+bundle.js
+encompass.js
