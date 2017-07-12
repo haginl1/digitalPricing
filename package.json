@@ -4,7 +4,8 @@
   "description": "package for project 2 of bootcamp on digital pricing model",
   "main": "server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "repository": {
     "type": "git",
