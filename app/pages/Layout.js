@@ -2,14 +2,12 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import QuoteHistory from "./QuoteHistory.js";
 import NewQuote from "./NewQuote.js";
-import NotFound from "./404.js";
 import Contact from "./Contact.js";
 import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
 import QuoteDetails from "./QuoteDetails.js";
 import Register from "./Register.js";
 import Login from "./Login.js";
-import Logout from "./Logout.js";
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -22,7 +20,11 @@ export default class Layout extends React.Component {
     this.setCurrentUserID = this.setCurrentUserID.bind(this)
     this.showAuthenticatedUser = this.showAuthenticatedUser.bind(this)
   }
-     
+  
+  componentWillMount(){
+    this.setState({userID: localStorage.getItem('userID')});
+  }
+
   showAuthenticatedUser() {
     if (this.state.userID) {
       return ( <Switch> 
@@ -44,11 +46,14 @@ export default class Layout extends React.Component {
   }
 
   setCurrentQuote(quote) {
-    this.setState({currentQuote: quote})
+    this.setState({currentQuote: quote});
   }
 
   setCurrentUserID(userid) {
-    this.setState({userID: userid})
+    // console.log(userid);
+    this.setState({userID: userid});
+    localStorage.clear();
+    localStorage.setItem('userID', userid);
   }
 
   render() {

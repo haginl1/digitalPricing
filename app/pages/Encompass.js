@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import QuoteHistory from "./QuoteHistory.js";
 import NewQuote from "./NewQuote.js";
-import NotFound from "./404.js";
 import Contact from "./Contact.js";
 import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
