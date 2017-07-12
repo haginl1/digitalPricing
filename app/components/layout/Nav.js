@@ -5,11 +5,11 @@ export default class Nav extends React.Component {
   constructor(){
     super();
     this.state = {
-      collapsed: true
+      collapsed: false
     }
      this.userLogout=this.userLogout.bind(this)
   }
-  //using state instead of jQuery to toggle top nav for mobile browsers
+
   toggleClass(){
     const collapsed = !this.state.collapsed;
     this.setState({collapsed});
@@ -24,16 +24,14 @@ export default class Nav extends React.Component {
     const historyClass = pathname === '/' ? 'active':'';
     const quoteClass = pathname.match(/^\/quote/) ? 'active':'' ;
     const loginClass = pathname.match(/^\/login/) ? 'active':'' ;
-
     const registerClass = pathname.match(/^\/register/) ? 'active':'' ;
-    const logoutClass = pathname.match(/^\/logout/) ? 'active':'' ;
     const contactClass =  pathname.match(/^\/contact/) ? 'active':'';
     if (this.props.userID){
           return (
             <ul className="nav navbar-nav">
               <li className={historyClass}><NavLink to='/'>Quote History</NavLink></li> 
               <li className={quoteClass}><NavLink to='/quote' >New Quote</NavLink></li>
-              <li className={logoutClass}><NavLink to='/login' onClick={this.userLogout}>Logout</NavLink></li>
+              <li className={loginClass}><NavLink to='/login' onClick={this.userLogout}>Logout</NavLink></li>
               <li className={contactClass}><NavLink to='/contact'>Contact Us</NavLink></li>
             </ul>    )}
       else{
@@ -46,7 +44,9 @@ export default class Nav extends React.Component {
       }
  
   render() {
-    const navClass = collapsed ? "collapse":'';
+    const navClass = !collapsed 
+    ? "collapse"
+    :'';
     const { collapsed } = this.state;
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -59,6 +59,9 @@ export default class Nav extends React.Component {
                 data-target="#navbarContent" 
                 aria-expanded="false">
                 <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
               </button>
           </div>
           <div className={"navbar-collapse " + navClass} id="navbarContent">
