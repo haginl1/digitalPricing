@@ -3,8 +3,6 @@ var express    = require('express');
 var Quotes     = require('../controllers/quotes_controller.js')
 var apiRouter  = express.Router(); 
 
-
-
 apiRouter.get("/quotes/:userID", function(req, res) {
     Quotes.getAll(req.params.userID, function callback(allQuotes) {
         res.send(allQuotes);
