@@ -62,6 +62,7 @@ registerUser() {
     return (
       <div>
         <h2>Register</h2>
+        <hr/>
         <form >
           <div className="form-group">
             <label>Name</label>
