@@ -62,7 +62,7 @@ export default class QuoteDetails extends React.Component {
                     }
     };
 
-    pdfMake.createPdf(docDefinition).download();
+    pdfMake.createPdf(docDefinition).open();
 
     }
 
@@ -75,10 +75,10 @@ export default class QuoteDetails extends React.Component {
                             <div className="panel-heading"><h5>Client Details</h5></div>
                             <div className="panel-body">
                                 <h4 id="date">Date: {this.props.currentQuote.date}</h4>
-                                <p id="client">1. Client: {this.props.currentQuote.company}</p>
-                                <p id="term">2. Contract Term: {this.props.currentQuote.contract_term} year(s)</p>
-                                <p id="description">3. Proposal Description: {this.props.currentQuote.description}</p>
-                                <p id="support">4. Support Plan: {this.props.currentQuote.support_plan}</p>
+                                <p id="client">Client: {this.props.currentQuote.company}</p>
+                                <p id="term">Contract Term: {this.props.currentQuote.contract_term} year(s)</p>
+                                <p id="description">Proposal Description: {this.props.currentQuote.description}</p>
+                                <p id="support">Support Plan: {this.props.currentQuote.support_plan}</p>
                             </div>
                         </div>
                     </div>
