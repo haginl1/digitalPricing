@@ -62,13 +62,15 @@ export default class QuoteDetails extends React.Component {
     }
 
     sendEmail(props){
-        console.log("company here" + this.props.currentQuote.company)
         var email = 'x@mail.asana.com';
-        var subject = 'New opp for' + this.props.currentQuote.company;
-        var emailBody = 'opp details here';
+        var subject = 'New opp for ' + this.props.currentQuote.company ;
+        var emailBody = 'Quote generated on ' + this.props.currentQuote.date  +
+        '%0D%0A%0D%0AContract Term: ' + this.props.currentQuote.contract_term + ' year(s)' +
+        '%0D%0A%0D%0AProposal Description: ' + this.props.currentQuote.description +
+        '%0D%0A%0D%0ASupport Plan: ' + this.props.currentQuote.support_plan
+        ;
         var attach = pdfAttach;
-        document.location = "mailto:"+email+"?subject="+ subject +"&body="+emailBody+
-            "?attach="+attach;
+        document.location = "mailto:"+email+"?subject="+ subject +"&body="+emailBody;
     }
 
     render() {
@@ -135,8 +137,12 @@ export default class QuoteDetails extends React.Component {
                                         </thead>
                                     </table>
                                     <div className="row">
-                                        <button className="btn btn-success SendEmail" onClick={this.sendEmail}>Import To Asana</button><br/>
+                                        <div className="col-sm-6">
+                                            <button className="btn btn-success SendEmail" onClick={() => {this.sendEmail()}}>Create Opp</button><br/>
+                                        </div>
+                                        <div className="col-sm-6">
                                         <button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

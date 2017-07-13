@@ -75,6 +75,11 @@ body {
     padding-right: 5px;
 }
 
+.SendEmail {
+    float: left;
+    margin: 2px;
+}
+
 footer {
     background-color: #314f68 !important;
     color: white;
