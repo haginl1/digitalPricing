@@ -1,15 +1,10 @@
 import React from 'react';
+var pdfAttach
 
 export default class QuoteDetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value:''};
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange(event) {
-        this.setState({value:event.target.value});
-        const numbers = []
-        numbers.push(event.target.value)
     }
 
     handleClick(){
@@ -63,7 +58,17 @@ export default class QuoteDetails extends React.Component {
     };
 
     pdfMake.createPdf(docDefinition).download();
+     pdfAttach = pdfMake.createPdf(docDefinition)
+    }
 
+    sendEmail(props){
+        console.log("company here" + this.props.currentQuote.company)
+        var email = 'x@mail.asana.com';
+        var subject = 'New opp for' + this.props.currentQuote.company;
+        var emailBody = 'opp details here';
+        var attach = pdfAttach;
+        document.location = "mailto:"+email+"?subject="+ subject +"&body="+emailBody+
+            "?attach="+attach;
     }
 
     render() {
@@ -75,10 +80,10 @@ export default class QuoteDetails extends React.Component {
                             <div className="panel-heading"><h5>Client Details</h5></div>
                             <div className="panel-body">
                                 <h4 id="date">Date: {this.props.currentQuote.date}</h4>
-                                <p id="client">1. Client: {this.props.currentQuote.company}</p>
-                                <p id="term">2. Contract Term: {this.props.currentQuote.contract_term} year(s)</p>
-                                <p id="description">3. Proposal Description: {this.props.currentQuote.description}</p>
-                                <p id="support">4. Support Plan: {this.props.currentQuote.support_plan}</p>
+                                <p id="client">Client: {this.props.currentQuote.company}</p>
+                                <p id="term">Contract Term: {this.props.currentQuote.contract_term} year(s)</p>
+                                <p id="description">Proposal Description: {this.props.currentQuote.description}</p>
+                                <p id="support">Support Plan: {this.props.currentQuote.support_plan}</p>
                             </div>
                         </div>
                     </div>
@@ -129,7 +134,10 @@ export default class QuoteDetails extends React.Component {
                                             </tr>
                                         </thead>
                                     </table>
-                                    <button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
+                                    <div className="row">
+                                        <button className="btn btn-success SendEmail" onClick={this.sendEmail}>Import To Asana</button><br/>
+                                        <button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
