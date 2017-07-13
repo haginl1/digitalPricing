@@ -74,7 +74,7 @@ export default class Archives extends React.Component {
                     <div className="row content">
                         <div className="col-sm-6 sidenav">
                             <div className="panel panel-primary">
-                                <div className="panel-heading"><h4 style="color:#ffffff">Define Quote Details</h4></div>
+                                <div className="panel-heading"><h4>Define Quote Details</h4></div>
                                 <div className="panel-body">
                                     <form id="main_form" className="button-size" onChange={this.handleInputChange}>
                                         <div className="form-group">
