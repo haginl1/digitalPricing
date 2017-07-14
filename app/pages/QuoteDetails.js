@@ -4,12 +4,6 @@ export default class QuoteDetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value:''};
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange(event) {
-        this.setState({value:event.target.value});
-        const numbers = []
-        numbers.push(event.target.value)
     }
 
     handleClick(){
@@ -62,8 +56,18 @@ export default class QuoteDetails extends React.Component {
                     }
     };
 
-    pdfMake.createPdf(docDefinition).open();
+    pdfMake.createPdf(docDefinition).download();
 
+    }
+
+    sendEmail(props){
+        var email = 'x@mail.asana.com';
+        var subject = 'New opp for ' + this.props.currentQuote.company ;
+        var emailBody = 'Quote generated on ' + this.props.currentQuote.date  +
+        '%0D%0A%0D%0AContract Term: ' + this.props.currentQuote.contract_term + ' year(s)' +
+        '%0D%0A%0D%0AProposal Description: ' + this.props.currentQuote.description +
+        '%0D%0A%0D%0ASupport Plan: ' + this.props.currentQuote.support_plan;
+        document.location = "mailto:"+email+"?subject="+ subject +"&body="+emailBody;
     }
 
     render() {
@@ -129,7 +133,14 @@ export default class QuoteDetails extends React.Component {
                                             </tr>
                                         </thead>
                                     </table>
-                                    <button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
+                                    <div className="row">
+                                        <div className="col-sm-6">
+                                            <button className="btn btn-success SendEmail" onClick={() => {this.sendEmail()}}>Create Opp</button><br/>
+                                        </div>
+                                        <div className="col-sm-6">
+                                        	<button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
