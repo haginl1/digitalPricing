@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import QuoteHistory from "./QuoteHistory.js";
-import EncompassQuote from "./EncompassQuote.js";
+import NewQuote from "./NewQuote.js";
 import Contact from "./Contact.js";
 import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
@@ -28,7 +28,7 @@ export default class Layout extends React.Component {
   showAuthenticatedUser() {
     if (this.state.userID) {
       return ( <Switch> 
-          <Route exact path='/quote' render={routeProps => <EncompassQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
+          <Route exact path='/quote' render={routeProps => <NewQuote {...routeProps} setCurrentQuote={this.setCurrentQuote} embedded={false} userID={this.state.userID} currentQuote={this.state.currentQuote}/>} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/details' render={routeProps => <QuoteDetails {...routeProps} currentQuote={this.state.currentQuote}/>} />
           <Route exact path='/' render={routeProps => <QuoteHistory {...routeProps} setCurrentQuote={this.setCurrentQuote} userID={this.state.userID}/>} /> 
