@@ -1,6 +1,9 @@
 {
   "name": "digitalpricing",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "package for project 2 of bootcamp on digital pricing model",
   "main": "server.js",
   "scripts": {
