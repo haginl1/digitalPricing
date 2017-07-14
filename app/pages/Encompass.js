@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import QuoteHistory from "./QuoteHistory.js";
-import NewQuote from "./NewQuote.js";
+import EncompassQuote from "./EncompassQuote.js";
 import Contact from "./Contact.js";
 import Nav from "../components/Layout/Nav.js";
 import Footer from "../components/Layout/Footer.js";
@@ -76,7 +76,7 @@ export default class Layout extends React.Component {
         const { location } = this.props;
         return (
             <div>
-                <Route exact path='/' render={routeProps => <NewQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
+                <Route exact path='/' render={routeProps => <EncompassQuote {...routeProps} embedded={true} setCurrentQuote={this.setCurrentQuote} currentQuote={this.state.currentQuote}/>} />
             </div>
         );
     }
