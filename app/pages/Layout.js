@@ -50,7 +50,6 @@ export default class Layout extends React.Component {
   }
 
   setCurrentUserID(userid) {
-    // console.log(userid);
     this.setState({userID: userid});
     localStorage.clear();
     localStorage.setItem('userID', userid);
