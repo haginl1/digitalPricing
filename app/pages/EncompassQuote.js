@@ -9,8 +9,6 @@ export default class Archives extends React.Component {
             this.state = {
                 quoteNewEstimate:31500,
                 quoteOldEstimate:31500,
-                company:"",
-                description:"",
                 contractTerm: 3,
                 yearOneChannels: 1,
                 yearTwoChannels: 1,
