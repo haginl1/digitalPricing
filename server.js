@@ -5,21 +5,21 @@ var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var db = require('./models');
 var InitializeDB = require('./controllers/initialize_db_controller.js')
-var path= require("path");
-var cookieParser=require("cookie-parser");
-var expressValidator=require("express-validator");
-var flash=require("connect-flash");
-var session=require("express-session");
-var passport= require("passport");
-var LocalStrategy=require("passport-local").Strategy;
-var mongoose=require("mongoose");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var expressValidator = require("express-validator");
+var flash = require("connect-flash");
+var session = require("express-session");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
-//mongoose.connect("mongodb://heroku_hftl0rtv:4jllh9tjqho971tvv0kcb998q6@ds163721.mlab.com:63721/heroku_hftl0rtv");
-mongoose.connect("mongodb://localhost/quote-builder");
+mongoose.connect("mongodb://heroku_hftl0rtv:4jllh9tjqho971tvv0kcb998q6@ds163721.mlab.com:63721/heroku_hftl0rtv");
+// mongoose.connect("mongodb://localhost/quote-builder");
 
-var mongoDB=mongoose.connection;
-var users= require('./routes/users');
+var mongoDB = mongoose.connection;
+var users = require('./routes/users');
 var api = require("./routes/api-routes.js");
 var app = express();
 var port = process.env.PORT || 8080;

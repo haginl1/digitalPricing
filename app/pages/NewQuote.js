@@ -35,14 +35,12 @@ export default class Archives extends React.Component {
         }, () => {
                         this.getEstimate()
         });
-                    
     }
 
     showSaveQuoteButton() {
         if (this.props.embedded === false) {
             return (<SaveQuoteButton userID={this.props.userID} setCurrentQuote={this.props.setCurrentQuote} {...this.state}/>)
         }
-        
     }
 
     getEstimate() {
@@ -66,7 +64,7 @@ export default class Archives extends React.Component {
                             console.log(error);
                             this.setState({quoteNewEstimate: "UNKNOWN"})
             })                                                      
-}
+    }
     render() {
         return (
             <div>

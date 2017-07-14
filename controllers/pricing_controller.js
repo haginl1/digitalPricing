@@ -1,10 +1,35 @@
 var Pricing = {};
 
 Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates) {
-    
+
+    var protocols = 0;
+    var yearOneChannels = 0;
+    var yearTwoChannels = 0;
+    var yearThreeChannels = 0;
+    var yearOneRange = {};
+    var yearTwoRange = {};
+    var yearThreeRange = {};
+    var yearOneRate = 0;
+    var yearTwoRate = 0;
+    var yearThreeRate = 0;
+    var newChannels1 = 0;
+    var newChannels2 = 0;
+    var newChannels3 = 0;
+    var yearOneSupport = 0;
+    var yearTwoSupport = 0;
+    var yearThreeSupport = 0;
+    var yearOneSetupFee = 0;
+    var yearTwoSetupFee = 0;
+    var yearThreeSetupFee = 0;
+    var yearOneMonthly = 0;
+    var yearTwoMonthy = 0;
+    var yearThreeMonthly = 0;
+    var yearOneAnnual = 0;
+    var yearTwoAnnual = 0;
+    var yearThreeAnnual = 0;
+
     var contractTerm = parseInt(quote.contract_term);
     var protocolCharge = protocolRates[0].additional_protocol_rate_percent;
-    var protocols = 0;
 
     if (quote.HLS === "true") {
         protocols += 1;
@@ -27,89 +52,95 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
 
     switch (contractTerm) {
         case 3:
-            var yearOneChannels = parseInt(quote.year_one_channels);
-            var yearTwoChannels = parseInt(quote.year_two_channels);
-            var yearThreeChannels = parseInt(quote.year_three_channels);
-            var yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
-            var yearTwoRange = Pricing.getRateRange(yearTwoChannels, streamingRates);
-            var yearThreeRange = Pricing.getRateRange(yearThreeChannels, streamingRates);
-            var yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
-            var yearTwoRate = Pricing.getStreamingRate(contractTerm, yearTwoRange);
-            var yearThreeRate = Pricing.getStreamingRate(contractTerm, yearThreeRange);
+            yearOneChannels = parseInt(quote.year_one_channels);
+            yearTwoChannels = parseInt(quote.year_two_channels);
+            yearThreeChannels = parseInt(quote.year_three_channels);
+            yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
+            yearTwoRange = Pricing.getRateRange(yearTwoChannels, streamingRates);
+            yearThreeRange = Pricing.getRateRange(yearThreeChannels, streamingRates);
+            yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
+            yearTwoRate = Pricing.getStreamingRate(contractTerm, yearTwoRange);
+            yearThreeRate = Pricing.getStreamingRate(contractTerm, yearThreeRange);
             yearOneRate += yearOneRate * protocolCharge/100;
             yearTwoRate += yearTwoRate * protocolCharge/100;
             yearThreeRate += yearThreeRate * protocolCharge/100;
-            var newChannels3 = yearThreeChannels - yearTwoChannels;
-            var newChannels2 = yearTwoChannels - yearOneChannels;
-            var newChannels1 = yearOneChannels;
-            var yearOneSupport = Pricing.getSupportFee(quote, supportRates);
+            newChannels3 = yearThreeChannels - yearTwoChannels;
+            newChannels2 = yearTwoChannels - yearOneChannels;
+            newChannels1 = yearOneChannels;
+            yearOneSupport = Pricing.getSupportFee(quote, supportRates);
             yearOneSupport = Math.round(yearOneRate * yearOneSupport);
-            var yearTwoSupport = Pricing.getSupportFee(quote, supportRates);
+            yearTwoSupport = Pricing.getSupportFee(quote, supportRates);
             yearTwoSupport = Math.round(yearTwoRate * yearTwoSupport);
-            var yearThreeSupport = Pricing.getSupportFee(quote, supportRates);
+            yearThreeSupport = Pricing.getSupportFee(quote, supportRates);
             yearThreeSupport = Math.round(yearThreeRate * yearThreeSupport);
             yearOneRate = yearOneRate + yearOneSupport;
             yearTwoRate = yearTwoRate + yearTwoSupport;
             yearThreeRate = yearThreeRate + yearThreeSupport;
-            var yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
-            var yearTwoSetupFee = Math.round(Pricing.getSetupFee(newChannels2, yearTwoRate));
-            var yearThreeSetupFee = Math.round(Pricing.getSetupFee(newChannels3, yearThreeRate));
-            var yearOneMonthly = Math.round(yearOneRate * yearOneChannels);
-            var yearTwoMonthly = Math.round(yearTwoRate * yearTwoChannels);
-            var yearThreeMonthly = Math.round(yearThreeRate * yearThreeChannels);
-            var yearOneAnnual = Math.round(yearOneMonthly * 12 + yearOneSetupFee + yearOneSupport);
-            var yearTwoAnnual = Math.round(yearTwoMonthly * 12 + yearTwoSetupFee + yearTwoSupport);
-            var yearThreeAnnual = Math.round(yearThreeMonthly * 12 + yearThreeSetupFee + yearThreeSupport);
+            yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
+            yearTwoSetupFee = Math.round(Pricing.getSetupFee(newChannels2, yearTwoRate));
+            yearThreeSetupFee = Math.round(Pricing.getSetupFee(newChannels3, yearThreeRate));
+            yearOneMonthly = Math.round(yearOneRate * yearOneChannels);
+            yearTwoMonthly = Math.round(yearTwoRate * yearTwoChannels);
+            yearThreeMonthly = Math.round(yearThreeRate * yearThreeChannels);
+            yearOneAnnual = Math.round(yearOneMonthly * 12 + yearOneSetupFee + yearOneSupport);
+            yearTwoAnnual = Math.round(yearTwoMonthly * 12 + yearTwoSetupFee + yearTwoSupport);
+            yearThreeAnnual = Math.round(yearThreeMonthly * 12 + yearThreeSetupFee + yearThreeSupport);
             break;
         case 2:
-            var yearOneChannels = parseInt(quote.year_one_channels);
-            var yearTwoChannels = parseInt(quote.year_two_channels);
-            var yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
-            var yearTwoRange = Pricing.getRateRange(yearTwoChannels, streamingRates);
-            var yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
-            var yearTwoRate = Pricing.getStreamingRate(contractTerm, yearTwoRange);
+            yearOneChannels = parseInt(quote.year_one_channels);
+            yearTwoChannels = parseInt(quote.year_two_channels);
+            yearThreeChannels = 0;
+            yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
+            yearTwoRange = Pricing.getRateRange(yearTwoChannels, streamingRates);
+            yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
+            yearTwoRate = Pricing.getStreamingRate(contractTerm, yearTwoRange);
+            yearThreeRate = 0;
             yearOneRate += yearOneRate * protocolCharge/100;
             yearTwoRate += yearTwoRate * protocolCharge/100;
-            var newChannels2 = yearTwoChannels - yearOneChannels;
-            var newChannels1 = yearOneChannels;
-            var yearOneSupport = Pricing.getSupportFee(quote, supportRates);
-            var yearOneSupport = Math.round(yearOneRate * yearOneSupport);
-            var yearThreeSupport = 0;
+            newChannels2 = yearTwoChannels - yearOneChannels;
+            newChannels1 = yearOneChannels;
+            yearOneSupport = Pricing.getSupportFee(quote, supportRates);
+            yearOneSupport = Math.round(yearOneRate * yearOneSupport);
+            yearThreeSupport = 0;
             yearTwoSupport = Pricing.getSupportFee(quote, supportRates);
             yearTwoSupport = Math.round(yearTwoRate * yearTwoSupport);
             yearOneRate = yearOneRate + yearOneSupport;
             yearTwoRate = yearTwoRate + yearTwoSupport;
-            var yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
-            var yearTwoSetupFee = Math.round(Pricing.getSetupFee(newChannels2, yearTwoRate));
-            var yearThreeSetupFee = 0;
-            var yearOneMonthly = Math.round(yearOneRate * yearOneChannels);
-            var yearTwoMonthly = Math.round(yearTwoRate * yearTwoChannels);
-            var yearThreeMonthly = 0;
-            var yearOneAnnual = Math.round(yearOneMonthly * 12 + yearOneSetupFee + yearOneSupport);
-            var yearTwoAnnual = Math.round(yearTwoMonthly * 12 + yearTwoSetupFee + yearTwoSupport);
-            var yearThreeAnnual = 0;
+            yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
+            yearTwoSetupFee = Math.round(Pricing.getSetupFee(newChannels2, yearTwoRate));
+            yearThreeSetupFee = 0;
+            yearOneMonthly = Math.round(yearOneRate * yearOneChannels);
+            yearTwoMonthly = Math.round(yearTwoRate * yearTwoChannels);
+            yearThreeMonthly = 0;
+            yearOneAnnual = Math.round(yearOneMonthly * 12 + yearOneSetupFee + yearOneSupport);
+            yearTwoAnnual = Math.round(yearTwoMonthly * 12 + yearTwoSetupFee + yearTwoSupport);
+            yearThreeAnnual = 0;
 
             break;
         case 1:
-            var yearOneChannels = parseInt(quote.year_one_channels);
-            var yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
-            var yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
+            yearOneChannels = parseInt(quote.year_one_channels);
+            yearTwoChannels = 0;
+            yearThreeChannels = 0;
+            yearOneRange = Pricing.getRateRange(yearOneChannels, streamingRates);
+            yearOneRate = Pricing.getStreamingRate(contractTerm, yearOneRange);
             yearOneRate += yearOneRate * protocolCharge/100;
-            var newChannels1 = yearOneChannels;
-            var yearOneSupport = Pricing.getSupportFee(quote, supportRates);
-            var yearTwoSupport = 0;
-            var yearThreeSupport = 0;
+            yearTwoRate = 0;
+            yearThreeRate = 0;
+            newChannels1 = yearOneChannels;
+            yearOneSupport = Pricing.getSupportFee(quote, supportRates);
+            yearTwoSupport = 0;
+            yearThreeSupport = 0;
             yearOneSupport = Math.round(yearOneRate * yearOneSupport);
             yearOneRate = yearOneRate + yearOneSupport;
-            var yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
-            var yearTwoSetupFee = 0;
-            var yearThreeSetupFee = 0;
-            var yearOneMonthly = Math.round(yearOneRate * yearOneChannels);
-            var yearTwoMonthly = 0;
-            var yearThreeMonthly = 0;
-            var yearOneAnnual = Math.round(yearOneMonthly * 12 + yearOneSetupFee + yearOneSupport);
-            var yearTwoAnnual = 0;
-            var yearThreeAnnual = 0;
+            yearOneSetupFee = Math.round(Pricing.getSetupFee(newChannels1, yearOneRate));
+            yearTwoSetupFee = 0;
+            yearThreeSetupFee = 0;
+            yearOneMonthly = Math.round(yearOneRate * yearOneChannels);
+            yearTwoMonthly = 0;
+            yearThreeMonthly = 0;
+            yearOneAnnual = Math.round(yearOneMonthly * 12 + yearOneSetupFee + yearOneSupport);
+            yearTwoAnnual = 0;
+            yearThreeAnnual = 0;
             break;
     }
 
@@ -123,7 +154,7 @@ Pricing.calculate = function(quote, protocolRates, streamingRates, supportRates)
     year_one_support_fee: yearOneSupport * yearOneChannels,
     year_two_support_fee: yearTwoSupport * yearTwoChannels,
     year_three_support_fee: yearThreeSupport * yearThreeChannels,
-    year_one_annual_fee: yearOneAnnual, 
+    year_one_annual_fee: yearOneAnnual,
     year_two_annual_fee: yearTwoAnnual,
     year_three_annual_fee: yearThreeAnnual
     };
