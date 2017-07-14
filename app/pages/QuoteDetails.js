@@ -1,5 +1,4 @@
 import React from 'react';
-var pdfAttach
 
 export default class QuoteDetails extends React.Component {
     constructor(props) {
@@ -58,7 +57,7 @@ export default class QuoteDetails extends React.Component {
     };
 
     pdfMake.createPdf(docDefinition).download();
-     pdfAttach = pdfMake.createPdf(docDefinition)
+
     }
 
     sendEmail(props){
@@ -67,9 +66,7 @@ export default class QuoteDetails extends React.Component {
         var emailBody = 'Quote generated on ' + this.props.currentQuote.date  +
         '%0D%0A%0D%0AContract Term: ' + this.props.currentQuote.contract_term + ' year(s)' +
         '%0D%0A%0D%0AProposal Description: ' + this.props.currentQuote.description +
-        '%0D%0A%0D%0ASupport Plan: ' + this.props.currentQuote.support_plan
-        ;
-        var attach = pdfAttach;
+        '%0D%0A%0D%0ASupport Plan: ' + this.props.currentQuote.support_plan;
         document.location = "mailto:"+email+"?subject="+ subject +"&body="+emailBody;
     }
 
@@ -141,7 +138,7 @@ export default class QuoteDetails extends React.Component {
                                             <button className="btn btn-success SendEmail" onClick={() => {this.sendEmail()}}>Create Opp</button><br/>
                                         </div>
                                         <div className="col-sm-6">
-                                        <button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
+                                        	<button type="submit" id="pdf" className="btn btn-success" onClick={this.handleClick}>Create PDF</button>
                                         </div>
                                     </div>
                                 </div>

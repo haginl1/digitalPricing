@@ -47,6 +47,13 @@ export default class QuoteHistory extends React.Component {
             <div className="panel panel-primary">
                 <div className="panel-heading ">
                     <h3 className="panel-title text-warning pull-left">Quote History</h3>
+                    <NavLink to={'/quote'}>
+                        <button
+                            type="button"
+                            className="btn btn-default new-quote pull-right">
+                              New Quote
+                        </button>
+                    </NavLink>
                     <div className="clearfix"></div>
                 </div>
                 <div className="panel-body" id="accordion">
