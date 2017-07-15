@@ -25,6 +25,7 @@ export default class Archives extends React.Component {
             'description': this.props.description,
             'date': "2017/03/04"
         }
+        console.log(req)
 
         axios.post(APIURL, req)
             .then(function (response) {
