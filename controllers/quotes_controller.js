@@ -91,7 +91,6 @@ Quotes.getEstimate = function(quote, callback) {
             configData.supportRatesData(function(result) {
                 supportRates = result;
                 var calculations = pricing.calculate(quote, protocolRates, streamingRates, supportRates)
-                console.log(calculations)
                 callback({
                     estimate: calculations.year_one_monthly_streaming * 12+ calculations.year_two_monthly_streaming * 12+calculations.year_three_monthly_streaming * 12
                 })
