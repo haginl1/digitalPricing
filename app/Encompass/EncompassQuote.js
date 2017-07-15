@@ -1,7 +1,6 @@
 import React from 'react';
-import Calc from './Calc';
-
-import SaveQuoteButton from './SaveQuoteButton';
+import Calc from '../Views/Quote/Calc';
+import SaveQuoteButton from '../Views/Quote/SaveQuoteButton';
 
 export default class Archives extends React.Component {
     constructor(props) {

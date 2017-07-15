@@ -1,11 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import QuoteHistory from "./QuoteHistory.js";
 import EncompassQuote from "./EncompassQuote.js";
-import Contact from "./Contact.js";
-import Nav from "../components/Layout/Nav.js";
-import Footer from "../components/Layout/Footer.js";
-import QuoteDetails from "./QuoteDetails.js"
 
 export default class Layout extends React.Component {
     constructor(props) {

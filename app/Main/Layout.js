@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import QuoteHistory from "./QuoteHistory.js";
-import NewQuote from "./NewQuote.js";
-import Contact from "./Contact.js";
-import Nav from "../components/Layout/Nav.js";
-import Footer from "../components/Layout/Footer.js";
-import QuoteDetails from "./QuoteDetails.js";
-import Register from "./Register.js";
-import Login from "./Login.js";
+import Nav from "./Nav.js";
+import Footer from "./Footer.js";
+import Login from "../Views/Login.js";
+import Register from "../Views/Register.js";
+import Contact from "../Views/Contact.js";
+import QuoteHistory from "../Views/Quote/QuoteHistory.js";
+import NewQuote from "../Views/Quote/NewQuote.js";
+import QuoteDetails from "../Views/Quote/QuoteDetails.js";
 
 export default class Layout extends React.Component {
   constructor(props) {
